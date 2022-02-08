@@ -1,0 +1,28 @@
+.aside {
+  height: 100%;
+  overflow: hidden;
+}
+ul {
+  margin-top: 2rem;
+  li {
+    list-style-type: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.87rem;
+    a {
+      text-decoration: none;
+      color: #fe7f2d;
+      padding: 2rem 2rem;
+    }
+  }
+}
+ul {
+  li:hover {
+    background-color: cadetblue;
+    color: white;
+    cursor: pointer;
+  }
+}
+a:hover {
+  color: #233d4d;
+}

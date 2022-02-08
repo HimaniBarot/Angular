@@ -1,0 +1,19 @@
+.wrapper {
+  // border: 1px solid red;
+  flex-grow: 1;
+}
+.wrapper .sidebar {
+  // border: 1px solid green;
+  flex: 0 0 224px;
+  background-color: #233d4d;
+}
+// .wrapper .main-wrapper {
+//   // flex-grow: 1;
+// }
+.main-content {
+  overflow: auto;
+}
+.header {
+  display: flex;
+  // border: 1px solid goldenrod;
+}

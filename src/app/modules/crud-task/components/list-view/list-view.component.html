@@ -1,0 +1,41 @@
+<h2 class="text-center mt-2">Employee Details</h2>
+<!-- SEARCH DATA -->
+<div class="mb-5 p-5">
+    <input class="form-control my-2 w-50" type="search" placeholder="Search here..." [(ngModel)]="filterData" />
+    <a routerLink="/crud-task/employee-form" class="btn btn-primary">ADD DATA</a>
+</div>
+
+<!-- EMPLOYEE LIST -->
+<div class="container mb-5">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Sr. No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact No</th>
+                <th scope="col">Date</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Department</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employeeList | filter: filterData; let i = index;">
+                <th scope="row">{{ i+1 }}</th>
+                <td>{{ employee.firstName }} {{employee.lastName }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.contactNumber }}</td>
+                <td>{{ employee.dateOfEmployment | date:'dd/MM/yyyy' }}</td>
+                <td>{{ employee.gender }}</td>
+                <td>{{ employee.deparmentList | departmentList: deparmentList}}</td>
+                <td>
+                    <!-- <button routerLink="/crud-task/employee-form/{{employee.id}}" class="btn mx-2"><i class="far fa-edit"></i></button> -->
+                    <button (click)="editEmployee(employee.id)" class="btn mx-2"><i class="far fa-edit"></i></button>
+                    <button (click)="deleteEmployee(employee.id)" class="btn btn-danger"><i
+                            class="far fa-trash-alt"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

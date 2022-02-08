@@ -1,0 +1,52 @@
+{
+  "departments": [
+    {
+      "id": 1,
+      "departmentList": "Frontend"
+    },
+    {
+      "id": 2,
+      "departmentList": "Backend"
+    },
+    {
+      "id": 3,
+      "departmentList": "QA"
+    },
+    {
+      "id": 4,
+      "departmentList": "Data"
+    }
+  ],
+  "employees": [
+    {
+      "firstName": "himani",
+      "lastName": "barot",
+      "email": "himani@mail.com",
+      "contactNumber": 6535623333,
+      "gender": "female",
+      "dateOfEmployment": "2022-02-08",
+      "deparmentList": "1",
+      "id": 1
+    },
+    {
+      "firstName": "ritu",
+      "lastName": "barot",
+      "email": "ritu@mail.com",
+      "contactNumber": 5656565656,
+      "gender": "female",
+      "dateOfEmployment": "2022-02-10",
+      "deparmentList": "2",
+      "id": 2
+    },
+    {
+      "firstName": "sd",
+      "lastName": "sdsf",
+      "email": "sds@ggf.com",
+      "contactNumber": 5653,
+      "gender": "female",
+      "dateOfEmployment": "2022-02-09",
+      "deparmentList": "2",
+      "id": 3
+    }
+  ]
+}
