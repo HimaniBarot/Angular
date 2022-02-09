@@ -8,8 +8,10 @@
     <div class="input-data">
       <label for="name">Name</label><br>
       <input type="text" formControlName="name" />
-      <div class="error-display" *ngIf="getValues['name'].touched || (getValues['name'].dirty && getValues['name'].invalid)">
-          <span style="color: red;" *ngIf="getValues['name'].errors && getValues['name'].errors['required']">Name is required.</span>
+      <div class="error-display"
+        *ngIf="getValues['name'].touched || (getValues['name'].dirty && getValues['name'].invalid)">
+        <span style="color: red;" *ngIf="getValues['name'].errors && getValues['name'].errors['required']">Name is
+          required.</span>
       </div>
     </div>
     <div class="input-data">
@@ -24,29 +26,52 @@
       <label for="name">Contact Number</label><br>
       <input type="number" formControlName="contactNumber" />
     </div>
-    <div class="input-data">
+    <!-- <div class="input-data" formArrayName="skills">
       <label for="name">Technical Skill</label><br>
-      <input type="text" />
-      <button>+ ADD</button>
+      <div *ngFor="let skill of getSkill; let i = index;">
+        <div formGroupName="i">
+          <input type="text" formControlName="techSkills" />
+        </div>
+      </div>
+      <button (click)="addSkill()">+ ADD SKILL</button>
+    </div> -->
+    <!-- <div class="mb-3 col-3" formArrayName="skills" *ngFor="let skill of getSkill;let i = index">
+      <label>Skills</label>
+      <div formGroupName="i" class="d-flex">
+        <input type="text" formControlName="techSkills" class="form-control" placeholder="Technical Skills">
+        <button class="btn-warning" (click)="deleteSkills(i)">
+                    delete
+                </button>
+      </div>
+    </div> -->
+    <div>
+      <button (click)="addNewSkill()">+ ADD</button>
+    </div>
+    skill <input formControlName="techSkills" />
+    <div *ngFor="let skill of skills; let i = index;" formGroupName="addNewSkill">
+      techSkill : {{ i }}
+      <!-- <div> -->
+
+      <!-- </div> -->
     </div>
     <!-- Experience -->
-    <div class="input-data" formGroupName="experience">
+    <div class="" formGroupName="experienceInfo">
       <fieldset>
         <legend>Experience:</legend>
         <div>
-          <label for="name">Company</label><br>
+          <label>Company</label><br>
           <input type="text" formControlName="company" />
         </div>
         <div>
-          <label for="name">Position</label><br>
+          <label>Position</label><br>
           <input type="text" formControlName="position" />
         </div>
         <div>
-          <label for="name">Description</label><br>
+          <label>Description</label><br>
           <textarea cols="10" rows="4" formControlName="description"></textarea>
         </div>
         <div>
-          <label for="name">Company</label><br>
+          <label>Duration</label><br>
           <input type="text" formControlName="duration" />
         </div>
       </fieldset>
@@ -71,7 +96,7 @@
       <input type="text" />
     </div>
     <div class="input-data">
-        <button class="btn-submit" type="submit">Submit</button>
+      <button class="btn-submit" type="submit">Submit</button>
     </div>
   </form>
 </div>

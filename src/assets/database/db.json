@@ -39,7 +39,6 @@
       "id": 3
     }
   ],
-  
   "user": [
     {
       "id": 1,
@@ -68,6 +67,72 @@
       "email": "himani.barot@mail.com",
       "contactNumber": null,
       "id": 4
+    },
+    {
+      "name": "sdsds",
+      "designation": "sdsd",
+      "email": "",
+      "contactNumber": null,
+      "experienceInfo": {
+        "company": "test",
+        "position": "",
+        "description": "",
+        "duration": ""
+      },
+      "id": 5
+    },
+    {
+      "name": "scsc",
+      "designation": "",
+      "email": "",
+      "contactNumber": null,
+      "experience": {
+        "company": "test",
+        "position": "",
+        "description": "",
+        "duration": ""
+      },
+      "id": 6
+    },
+    {
+      "name": "himani",
+      "designation": "intern",
+      "email": "abc",
+      "contactNumber": 22222222222,
+      "experienceInfo": {
+        "company": "rivet",
+        "position": "frontend",
+        "description": "ssssss",
+        "duration": "2"
+      },
+      "id": 7
+    },
+    {
+      "name": "zxzxzczczzzzzzz",
+      "designation": "",
+      "email": "",
+      "contactNumber": null,
+      "experienceInfo": {
+        "company": "zzzzzzzzzzzz",
+        "position": "",
+        "description": "",
+        "duration": ""
+      },
+      "id": 8
+    },
+    {
+      "name": "axa",
+      "designation": "aaa",
+      "email": "",
+      "contactNumber": null,
+      "experienceInfo": {
+        "company": "",
+        "position": "",
+        "description": "",
+        "duration": ""
+      },
+      "skills": [],
+      "id": 9
     }
   ]
 }
