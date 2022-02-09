@@ -11,19 +11,12 @@ import { EmployeeService } from '../../services/employee.service';
   styleUrls: ['./employee-form.component.scss'],
 })
 export class EmployeeFormComponent implements OnInit {
-  departments: Department[];
-  employeeList: Employee[];
-
-  registrationForm: FormGroup;
-  id: number;
-  isAdd: boolean;
-
   constructor(
     private fb: FormBuilder,
     private service: EmployeeService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -33,6 +26,13 @@ export class EmployeeFormComponent implements OnInit {
     this.getDepartmentOption();
     this.getPatchValue();
   }
+
+  departments: Department[];
+  employeeList: Employee[];
+
+  registrationForm: FormGroup;
+  id: number;
+  isAdd: boolean;
 
   buildRegistrationForm() {
     this.registrationForm = this.fb.group({

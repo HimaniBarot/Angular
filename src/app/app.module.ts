@@ -14,9 +14,7 @@ import { ResumeBuilderModule } from './modules/resume-builder/resume-builder.mod
   imports: [
     AppRoutingModule,
     CoreModule,
-    DataBindingModule,
     CrudTaskModule,
-    ReactiveFormModule,
     ResumeBuilderModule,
     HttpClientModule,
   ],

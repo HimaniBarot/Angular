@@ -30,7 +30,6 @@
                 <td>{{ employee.gender }}</td>
                 <td>{{ employee.deparmentList | departmentList: deparmentList}}</td>
                 <td>
-                    <!-- <button routerLink="/crud-task/employee-form/{{employee.id}}" class="btn mx-2"><i class="far fa-edit"></i></button> -->
                     <button (click)="editEmployee(employee.id)" class="btn mx-2"><i class="far fa-edit"></i></button>
                     <button (click)="deleteEmployee(employee.id)" class="btn btn-danger"><i
                             class="far fa-trash-alt"></i></button>

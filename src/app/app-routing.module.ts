@@ -15,20 +15,20 @@ const routes: Routes = [
         (m) => m.CrudTaskModule
       ),
   },
-  {
-    path: 'data-binding',
-    loadChildren: () =>
-      import('./modules/data-binding/data-binding.module').then(
-        (m) => m.DataBindingModule
-      ),
-  },
-  {
-    path: 'reactive-form',
-    loadChildren: () =>
-      import('./modules/reactive-form/reactive-form.module').then(
-        (m) => m.ReactiveFormModule
-      ),
-  },
+  // {
+  //   path: 'data-binding',
+  //   loadChildren: () =>
+  //     import('./modules/data-binding/data-binding.module').then(
+  //       (m) => m.DataBindingModule
+  //     ),
+  // },
+  // {
+  //   path: 'reactive-form',
+  //   loadChildren: () =>
+  //     import('./modules/reactive-form/reactive-form.module').then(
+  //       (m) => m.ReactiveFormModule
+  //     ),
+  // },
   {
     path: 'resume-builder',
     loadChildren: () =>
@@ -36,7 +36,7 @@ const routes: Routes = [
         (m) => m.ResumeBuilderModule
       ),
   },
-  { path: '**', component: PageNotFoundComponent },
+  // { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

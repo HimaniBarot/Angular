@@ -1,0 +1,77 @@
+<button routerLink="/resume-builder/resume-list-view" class="btn btn-primary">
+  Back
+</button>
+<div class="form-wrapper">
+  <h3>Add Your Details</h3>
+  {{ resumeForm.value | json }}
+  <form *ngIf="resumeForm" [formGroup]="resumeForm" (ngSubmit)="onSubmit()">
+    <div class="input-data">
+      <label for="name">Name</label><br>
+      <input type="text" formControlName="name" />
+      <div class="error-display" *ngIf="getValues['name'].touched || (getValues['name'].dirty && getValues['name'].invalid)">
+          <span style="color: red;" *ngIf="getValues['name'].errors && getValues['name'].errors['required']">Name is required.</span>
+      </div>
+    </div>
+    <div class="input-data">
+      <label for="name">Designation</label><br>
+      <input type="text" formControlName="designation" />
+    </div>
+    <div class="input-data">
+      <label for="name">Email</label><br>
+      <input type="text" formControlName="email" />
+    </div>
+    <div class="input-data">
+      <label for="name">Contact Number</label><br>
+      <input type="number" formControlName="contactNumber" />
+    </div>
+    <div class="input-data">
+      <label for="name">Technical Skill</label><br>
+      <input type="text" />
+      <button>+ ADD</button>
+    </div>
+    <!-- Experience -->
+    <div class="input-data" formGroupName="experience">
+      <fieldset>
+        <legend>Experience:</legend>
+        <div>
+          <label for="name">Company</label><br>
+          <input type="text" formControlName="company" />
+        </div>
+        <div>
+          <label for="name">Position</label><br>
+          <input type="text" formControlName="position" />
+        </div>
+        <div>
+          <label for="name">Description</label><br>
+          <textarea cols="10" rows="4" formControlName="description"></textarea>
+        </div>
+        <div>
+          <label for="name">Company</label><br>
+          <input type="text" formControlName="duration" />
+        </div>
+      </fieldset>
+    </div>
+    <!-- Education -->
+    <div class="input-data">
+      <fieldset>
+        <legend>Education:</legend>
+        <div>
+          <label for="name">University</label><br>
+          <input type="text" />
+        </div>
+        <div>
+          <label for="name">Result</label><br>
+          <input type="text" />
+        </div>
+        <button>+ ADD</button>
+      </fieldset>
+    </div>
+    <div class="input-data">
+      <label for="name">Education</label><br>
+      <input type="text" />
+    </div>
+    <div class="input-data">
+        <button class="btn-submit" type="submit">Submit</button>
+    </div>
+  </form>
+</div>

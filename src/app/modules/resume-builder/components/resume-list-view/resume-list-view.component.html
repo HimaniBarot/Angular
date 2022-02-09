@@ -1,0 +1,25 @@
+<button routerLink="/resume-builder/resume-form" class="btn btn-primary mx-3">ADD DATA</button>
+<button routerLink="/resume-builder/resume-view" class="btn btn-primary">View Resume</button>
+
+<div class="container">
+    <table>
+        <thead>
+            <th>Sr No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let resumeDetail of resumeDetails; let i = index;">
+                <td>{{ resumeDetail.id }}</td>
+                <td>{{ resumeDetail.name }}</td>
+                <td>{{ resumeDetail.email }}</td>
+                <td>
+                    <!-- <button class="btn-view" (click)="viewUserResume(resumeDetail.id)">View</button> -->
+                    <button class="btn-view">View</button>
+                    <button class="btn-delete" (click)="deleteUser(resumeDetail.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>    
+</div>

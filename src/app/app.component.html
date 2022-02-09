@@ -1,13 +1,9 @@
-<div class="wrapper d-flex h-100">
-  <div class="sidebar">
-    <app-sidebar></app-sidebar>
-  </div>
-  <div class="main-wrapper">
-    <div class="header">
-      <app-header></app-header>
-    </div>
-    <div class="main-content">
-      <app-crud-task></app-crud-task>
+<div class="wrapper d-flex h-100 flex-column">
+  <app-header></app-header>
+  <div class="content-wrapper d-flex flex-grow">
+      <app-sidebar class="sidebar"></app-sidebar>
+    <div class="main-content flex-grow">
+        <router-outlet></router-outlet>
     </div>
   </div>
 </div>
