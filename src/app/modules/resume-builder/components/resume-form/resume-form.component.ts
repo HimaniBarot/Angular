@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ResumeDetails } from '../../models/resume-details.model';
 import { ResumeDetailsService } from '../../services/resume-details.service';
@@ -14,15 +14,20 @@ export class ResumeFormComponent implements OnInit {
     private fb: FormBuilder,
     private resumeDetailService: ResumeDetailsService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.buildResumeForm();
+    this.addNewSkill();
+    this.addNewExperience();
+    this.addNewEducation();
   }
 
   public resumeForm: FormGroup;
   experienceInfo: FormGroup;
-  skills: [];
+  addSkill: FormArray = this.fb.array([]);
+  addExperience: FormArray = this.fb.array([]);
+  addEducation : FormArray = this.fb.array([]);
   resumeDetails: ResumeDetails[];
 
   buildResumeForm() {
@@ -31,70 +36,75 @@ export class ResumeFormComponent implements OnInit {
       designation: [''],
       email: [''],
       contactNumber: [],
-      experienceInfo: this.fb.group({
-        company: [''],
-        position: [''],
-        description: [''],
-        duration: [''],
-      }),
-      skills: this.fb.array([]),
-      // skills: this.fb.array([
-      //   {
-      //     techSkills: [''],
-      //   },
-      // ]),
+      skills: this.addSkill,
+      experience: this.addExperience,
+      education : this.addEducation
     });
   }
 
+  get f(){
+    return this.resumeForm.controls;
+  }
+  // ADD NEW SKILL
   addNewSkill() {
-    const addSkill = this.resumeForm.get('skills') as FormArray;
-    addSkill.push(
-      this.fb.group({
-        techSkills: ['aa'],
-      })
-    );
+    this.addSkill.push(this.addSkillField());
+  }
+  addSkillField() {
+    return this.fb.group({
+      techSkill: ['', Validators.required]
+    })
   }
 
-  // get getSkills = resumeForm.['controls']
+  deleteSkill(index : number){
+    if(this.addSkill.length !=1){
+      this.addSkill.removeAt(index);
+    }
+  }
 
-  // dynamicData(): FormGroup {
-  //   return this.fb.group({
-  //     techSkills: ['aa'],
-  //   });
-  // }
+  // ADD NEW EXPERIENCE
+  addNewExperience() {
+    this.addExperience.push(this.addExperienceField());
+  }
+  addExperienceField() {
+    return this.fb.group({
+      company: [''],
+      position: [''],
+      description: [''],
+      duration: [''],
+    })
+  }
 
-  // addSkill(){
-  //   this.skills = this.getSkill as FormArray;
-  //   this.skills.push(this.dynamicData())
-  // }
-  // addSkills() {
-  //   this.skills = this.resumeForm.get('skills') as FormArray;
-  //   this.skills.push(this.dynamicData());
-  // }
+  // ADD NEW EDUCATION
+  addNewEducation() {
+    this.addEducation.push(this.addEducationField());
+  }
+  addEducationField() {
+    return this.fb.group({
+      university: [''],
+      result: ['']
+    })
+  }
 
   onSubmit() {
-    // console.log(this.resumeForm.value);
     if (this.resumeForm.status == 'VALID') {
       this.resumeDetailService
         .addResumeDetails(this.resumeForm.value)
         .subscribe(() => {
-          // debugger
           alert('Userdata Saved...');
-          this.router.navigateByUrl('/resume-builder/resume-list-view');
+          this.router.navigateByUrl('/resume-builder/resume-view');
         });
     } else {
       alert('Something went wrong');
     }
   }
 
-  // get company(): any {
-  //   return this.resumeForm.get('experience.company');
-  // }
-
   get getValues() {
     return this.resumeForm['controls'];
   }
-  // get getSkill() {
-  //   return this.skills['controls'];
-  // }
+
+  // CONVERT ABSTRACT CLASS INTO FORMGROUP
+  getFormGroup(abstractClass : AbstractControl) : FormGroup{
+    return abstractClass as FormGroup;
+  }
+  
 }

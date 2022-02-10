@@ -26,8 +26,8 @@ export class ResumeDetailsService {
     return this.http.delete<ResumeDetails>(`${this.apiLink}/user/${id}`);
   }
 
-  getById(id : number){
-    return this.http.get<ResumeDetails[]>(`${this.apiLink}/user/${id}`);
+  getById(id : number):Observable<ResumeDetails>{
+    return this.http.get<ResumeDetails>(`${this.apiLink}/user/${id}`);
   }
 
 }

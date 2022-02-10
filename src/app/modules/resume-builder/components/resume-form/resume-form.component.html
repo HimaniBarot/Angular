@@ -4,97 +4,115 @@
 <div class="form-wrapper">
   <h3>Add Your Details</h3>
   {{ resumeForm.value | json }}
-  <form *ngIf="resumeForm" [formGroup]="resumeForm" (ngSubmit)="onSubmit()">
+  <form
+    *ngIf="resumeForm"
+    [formGroup]="resumeForm"
+    (ngSubmit)="onSubmit()"
+    autocomplete="on"
+  >
     <div class="input-data">
-      <label for="name">Name</label><br>
+      <label for="name">Name</label><br />
       <input type="text" formControlName="name" />
-      <div class="error-display"
-        *ngIf="getValues['name'].touched || (getValues['name'].dirty && getValues['name'].invalid)">
-        <span style="color: red;" *ngIf="getValues['name'].errors && getValues['name'].errors['required']">Name is
-          required.</span>
+      <div
+        class="error-display"
+        *ngIf="
+          getValues['name'].touched ||
+          (getValues['name'].dirty && getValues['name'].invalid)
+        "
+      >
+        <span
+          style="color: red"
+          *ngIf="
+            getValues['name'].errors && getValues['name'].errors['required']
+          "
+          >Name is required.</span
+        >
       </div>
     </div>
     <div class="input-data">
-      <label for="name">Designation</label><br>
+      <label for="name">Designation</label><br />
       <input type="text" formControlName="designation" />
     </div>
     <div class="input-data">
-      <label for="name">Email</label><br>
+      <label for="name">Email</label><br />
       <input type="text" formControlName="email" />
     </div>
     <div class="input-data">
-      <label for="name">Contact Number</label><br>
+      <label for="name">Contact Number</label><br />
       <input type="number" formControlName="contactNumber" />
     </div>
-    <!-- <div class="input-data" formArrayName="skills">
-      <label for="name">Technical Skill</label><br>
-      <div *ngFor="let skill of getSkill; let i = index;">
-        <div formGroupName="i">
-          <input type="text" formControlName="techSkills" />
+
+    <!-- SKILLS -->
+    <div class="input-data">
+      <label for="name">Technical Skills</label><br />
+      <button type="button" (click)="addNewSkill()">+ ADD</button>
+    </div>
+    <div formArrayName="skills">
+      <div *ngFor="let skill of addSkill['controls']; let i = index">
+        <div [formGroupName]="i">
+          Skill: {{ i }} <input type="text" formControlName="techSkill" />
+          <div *ngIf="getFormGroup(skill).controls['techSkill'].touched || (getFormGroup(skill).controls['techSkill'].dirty && getFormGroup(skill).controls['techSkill'].invalid)">
+            <p *ngIf="getFormGroup(skill).controls['techSkill'].errors" style="color: red;">
+              This field is required.
+            </p>
+          </div>
+          <button type="button" (click)="deleteSkill(i)">DELETE</button>
         </div>
       </div>
-      <button (click)="addSkill()">+ ADD SKILL</button>
-    </div> -->
-    <!-- <div class="mb-3 col-3" formArrayName="skills" *ngFor="let skill of getSkill;let i = index">
-      <label>Skills</label>
-      <div formGroupName="i" class="d-flex">
-        <input type="text" formControlName="techSkills" class="form-control" placeholder="Technical Skills">
-        <button class="btn-warning" (click)="deleteSkills(i)">
-                    delete
-                </button>
-      </div>
-    </div> -->
-    <div>
-      <button (click)="addNewSkill()">+ ADD</button>
-    </div>
-    skill <input formControlName="techSkills" />
-    <div *ngFor="let skill of skills; let i = index;" formGroupName="addNewSkill">
-      techSkill : {{ i }}
-      <!-- <div> -->
-
-      <!-- </div> -->
     </div>
     <!-- Experience -->
-    <div class="" formGroupName="experienceInfo">
-      <fieldset>
-        <legend>Experience:</legend>
-        <div>
-          <label>Company</label><br>
-          <input type="text" formControlName="company" />
+    <fieldset>
+      <legend>Experience:</legend>
+      <div>
+        <button type="button" (click)="addNewExperience()">+ ADD</button>
+      </div>
+      <div class="d-flex" formArrayName="experience">
+        <div
+          *ngFor="let experience of addExperience['controls']; let i = index"
+        >
+          <div [formGroupName]="i">
+            <div>
+              <label>Company</label><br />
+              <input type="text" formControlName="company" />
+              <p style="color: red">This field is required.</p>
+            </div>
+            <div>
+              <label>Position</label><br />
+              <input type="text" formControlName="position" />
+            </div>
+            <div>
+              <label>Description</label><br />
+              <textarea
+                cols="10"
+                rows="4"
+                formControlName="description"
+              ></textarea>
+            </div>
+            <div>
+              <label>Duration</label><br />
+              <input type="text" formControlName="duration" />
+            </div>
+          </div>
         </div>
-        <div>
-          <label>Position</label><br>
-          <input type="text" formControlName="position" />
-        </div>
-        <div>
-          <label>Description</label><br>
-          <textarea cols="10" rows="4" formControlName="description"></textarea>
-        </div>
-        <div>
-          <label>Duration</label><br>
-          <input type="text" formControlName="duration" />
-        </div>
-      </fieldset>
-    </div>
+      </div>
+    </fieldset>
     <!-- Education -->
+
     <div class="input-data">
-      <fieldset>
-        <legend>Education:</legend>
-        <div>
-          <label for="name">University</label><br>
-          <input type="text" />
-        </div>
-        <div>
-          <label for="name">Result</label><br>
-          <input type="text" />
-        </div>
-        <button>+ ADD</button>
-      </fieldset>
+      <label for="name">Education</label><br />
+      <button type="button" (click)="addNewEducation()">+ ADD</button>
     </div>
-    <div class="input-data">
-      <label for="name">Education</label><br>
-      <input type="text" />
+    <div formArrayName="education">
+      <div *ngFor="let skill of addEducation['controls']; let i = index">
+        <div [formGroupName]="i">
+          Education: {{ i }}
+          <input type="text" formControlName="university" class="mx-2" />
+          <input type="text" formControlName="result" />
+          <!-- <button type="button" (click)="deleteSkill(i)">DELETE</button> -->
+        </div>
+      </div>
     </div>
+
     <div class="input-data">
       <button class="btn-submit" type="submit">Submit</button>
     </div>

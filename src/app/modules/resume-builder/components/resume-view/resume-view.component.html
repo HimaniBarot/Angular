@@ -1,176 +1,162 @@
-<button routerLink="/resume-builder/resume-list-view" class="btn btn-primary">Back</button>
+<button routerLink="/resume-builder/resume-list-view" class="btn btn-primary">
+  Back
+</button>
 
-    <style>
-        
-    </style>
-    <!-- CONTAINER DIV START -->
-    <div class="container">
-        <!-- INFORMATION START -->
-        <div class="main_content">
+<style></style>
+<!-- CONTAINER DIV START -->
+<div class="container" *ngIf="this.resumeDetails">
+  <!-- INFORMATION START -->
+  <div class="main_content">
+    <table>
+      <tr>
+        <th>
+          <h1>{{ resumeDetails.name }}</h1>
+          <p>
+            <em> {{ resumeDetails.designation }} </em>
+          </p>
+        </th>
+        <th style="width: 20%">
+          <input type="button" value="Download PDF" />
+          <p>
+            <a href="mailto:{{ resumeDetails.email }}" style="color: #fe2b29">{{
+              resumeDetails.email
+            }}</a>
+          </p>
+          <p>{{ resumeDetails.contactNumber }}</p>
+        </th>
+      </tr>
+    </table>
+  </div>
+  <!-- INFORMATION END -->
+
+  <!-- PROFILE DIV START -->
+  <div class="main_content">
+    <table>
+      <tr>
+        <td class="content_heading" style="padding: 10px"><em>Profile</em></td>
+        <td style="padding: 10px">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+          ullam minima quos voluptate et ut dignissimos laborum consequatur modi
+          adipisci! Lorem ipsum dolor sit amet.
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!-- PROFILE DIV END -->
+
+  <!-- SKILL START -->
+  <div class="main_content">
+    <table>
+      <tr>
+        <td class="content_heading" style="padding: 10px"><em>Skill</em></td>
+        <td style="padding: 10px">
+          <table>
+            <tr>
+              <td style="width: 33.33%; padding-right: 10px">
+                <h3 style="padding-bottom: 8px">Web Design</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eligendi, aliquid!
+                </p>
+              </td>
+              <td style="width: 33.33%; padding-right: 10px">
+                <h3 style="padding-bottom: 8px">Interface Design</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eligendi, aliquid!
+                </p>
+              </td>
+              <td style="width: 33.33%; padding-right: 10px">
+                <h3 style="padding-bottom: 8px">Project Direction</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eligendi, aliquid!
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!-- SKILL END -->
+
+  <!-- TECHNICAL START -->
+  <div class="main_content">
+    <table>
+      <tr>
+        <td class="content_heading"><em>Technical</em></td>
+        <td>
+          <div class="d-flex flex-wrap">
+            <div
+              style="width: 33.33%"
+              *ngFor="let skill of resumeDetails.skills"
+            >
+              <p>{{ skill.techSkill }}</p>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!-- TECHNICAL END -->
+
+  <!-- EXPERIENCE START -->
+  <div class="main_content">
+    <table>
+      <tr>
+        <td class="content_heading"><em>Experince</em></td>
+        <td>
+          <div style="border-bottom: 1px solid #cfcccc; padding-bottom: 17px">
             <table>
+              <div *ngFor="let experience of resumeDetails.experience">
                 <tr>
-                    <th>
-                        <h1>JONATHAN DOE</h1>
-                        <p><em> WEB DESIGNER, DIRECTOR</em></p>
-                    </th>
-                    <th style="width: 20%;">
-                        <input type="button" value="Download PDF">
-                        <p><a href="mailto:name@yourdomain.com" style="color: #fe2b29;">name@yourdomain.com</a></p>
-                        <p>(313)-867-5309</p>
-                    </th>
+                  <td style="padding-bottom: 10px">
+                    <h3>{{ experience.company }}</h3>
+                    <p>{{ experience.position }}</p>
+                  </td>
+                  <td class="content_heading" style="text-align: right">
+                    <p>{{ experience.duration }}</p>
+                  </td>
                 </tr>
-            </table>
-        </div>
-        <!-- INFORMATION END -->
-
-        <!-- PROFILE DIV START -->
-        <div class="main_content">
-            <table>
                 <tr>
-                    <td class="content_heading" style="padding: 10px;"><em>Profile</em></td>
-                    <td style="padding: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-                        ullam minima quos
-                        voluptate et ut dignissimos laborum consequatur modi adipisci! Lorem ipsum dolor sit amet.
-                    </td>
+                  <td colspan="2">{{ experience.description }}</td>
                 </tr>
+              </div>
             </table>
-        </div>
-        <!-- PROFILE DIV END -->
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!-- EXPERIENCE END -->
 
-        <!-- SKILL START -->
-        <div class="main_content">
-            <table>
-                <tr>
-                    <td class="content_heading" style="padding: 10px;"><em>Skill</em></td>
-                    <td style="padding: 10px;">
-                        <table>
-                            <tr>
-                                <td style="width: 33.33%; padding-right: 10px;">
-                                    <h3 style="padding-bottom: 8px;">Web Design</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, aliquid!
-                                    </p>
-                                </td>
-                                <td style="width: 33.33%; padding-right: 10px;">
-                                    <h3 style="padding-bottom: 8px;">Interface Design</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, aliquid!
-                                    </p>
-                                </td>
-                                <td style="width: 33.33%; padding-right: 10px;">
-                                    <h3 style="padding-bottom: 8px;">Project Direction</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, aliquid!
-                                    </p>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <!-- SKILL END -->
+  <!-- EDUCATION START -->
+  <div class="main_content">
+    <table>
+      <tr *ngFor="let education of resumeDetails.education">
+        <td class="content_heading"><em>Education</em></td>
+        <td>
+          <strong>{{ education.university }}</strong>
+          <p>
+            Dual Major- <strong>{{ education.result }} GPA</strong>
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!-- EDUCATION END -->
 
-        <!-- TECHNICAL START -->
-        <div class="main_content">
-            <table>
-                <tr>
-                    <td class="content_heading"><em>Technical</em></td>
-                    <td>
-                        <table>
-                            <tr style="border-bottom: 1px solid #cfcccc;">
-                                <td style="width: 33.33%;">XHTML</td>
-                                <td style="width: 33.33%;">Jquery</td>
-                                <td>OS X</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #cfcccc;">
-                                <td>CSS</td>
-                                <td>PHP</td>
-                                <td>Windows XP/Vista</td>
-                            </tr>
-                            <tr>
-                                <td>JavaScript</td>
-                                <td>PHP</td>
-                                <td>Windows XP/Vista</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <!-- TECHNICAL END -->
-
-        <!-- EXPERIENCE START -->
-        <div class="main_content">
-            <table>
-                <tr>
-                    <td class="content_heading"><em>Experince</em></td>
-                    <td>
-                        <div style="border-bottom: 1px solid #cfcccc; padding-bottom: 17px;">
-                            <table>
-                                <tr>
-                                    <td style="padding-bottom: 10px;">
-                                        <h3>Facebook</h3>
-                                        <p>Senior Interface Designer</p>
-                                    </td>
-                                    <td class="content_heading" style="text-align: right;">
-                                        <p>2005-2007</p>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td colspan="2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-                                        blanditiis
-                                        impedit reiciendis quis cumque ipsum quia voluptatem harum iure fugit.</td>
-                                </tr>
-                            </table>
-                        </div>
-
-                        <div style="padding: 15px 0;">
-                            <table>
-                                <tr>
-                                    <td style="padding-bottom: 10px;">
-                                        <h3>Apple Inc.</h3>
-                                        <p>Senior Interface Designer</p>
-                                    </td>
-                                    <td class="content_heading" style="text-align: right;">2005-2007</td>
-                                </tr>
-
-                                <tr>
-                                    <td colspan="2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-                                        blanditiis
-                                        impedit reiciendis quis cumque ipsum quia voluptatem harum iure fugit.</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <!-- EXPERIENCE END -->
-
-        <!-- EDUCATION START -->
-        <div class="main_content">
-            <table>
-                <tr>
-                    <td class="content_heading"><em>Education</em></td>
-                    <td>
-                        <strong>Indiana University</strong>
-                        <p>Dual Major- <strong> 4.0 GPA</strong></p>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <!-- EDUCATION END -->
-
-        <!-- FOOTER START -->
-        <footer style="text-align: center; 
-            padding-top: 8px;">
-            <p>Jonathan Doe - <a href="mailto:name@yourdomain.com" style="color: #fe2b29;">name@yourdomain.com</a> -
-                (313)-867-5309
-            </p>
-        </footer>
-        <!-- FOOTER END -->
-
-    </div>
-    <!-- CONTAINER DIV END -->
+  <!-- FOOTER START -->
+  <footer style="text-align: center; padding-top: 8px">
+    <p>
+      Jonathan Doe -
+      <a href="mailto:{{ resumeDetails.email }}" style="color: #fe2b29">{{
+        resumeDetails.email
+      }}</a>
+      - {{ resumeDetails.contactNumber }}
+    </p>
+  </footer>
+  <!-- FOOTER END -->
+</div>
+<!-- CONTAINER DIV END -->

@@ -1,14 +1,23 @@
 export class ResumeDetails {
   id: number;
   name: string;
+  designation : string;
   email: string;
   contactNumber: number;
-  skills: any[];
-  experience: experienceInfo[];
+  skills: TechSkills[];
+  experience: ExperienceDetails[];
+  education : EducationDetails[];
 }
-class experienceInfo {
+class ExperienceDetails {
   company: string;
   position: string;
   description: string;
-  duration: number;
+  duration: string;
 }
+ class TechSkills{
+  techSkill : string;
+ }
+ class EducationDetails{
+  university: string;
+  result: number;
+ }

@@ -19,120 +19,186 @@
   ],
   "employees": [
     {
-      "firstName": "ritu",
-      "lastName": "barot",
-      "email": "ritu@mail.com",
-      "contactNumber": 5656565656,
-      "gender": "female",
-      "dateOfEmployment": "2022-02-10",
-      "deparmentList": "2",
-      "id": 2
-    },
-    {
-      "firstName": "sd",
-      "lastName": "sdsf",
-      "email": "sds@ggf.com",
-      "contactNumber": 5653,
-      "gender": "female",
-      "dateOfEmployment": "2022-02-09",
-      "deparmentList": "2",
-      "id": 3
+      "name": "aaaa",
+      "designation": "aaaa",
+      "email": "aa@fff.bb",
+      "contactNumber": 42544243,
+      "skills": [
+        {
+          "techSkill": "html"
+        },
+        {
+          "techSkill": "xml"
+        }
+      ],
+      "experience": [
+        {
+          "company": "ss",
+          "position": "ss",
+          "description": "ssssssssss",
+          "duration": "2022"
+        },
+        {
+          "company": "kk",
+          "position": "kkkk",
+          "description": "kkkkkkkkkk",
+          "duration": "2021"
+        }
+      ],
+      "id": 1
     }
   ],
   "user": [
     {
-      "id": 1,
-      "name": "dummy",
-      "designation": "data",
-      "email": "dummy@mqail.com",
-      "contactNumber": 333333333
+      "name": "himani",
+      "designation": "",
+      "email": "",
+      "contactNumber": null,
+      "skills": [
+        {
+          "techSkill": ""
+        }
+      ],
+      "experience": [
+        {
+          "company": "",
+          "position": "",
+          "description": "",
+          "duration": ""
+        }
+      ],
+      "education": [
+        {
+          "university": "",
+          "result": ""
+        }
+      ],
+      "id": 1
     },
     {
       "name": "test",
       "designation": "",
       "email": "",
       "contactNumber": null,
+      "skills": [
+        {
+          "techSkill": ""
+        }
+      ],
+      "experience": [
+        {
+          "company": "",
+          "position": "",
+          "description": "",
+          "duration": ""
+        }
+      ],
+      "education": [
+        {
+          "university": "",
+          "result": ""
+        }
+      ],
       "id": 2
     },
     {
-      "id": 3,
-      "name": "testing",
+      "name": "abc",
       "designation": "",
       "email": "",
-      "contactNumber": null
+      "contactNumber": null,
+      "skills": [
+        {
+          "techSkill": "html"
+        },
+        {
+          "techSkill": "js"
+        }
+      ],
+      "experience": [
+        {
+          "company": "",
+          "position": "",
+          "description": "",
+          "duration": ""
+        }
+      ],
+      "education": [
+        {
+          "university": "",
+          "result": ""
+        }
+      ],
+      "id": 3
     },
     {
-      "name": "himani barot",
-      "designation": "frontend",
-      "email": "himani.barot@mail.com",
+      "name": "skill test",
+      "designation": "",
+      "email": "",
       "contactNumber": null,
+      "skills": [
+        {
+          "techSkill": "html"
+        },
+        {
+          "techSkill": "css"
+        },
+        {
+          "techSkill": "js"
+        },
+        {
+          "techSkill": "ts"
+        }
+      ],
+      "experience": [
+        {
+          "company": "",
+          "position": "",
+          "description": "",
+          "duration": ""
+        }
+      ],
+      "education": [
+        {
+          "university": "",
+          "result": ""
+        }
+      ],
       "id": 4
     },
     {
-      "name": "sdsds",
-      "designation": "sdsd",
-      "email": "",
-      "contactNumber": null,
-      "experienceInfo": {
-        "company": "test",
-        "position": "",
-        "description": "",
-        "duration": ""
-      },
+      "name": "all test",
+      "designation": "aaaa",
+      "email": "aaaa@",
+      "contactNumber": 66666666666,
+      "skills": [
+        {
+          "techSkill": "html"
+        },
+        {
+          "techSkill": "xml"
+        },
+        {
+          "techSkill": "js"
+        },
+        {
+          "techSkill": "php"
+        }
+      ],
+      "experience": [
+        {
+          "company": "gggg",
+          "position": "ggg",
+          "description": "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
+          "duration": "2007-2020"
+        }
+      ],
+      "education": [
+        {
+          "university": "aaa",
+          "result": "7.30"
+        }
+      ],
       "id": 5
-    },
-    {
-      "name": "scsc",
-      "designation": "",
-      "email": "",
-      "contactNumber": null,
-      "experience": {
-        "company": "test",
-        "position": "",
-        "description": "",
-        "duration": ""
-      },
-      "id": 6
-    },
-    {
-      "name": "himani",
-      "designation": "intern",
-      "email": "abc",
-      "contactNumber": 22222222222,
-      "experienceInfo": {
-        "company": "rivet",
-        "position": "frontend",
-        "description": "ssssss",
-        "duration": "2"
-      },
-      "id": 7
-    },
-    {
-      "name": "zxzxzczczzzzzzz",
-      "designation": "",
-      "email": "",
-      "contactNumber": null,
-      "experienceInfo": {
-        "company": "zzzzzzzzzzzz",
-        "position": "",
-        "description": "",
-        "duration": ""
-      },
-      "id": 8
-    },
-    {
-      "name": "axa",
-      "designation": "aaa",
-      "email": "",
-      "contactNumber": null,
-      "experienceInfo": {
-        "company": "",
-        "position": "",
-        "description": "",
-        "duration": ""
-      },
-      "skills": [],
-      "id": 9
     }
   ]
 }
