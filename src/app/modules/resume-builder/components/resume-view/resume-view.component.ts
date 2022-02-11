@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ResumeDetails } from '../../models/resume-details.model';
 import { ResumeDetailsService } from '../../services/resume-details.service';
 
@@ -9,17 +10,17 @@ import { ResumeDetailsService } from '../../services/resume-details.service';
 })
 export class ResumeViewComponent implements OnInit {
 
-  constructor(private resumeDetailService: ResumeDetailsService) { }
+  constructor(private resumeDetailService: ResumeDetailsService, private route: ActivatedRoute) { }
 
   resumeDetails: ResumeDetails;
 
   ngOnInit(): void {
-    this.getResumeData();
+    this.getResumeData(this.route.snapshot.params['id']);
   }
 
-  getResumeData(){
-    this.resumeDetailService.getUserData().subscribe((data) => {
-      this.resumeDetails = data[data.length-1];
+  getResumeData(id: number){
+    this.resumeDetailService.getById(id).subscribe((data) => {
+      this.resumeDetails = data;
     })
   }
 

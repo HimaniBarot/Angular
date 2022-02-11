@@ -51,17 +51,20 @@
   "user": [
     {
       "name": "himani",
-      "designation": "",
-      "email": "",
-      "contactNumber": null,
+      "designation": "intern",
+      "email": "himani@mail.com",
+      "contactNumber": 666666666,
       "skills": [
         {
-          "techSkill": ""
+          "techSkill": "html"
+        },
+        {
+          "techSkill": "css"
         }
       ],
       "experience": [
         {
-          "company": "",
+          "company": "abc",
           "position": "",
           "description": "",
           "duration": ""
@@ -74,131 +77,6 @@
         }
       ],
       "id": 1
-    },
-    {
-      "name": "test",
-      "designation": "",
-      "email": "",
-      "contactNumber": null,
-      "skills": [
-        {
-          "techSkill": ""
-        }
-      ],
-      "experience": [
-        {
-          "company": "",
-          "position": "",
-          "description": "",
-          "duration": ""
-        }
-      ],
-      "education": [
-        {
-          "university": "",
-          "result": ""
-        }
-      ],
-      "id": 2
-    },
-    {
-      "name": "abc",
-      "designation": "",
-      "email": "",
-      "contactNumber": null,
-      "skills": [
-        {
-          "techSkill": "html"
-        },
-        {
-          "techSkill": "js"
-        }
-      ],
-      "experience": [
-        {
-          "company": "",
-          "position": "",
-          "description": "",
-          "duration": ""
-        }
-      ],
-      "education": [
-        {
-          "university": "",
-          "result": ""
-        }
-      ],
-      "id": 3
-    },
-    {
-      "name": "skill test",
-      "designation": "",
-      "email": "",
-      "contactNumber": null,
-      "skills": [
-        {
-          "techSkill": "html"
-        },
-        {
-          "techSkill": "css"
-        },
-        {
-          "techSkill": "js"
-        },
-        {
-          "techSkill": "ts"
-        }
-      ],
-      "experience": [
-        {
-          "company": "",
-          "position": "",
-          "description": "",
-          "duration": ""
-        }
-      ],
-      "education": [
-        {
-          "university": "",
-          "result": ""
-        }
-      ],
-      "id": 4
-    },
-    {
-      "name": "all test",
-      "designation": "aaaa",
-      "email": "aaaa@",
-      "contactNumber": 66666666666,
-      "skills": [
-        {
-          "techSkill": "html"
-        },
-        {
-          "techSkill": "xml"
-        },
-        {
-          "techSkill": "js"
-        },
-        {
-          "techSkill": "php"
-        }
-      ],
-      "experience": [
-        {
-          "company": "gggg",
-          "position": "ggg",
-          "description": "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
-          "duration": "2007-2020"
-        }
-      ],
-      "education": [
-        {
-          "university": "aaa",
-          "result": "7.30"
-        }
-      ],
-      "id": 5
     }
   ]
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ResumeDetails } from '../../models/resume-details.model';
 import { ResumeDetailsService } from '../../services/resume-details.service';
 
@@ -13,7 +13,8 @@ export class ResumeFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private resumeDetailService: ResumeDetailsService,
-    private router: Router
+    private router: Router,
+    private route : ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -21,6 +22,7 @@ export class ResumeFormComponent implements OnInit {
     this.addNewSkill();
     this.addNewExperience();
     this.addNewEducation();
+    this.id = this.route.snapshot.params['id'];
   }
 
   public resumeForm: FormGroup;
@@ -29,6 +31,7 @@ export class ResumeFormComponent implements OnInit {
   addExperience: FormArray = this.fb.array([]);
   addEducation : FormArray = this.fb.array([]);
   resumeDetails: ResumeDetails[];
+  id : number;
 
   buildResumeForm() {
     this.resumeForm = this.fb.group({
@@ -42,10 +45,7 @@ export class ResumeFormComponent implements OnInit {
     });
   }
 
-  get f(){
-    return this.resumeForm.controls;
-  }
-  // ADD NEW SKILL
+  // SKILL
   addNewSkill() {
     this.addSkill.push(this.addSkillField());
   }
@@ -61,7 +61,7 @@ export class ResumeFormComponent implements OnInit {
     }
   }
 
-  // ADD NEW EXPERIENCE
+  // EXPERIENCE
   addNewExperience() {
     this.addExperience.push(this.addExperienceField());
   }
@@ -73,8 +73,13 @@ export class ResumeFormComponent implements OnInit {
       duration: [''],
     })
   }
+  deleteExperience(index:number){
+    if(this.addExperience.length !=1){
+      this.addExperience.removeAt(index);
+    }
+  }
 
-  // ADD NEW EDUCATION
+  // EDUCATION
   addNewEducation() {
     this.addEducation.push(this.addEducationField());
   }
@@ -84,14 +89,20 @@ export class ResumeFormComponent implements OnInit {
       result: ['']
     })
   }
+  deleteEducation(index: number){
+    if(this.addEducation.length !=1){
+      this.addEducation.removeAt(index);
+    }
+  }
 
+  // SAVE DATA
   onSubmit() {
     if (this.resumeForm.status == 'VALID') {
       this.resumeDetailService
         .addResumeDetails(this.resumeForm.value)
         .subscribe(() => {
           alert('Userdata Saved...');
-          this.router.navigateByUrl('/resume-builder/resume-view');
+          this.router.navigateByUrl('/resume-builder/resume-list-view');
         });
     } else {
       alert('Something went wrong');
@@ -102,7 +113,7 @@ export class ResumeFormComponent implements OnInit {
     return this.resumeForm['controls'];
   }
 
-  // CONVERT ABSTRACT CLASS INTO FORMGROUP
+  // CONVERT ABSTRACT CLASS INTO FORMGROUP FOR VALIDATION
   getFormGroup(abstractClass : AbstractControl) : FormGroup{
     return abstractClass as FormGroup;
   }

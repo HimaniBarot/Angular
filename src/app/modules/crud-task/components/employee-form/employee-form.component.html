@@ -1,9 +1,9 @@
 <!-- {{ registrationForm.value | json }} -->
 <!-- {{ departments | json }} -->
-<h2 *ngIf="isAdd" class="text-center">Add Employee</h2>
-<h2 *ngIf="!isAdd" class="text-center">Edit Employee</h2>
 
-<div class="w-50 container">
+<div class="form-wrapper">
+    <h2 *ngIf="isAdd" class="text-center">Add Employee</h2>
+    <h2 *ngIf="!isAdd" class="text-center">Edit Employee</h2>
     <form *ngIf="registrationForm" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">First name<span class="required">*</span></label>
@@ -76,7 +76,7 @@
 
         <div class="mt-5">
             <button [disabled]="registrationForm.invalid" type="submit" class="btn btn-success">Submit</button>
-            <button type="reset" class="btn btn-primary mx-3" (click)="resetForm()">Reset</button>
+            <button type="reset" class="btn btn-danger mx-3" (click)="resetForm()">Reset</button>
         </div>
 
     </form>

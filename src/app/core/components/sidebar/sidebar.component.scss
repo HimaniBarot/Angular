@@ -1,26 +1,30 @@
 .aside {
   height: 100%;
-  overflow: hidden;
-}
-ul {
-  margin-top: 2rem;
-  li {
-    list-style-type: none;
-    font-size: 1.2rem;
+  border-right: 1px solid rgba(128, 128, 128, 0.719);
+  width: 300px;
+
+  .header-title {
+    height: 56px;
+    text-align: right;
     font-weight: 600;
-    margin-bottom: 0.87rem;
-    a {
-      text-decoration: none;
-      color: #fe7f2d;
-    }
+    letter-spacing: 1px;
   }
 }
-ul {
-  li:hover {
-    background-color: white;
-    cursor: pointer;
+.list-wrap{
+  padding: 1rem;
+  border: 1px solid red;
+  justify-content: space-between;
+  
+  ul{
+    flex-grow: 1;
+    
   }
 }
-a:hover {
-  color: #233d4d;
+ul{
+
+  li{
+    border: 2px solid blue;
+    margin-bottom: 4px;
+    padding: 0.56rem 0.56rem;
+  }
 }

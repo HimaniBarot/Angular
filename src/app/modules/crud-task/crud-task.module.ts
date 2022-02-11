@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CrudTaskRoutingModule } from './crud-task-routing.module';
-import { CrudTaskComponent } from './crud-task.component';
 import { ListViewComponent } from './components/list-view/list-view.component';
 import { EmployeeFormComponent } from './components/employee-form/employee-form.component';
 import { DepartmentListPipe } from './pipes/departentList/department-list.pipe';
@@ -11,7 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    CrudTaskComponent,
     ListViewComponent,
     EmployeeFormComponent,
     DepartmentListPipe,
@@ -23,6 +21,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
   ],
-  exports: [CrudTaskComponent, ListViewComponent, EmployeeFormComponent],
+  exports: [ListViewComponent, EmployeeFormComponent],
 })
 export class CrudTaskModule {}

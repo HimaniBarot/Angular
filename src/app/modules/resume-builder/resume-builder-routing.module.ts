@@ -3,11 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { ResumeFormComponent } from './components/resume-form/resume-form.component';
 import { ResumeListViewComponent } from './components/resume-list-view/resume-list-view.component';
 import { ResumeViewComponent } from './components/resume-view/resume-view.component';
-import { ResumeBuilderComponent } from './resume-builder.component';
 
 const routes: Routes = [
   {
-    path: '', component: ResumeBuilderComponent,
+    path: '',
 
     children: [
       {

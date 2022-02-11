@@ -1,10 +1,9 @@
-.wrapper .sidebar {
-  flex: 0 0 224px;
-  background-color: #233d4d;
-}
-.main-content {
-  overflow: auto;
+.main-content-wrapper{
+    // border: solid green;
+    overflow: hidden;
 }
 .content-wrapper{
-  overflow: hidden;
+    background-color: #e6e6e6;
+    height: 100%;
+    overflow: auto;
 }

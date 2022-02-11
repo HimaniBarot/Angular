@@ -3,30 +3,13 @@
 </button>
 <div class="form-wrapper">
   <h3>Add Your Details</h3>
-  {{ resumeForm.value | json }}
-  <form
-    *ngIf="resumeForm"
-    [formGroup]="resumeForm"
-    (ngSubmit)="onSubmit()"
-    autocomplete="on"
-  >
+  <!-- {{ resumeForm.value | json }} -->
+  <form [formGroup]="resumeForm" (ngSubmit)="onSubmit()" autocomplete="on">
     <div class="input-data">
       <label for="name">Name</label><br />
       <input type="text" formControlName="name" />
-      <div
-        class="error-display"
-        *ngIf="
-          getValues['name'].touched ||
-          (getValues['name'].dirty && getValues['name'].invalid)
-        "
-      >
-        <span
-          style="color: red"
-          *ngIf="
-            getValues['name'].errors && getValues['name'].errors['required']
-          "
-          >Name is required.</span
-        >
+      <div class="error-display" *ngIf="getValues['name'].touched || (getValues['name'].dirty && getValues['name'].invalid)">
+        <span style="color: red" *ngIf="getValues['name'].errors && getValues['name'].errors['required']">Name is required.</span>
       </div>
     </div>
     <div class="input-data">
@@ -43,6 +26,7 @@
     </div>
 
     <!-- SKILLS -->
+
     <div class="input-data">
       <label for="name">Technical Skills</label><br />
       <button type="button" (click)="addNewSkill()">+ ADD</button>
@@ -51,8 +35,9 @@
       <div *ngFor="let skill of addSkill['controls']; let i = index">
         <div [formGroupName]="i">
           Skill: {{ i }} <input type="text" formControlName="techSkill" />
-          <div *ngIf="getFormGroup(skill).controls['techSkill'].touched || (getFormGroup(skill).controls['techSkill'].dirty && getFormGroup(skill).controls['techSkill'].invalid)">
-            <p *ngIf="getFormGroup(skill).controls['techSkill'].errors" style="color: red;">
+          <div *ngIf="getFormGroup(skill).controls['techSkill'].touched || 
+          (getFormGroup(skill).controls['techSkill'].dirty && getFormGroup(skill).controls['techSkill'].invalid)">
+            <p *ngIf="getFormGroup(skill).controls['techSkill'].errors" style="color: red">
               This field is required.
             </p>
           </div>
@@ -60,21 +45,21 @@
         </div>
       </div>
     </div>
+
     <!-- Experience -->
+
     <fieldset>
       <legend>Experience:</legend>
       <div>
         <button type="button" (click)="addNewExperience()">+ ADD</button>
       </div>
       <div class="d-flex" formArrayName="experience">
-        <div
-          *ngFor="let experience of addExperience['controls']; let i = index"
-        >
+        <div *ngFor="let experience of addExperience['controls']; let i = index">
           <div [formGroupName]="i">
             <div>
               <label>Company</label><br />
               <input type="text" formControlName="company" />
-              <p style="color: red">This field is required.</p>
+              <!-- <p style="color: red">This field is required.</p> -->
             </div>
             <div>
               <label>Position</label><br />
@@ -82,20 +67,18 @@
             </div>
             <div>
               <label>Description</label><br />
-              <textarea
-                cols="10"
-                rows="4"
-                formControlName="description"
-              ></textarea>
+              <textarea cols="10" rows="4" formControlName="description"></textarea>
             </div>
             <div>
               <label>Duration</label><br />
               <input type="text" formControlName="duration" />
             </div>
           </div>
+          <button type="button" (click)="deleteExperience(i)">DELETE</button>
         </div>
       </div>
     </fieldset>
+
     <!-- Education -->
 
     <div class="input-data">
@@ -108,13 +91,14 @@
           Education: {{ i }}
           <input type="text" formControlName="university" class="mx-2" />
           <input type="text" formControlName="result" />
-          <!-- <button type="button" (click)="deleteSkill(i)">DELETE</button> -->
+          <button type="button" (click)="deleteEducation(i)">DELETE</button>
         </div>
       </div>
     </div>
 
     <div class="input-data">
-      <button class="btn-submit" type="submit">Submit</button>
+      <button class="btn btn-success" type="submit">Submit</button>
+      <button class="btn btn-danger" type="button">Reset</button>
     </div>
   </form>
 </div>

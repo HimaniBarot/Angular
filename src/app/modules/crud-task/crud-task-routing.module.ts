@@ -2,12 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EmployeeFormComponent } from './components/employee-form/employee-form.component';
 import { ListViewComponent } from './components/list-view/list-view.component';
-import { CrudTaskComponent } from './crud-task.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CrudTaskComponent,
 
     children: [
       {
