@@ -1,0 +1,27 @@
+<!-- <div class="container mt-5">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="parentSelector" [value]="-1"
+                        (change)="onChangeFood($event)" />
+                </th>
+                <th scope="col">Food</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let n of food">
+                <th scope="row">
+                    <input class="form-check-input" type="checkbox" [value]="n.id" [checked]="n.select"
+                        (change)="onChangeFood($event)" />
+                </th>
+                <td>{{ n.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+<!-- <input type="checkbox" [value]="test" (change)="onChangeFood($event)" /> -->
+<!-- WITH EVENT BINDING -->
+<div *ngFor="let food of food">
+    <input type="checkbox" [value]="food.id" (click)="getValue($event)">{{food.name}}
+</div>

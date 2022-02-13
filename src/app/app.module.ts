@@ -4,10 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { CrudTaskModule } from './modules/crud-task/crud-task.module';
-import { DataBindingModule } from './modules/data-binding/data-binding.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormModule } from './modules/reactive-form/reactive-form.module';
 import { ResumeBuilderModule } from './modules/resume-builder/resume-builder.module';
+import { CrudPracticeModule } from './modules/crud-practice/crud-practice.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +16,7 @@ import { ResumeBuilderModule } from './modules/resume-builder/resume-builder.mod
     CrudTaskModule,
     ResumeBuilderModule,
     HttpClientModule,
+    CrudPracticeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

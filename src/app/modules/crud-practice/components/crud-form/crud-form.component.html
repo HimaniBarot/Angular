@@ -1,0 +1,45 @@
+<!-- <h1>User Details</h1>
+<form [formGroup]="userForm" (ngSubmit)="saveUser()">
+    <input type="text" formControlName="name" placeholder="Name" /><br>
+    <input type="email" formControlName="email" placeholder="Email" /><br>
+    <input type="number" formControlName="contactNo" placeholder="Contact Number" /><br>
+    <label>Brand</label>
+    <div [brands]="brandOptions"></div>
+    <select formControlName="brand">
+        <option [value]="0">Select --</option>
+        <option *ngFor="let brand of brandOptions" [value]="brand.id">{{brand.name}}</option>
+    </select><br>
+    <label>Address</label>
+    <button type="button">+</button>
+    <div formArrayName="address">
+        <div *ngFor="let address of addressDetailsArray['controls']; let i = index">
+            <div [formGroupName]="i">
+                Address: {{ i }}
+                <input type="text" formControlName="city" placeholder="city" /><br>
+                <input type="text" formControlName="state" placeholder="state" /><br>
+                <input type="number" formControlName="pinCode" placeholder="pincode" />
+            </div>
+            <button type="button" (click)="deleteSkill(i)">DELETE</button>
+        </div>
+    </div>
+</form> -->
+<!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h6>Cities</h6>
+    <span class="mr-2" *ngFor="let city of cities; let i = index" formArrayName="cities">
+        <input type="checkbox" [formControlName]="i" />
+        &nbsp;<span>{{city}}</span>
+    </span>
+    <br />
+    <br /> -->
+<!-- <h6>Zipcode</h6>
+    <span class="mr-2" *ngFor="let zipCode of zip_codes; let i = index" formArrayName="zip_codes">
+        <input type="checkbox" [formControlName]="i" />
+        &nbsp;<span>{{zipCode}}</span>
+    </span>
+    <br /><br /> -->
+<!-- <button type="submit" class="btn btn-primary mr-1">Save</button>
+    <br /><br />
+    <pre>
+      {{form.value|json}}
+      </pre>
+</form> -->

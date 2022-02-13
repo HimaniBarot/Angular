@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormArray,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ResumeDetails } from '../../models/resume-details.model';
 import { ResumeDetailsService } from '../../services/resume-details.service';
@@ -14,8 +20,8 @@ export class ResumeFormComponent implements OnInit {
     private fb: FormBuilder,
     private resumeDetailService: ResumeDetailsService,
     private router: Router,
-    private route : ActivatedRoute
-  ) { }
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.buildResumeForm();
@@ -29,9 +35,9 @@ export class ResumeFormComponent implements OnInit {
   experienceInfo: FormGroup;
   addSkill: FormArray = this.fb.array([]);
   addExperience: FormArray = this.fb.array([]);
-  addEducation : FormArray = this.fb.array([]);
+  addEducation: FormArray = this.fb.array([]);
   resumeDetails: ResumeDetails[];
-  id : number;
+  id: number;
 
   buildResumeForm() {
     this.resumeForm = this.fb.group({
@@ -41,7 +47,7 @@ export class ResumeFormComponent implements OnInit {
       contactNumber: [],
       skills: this.addSkill,
       experience: this.addExperience,
-      education : this.addEducation
+      education: this.addEducation,
     });
   }
 
@@ -51,12 +57,12 @@ export class ResumeFormComponent implements OnInit {
   }
   addSkillField() {
     return this.fb.group({
-      techSkill: ['', Validators.required]
-    })
+      techSkill: ['', Validators.required],
+    });
   }
 
-  deleteSkill(index : number){
-    if(this.addSkill.length !=1){
+  deleteSkill(index: number) {
+    if (this.addSkill.length != 1) {
       this.addSkill.removeAt(index);
     }
   }
@@ -71,10 +77,10 @@ export class ResumeFormComponent implements OnInit {
       position: [''],
       description: [''],
       duration: [''],
-    })
+    });
   }
-  deleteExperience(index:number){
-    if(this.addExperience.length !=1){
+  deleteExperience(index: number) {
+    if (this.addExperience.length != 1) {
       this.addExperience.removeAt(index);
     }
   }
@@ -86,11 +92,11 @@ export class ResumeFormComponent implements OnInit {
   addEducationField() {
     return this.fb.group({
       university: [''],
-      result: ['']
-    })
+      result: [''],
+    });
   }
-  deleteEducation(index: number){
-    if(this.addEducation.length !=1){
+  deleteEducation(index: number) {
+    if (this.addEducation.length != 1) {
       this.addEducation.removeAt(index);
     }
   }
@@ -114,8 +120,7 @@ export class ResumeFormComponent implements OnInit {
   }
 
   // CONVERT ABSTRACT CLASS INTO FORMGROUP FOR VALIDATION
-  getFormGroup(abstractClass : AbstractControl) : FormGroup{
+  getFormGroup(abstractClass: AbstractControl): FormGroup {
     return abstractClass as FormGroup;
   }
-  
 }

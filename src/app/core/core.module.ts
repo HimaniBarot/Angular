@@ -5,29 +5,27 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+// import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
-
 
 @NgModule({
   declarations: [
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     CommonModule,
     BrowserModule,
-    ReactiveFormsModule,
-    RouterModule
+    // ReactiveFormsModule,
+    RouterModule,
   ],
   exports: [
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    PageNotFoundComponent
-  ]
+    PageNotFoundComponent,
+  ],
 })
-export class CoreModule { }
+export class CoreModule {}

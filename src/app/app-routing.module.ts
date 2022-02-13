@@ -36,7 +36,14 @@ const routes: Routes = [
         (m) => m.ResumeBuilderModule
       ),
   },
-  // { path: '**', component: PageNotFoundComponent },
+  {
+    path: 'crud-practice',
+    loadChildren: () =>
+      import('./modules/crud-practice/crud-practice.module').then(
+        (m) => m.CrudPracticeModule
+      ),
+  },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
