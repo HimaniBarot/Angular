@@ -5,43 +5,24 @@ import { PageNotFoundComponent } from './core/components/page-not-found/page-not
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'user',
     pathMatch: 'full',
-    redirectTo: 'crud-task',
   },
   {
     path: 'crud-task',
-    loadChildren: () =>
-      import('./modules/crud-task/crud-task.module').then(
-        (m) => m.CrudTaskModule
-      ),
+    loadChildren: () => import('./modules/crud-task/crud-task.module').then((m) => m.CrudTaskModule),
   },
-  // {
-  //   path: 'data-binding',
-  //   loadChildren: () =>
-  //     import('./modules/data-binding/data-binding.module').then(
-  //       (m) => m.DataBindingModule
-  //     ),
-  // },
-  // {
-  //   path: 'reactive-form',
-  //   loadChildren: () =>
-  //     import('./modules/reactive-form/reactive-form.module').then(
-  //       (m) => m.ReactiveFormModule
-  //     ),
-  // },
   {
     path: 'resume-builder',
-    loadChildren: () =>
-      import('./modules/resume-builder/resume-builder.module').then(
-        (m) => m.ResumeBuilderModule
-      ),
+    loadChildren: () => import('./modules/resume-builder/resume-builder.module').then((m) => m.ResumeBuilderModule),
   },
   {
     path: 'crud-practice',
-    loadChildren: () =>
-      import('./modules/crud-practice/crud-practice.module').then(
-        (m) => m.CrudPracticeModule
-      ),
+    loadChildren: () => import('./modules/crud-practice/crud-practice.module').then((m) => m.CrudPracticeModule),
+  },
+  {
+    path: 'user',
+    loadChildren: () => import('./assessment/user/user.module').then((m) => m.UserModule),
   },
   { path: '**', component: PageNotFoundComponent },
 ];

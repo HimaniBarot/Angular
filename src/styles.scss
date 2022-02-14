@@ -13,10 +13,21 @@ html,body {
 body {
   overflow: hidden;
 }
+// table {
+//   td {
+//     // text-align: center;
+//   }
+// }
 table {
-  td {
-    text-align: center;
-  }
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #DDD;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #DDD;
 }
 .text-center{
   text-align: center;
@@ -29,6 +40,9 @@ table {
 }
 .d-flex {
   display: flex;
+}
+.align-center{
+  align-items: center;
 }
 .flex-grow {
   flex-grow: 1;
@@ -58,6 +72,7 @@ a {
   color: white;
   padding: 8px 32px;
   border-radius: 8px;
+  cursor: pointer;
 }
 .btn-success {
   background-color: #156844;
@@ -83,8 +98,10 @@ input[type="text"] {
 .table {
   width: 100%;
 }
-
 .form-wrapper {
   width: 700px;
   margin: 0 auto;
+}
+.mr-2{
+  margin-right: 12px;
 }

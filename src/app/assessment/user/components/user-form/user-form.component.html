@@ -1,0 +1,88 @@
+<!-- {{ userForm.value | json }} -->
+
+<div class="form-wrapper d-flex flex-column align-center">
+    <h2 *ngIf="isAdd" class="text-center">Add User Details</h2>
+    <h2 *ngIf="!isAdd" class="text-center">Edit User Details</h2>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" autocomplete="on">
+        <div class="mb-3">
+            <label>Name<span class="required">*</span></label>
+            <input formControlName="name" type="text" class="form-control" />
+            <!-- DISPLAY ERROR -->
+            <div *ngIf="getFormControls['name'].touched || (getFormControls['name'].dirty && getFormControls['name'].invalid)"
+                id="error-display">
+                <span *ngIf="getFormControls['name'].errors && getFormControls['name'].errors['required']"
+                    class="error">Name is required.</span>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>Email<span class="required">*</span></label>
+            <input formControlName="email" type="email" />
+            <!-- DISPLAY ERROR -->
+            <div *ngIf="getFormControls['email'].touched && getFormControls['email'].invalid" id="error-display">
+                <div *ngIf="getFormControls['email'].errors && getFormControls['email'].errors['required']">Email is
+                    required.
+                </div>
+                <div *ngIf="getFormControls['email'].errors && getFormControls['email'].errors['email']">Please, enter
+                    valid email
+                    address.
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <label>Mobile<span class="required">*</span></label>
+            <input formControlName="mobile" type="number" />
+        </div>
+
+        <div>
+            <label>City</label>
+            <input formControlName="city" type="text" />
+        </div>
+
+        <div>
+            <label for="gender">Gender:</label>
+            <div>
+                <input id="male" type="radio" value="male" formControlName="gender">
+                <label for="male">Male</label>
+            </div>
+
+            <div>
+                <input id="female" type="radio" value="female" formControlName="gender">
+                <label for="female">Female</label>
+            </div>
+
+            <div>
+                <input id="other" type="radio" value="other" formControlName="gender">
+                <label for="other">Other</label>
+            </div>
+        </div>
+
+        <div>
+            <div class="mb-3">
+                <label>Department<span class="required">*</span></label>
+                <select formControlName="deparmentList">
+                    <option selected disabled>Select your department --</option>
+                    <option *ngFor="let department of departments" [value]="department.id">{{ department.departmentList
+                        }}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label>Hire Date</label>
+                <input formControlName="dateOfHire" type="date" />
+            </div>
+        </div>
+
+        <div>
+            <input id="other" type="checkbox" value="checked" formControlName="checkbox" /> Permenant Employee
+        </div>
+
+        <div class="mt-5">
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="button" class="btn btn-danger" (click)="resetForm()">Clear</button>
+            <button type="button" class="btn" routerLink="/">Cancel</button>
+        </div>
+
+    </form>
+</div>

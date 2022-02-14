@@ -6,7 +6,7 @@ import { CoreModule } from './core/core.module';
 import { CrudTaskModule } from './modules/crud-task/crud-task.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ResumeBuilderModule } from './modules/resume-builder/resume-builder.module';
-import { CrudPracticeModule } from './modules/crud-practice/crud-practice.module';
+import { UserModule } from './assessment/user/user.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,8 +15,8 @@ import { CrudPracticeModule } from './modules/crud-practice/crud-practice.module
     CoreModule,
     CrudTaskModule,
     ResumeBuilderModule,
-    HttpClientModule,
-    CrudPracticeModule,
+    UserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

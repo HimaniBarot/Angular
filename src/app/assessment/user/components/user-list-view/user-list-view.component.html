@@ -1,0 +1,5 @@
+<div class="container">
+    <app-user-nav></app-user-nav>
+    <app-user-table [department]="departmentData" [userList] ="userData" (userToDelete)="deleteUser($event)"></app-user-table>
+    <app-address-form-array></app-address-form-array>
+</div>
