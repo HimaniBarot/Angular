@@ -1,31 +1,31 @@
-<div class="container">
-    <div>
-        <button routerLink="/resume-builder/resume-form" class="btn">ADD DATA</button>
-        <button routerLink="/resume-builder/resume-view" class="btn">View Resume</button>
-    </div>
+<h2 class="text-center">User Details</h2>
+<div class="list-header">
+    <input class="" type="search" placeholder="Search here..." />
+    <button routerLink="/resume-builder/resume-form" class="btn">ADD DATA</button>
+    <!-- <button routerLink="/resume-builder/resume-view" class="btn">View Resume</button> -->
+</div>
 
-    <div class="table-wrapper">
-        <table class="table">
-            <thead>
-                <th>Sr No</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Action</th>
-            </thead>
-            <tbody>
-                <tr *ngFor="let resumeDetail of resumeDetails; let i = index;">
-                    <td>{{ resumeDetail.id }}</td>
-                    <td>{{ resumeDetail.name }}</td>
-                    <td>{{ resumeDetail.email }}</td>
-                    <td>
-                        <!-- <button class="btn-view" (click)="viewUserResume(resumeDetail.id)">View</button> -->
-                        <button class="btn-view" (click)="viewUserResume(resumeDetail.id)">View</button>
-                        <button class="" (click)="deleteUser(resumeDetail.id)">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="table-wrapper">
+    <table class="table">
+        <thead>
+            <th>Sr No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let resumeDetail of resumeDetails; let i = index;">
+                <td>{{ resumeDetail.id }}</td>
+                <td>{{ resumeDetail.name }}</td>
+                <td>{{ resumeDetail.email }}</td>
+                <td>
+                    <!-- <button class="btn-view" (click)="viewUserResume(resumeDetail.id)">View</button> -->
+                    <button class="btn-view" (click)="viewUserResume(resumeDetail.id)">View</button>
+                    <button class="" (click)="deleteUser(resumeDetail.id)">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

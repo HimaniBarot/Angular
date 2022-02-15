@@ -5,7 +5,8 @@
   font-family: "Playfair Display", serif;
   font-family: "Roboto", sans-serif;
 }
-html,body {
+html,
+body {
   height: 100%;
   line-height: 1.6;
 }
@@ -13,23 +14,28 @@ html,body {
 body {
   overflow: hidden;
 }
-// table {
-//   td {
-//     // text-align: center;
-//   }
-// }
 table {
-  border-collapse: collapse;
-  width: 100%;
-  border: 1px solid #DDD;
+  // border-collapse: collapse;
+  // width: 100%;
+  // border: 1px solid #DDD;
+  // border-collapse: collapse; 
+    width: 100%;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    background-color: #fbf7f7;
+    // border-collapse: separate;
+    /* border-spacing: 15px; */
+    border-radius: 23px;
 }
 
-th, td {
+th,
+td {
   padding: 8px;
   text-align: left;
-  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid #ddd;
 }
-.text-center{
+.text-center {
   text-align: center;
 }
 .h-100 {
@@ -41,10 +47,10 @@ th, td {
 .d-flex {
   display: flex;
 }
-.align-center{
+.align-center {
   align-items: center;
 }
-.flex-grow {
+.flex-grow-1 {
   flex-grow: 1;
 }
 .justify-center {
@@ -59,12 +65,14 @@ th, td {
 ul {
   li {
     list-style-type: none;
+    // cursor: pointer;
   }
 }
 a {
   text-decoration: none;
   color: black;
   font-weight: 600;
+  cursor: pointer;
 }
 .btn {
   border: none;
@@ -84,9 +92,11 @@ a {
 input,
 textarea {
   background: transparent;
-  outline: none;
-  border: 1px solid gray;
-  padding: 4px 8px;
+    outline: none;
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+    width: 500px;
+    padding: 8px 12px;
 }
 input[type="text"] {
   width: 400px;
@@ -102,6 +112,11 @@ input[type="text"] {
   width: 700px;
   margin: 0 auto;
 }
-.mr-2{
+.mr-2 {
   margin-right: 12px;
+}
+.list-header{
+  display: flex;
+  justify-content: space-between;
+  margin: 32px 0;
 }

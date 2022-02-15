@@ -27,6 +27,16 @@
       "dateOfEmployment": "2022-02-15",
       "deparmentList": "4",
       "id": 2
+    },
+    {
+      "firstName": "test",
+      "lastName": "css",
+      "email": "test@css.com",
+      "contactNumber": 6523654789,
+      "gender": "male",
+      "dateOfEmployment": "2022-02-15",
+      "deparmentList": "1",
+      "id": 3
     }
   ],
   "user": [
