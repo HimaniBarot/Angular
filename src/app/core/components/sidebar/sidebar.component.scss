@@ -2,6 +2,7 @@
   height: 100%;
   border-right: 1px solid #f4f4f4;
   width: 280px;
+  overflow: hidden;
 
   .header-title {
     height: 56px;
@@ -15,6 +16,7 @@
 .list-wrap {
   margin-top: 32px;
   padding: 0 8px;
+  overflow: auto;
 }
 ul li {
   margin-bottom: 4px;
