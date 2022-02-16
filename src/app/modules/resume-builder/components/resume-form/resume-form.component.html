@@ -4,30 +4,30 @@
 <div class="form-wrapper">
   <h3>Add Your Details</h3>
   <!-- {{ resumeForm.value | json }} -->
-  <form [formGroup]="resumeForm" (ngSubmit)="onSubmit()" autocomplete="on">
-    <div class="input-data">
+  <form class="form-wrapper d-flex flex-column" [formGroup]="resumeForm" (ngSubmit)="onSubmit()" autocomplete="on">
+    <div class="form-group">
       <label for="name">Name</label><br />
       <input type="text" formControlName="name" />
       <div class="error-display" *ngIf="getValues['name'].touched || (getValues['name'].dirty && getValues['name'].invalid)">
         <span style="color: red" *ngIf="getValues['name'].errors && getValues['name'].errors['required']">Name is required.</span>
       </div>
     </div>
-    <div class="input-data">
+    <div class="form-group">
       <label for="name">Designation</label><br />
       <input type="text" formControlName="designation" />
     </div>
-    <div class="input-data">
+    <div class="form-group">
       <label for="name">Email</label><br />
       <input type="text" formControlName="email" />
     </div>
-    <div class="input-data">
+    <div class="form-group">
       <label for="name">Contact Number</label><br />
       <input type="number" formControlName="contactNumber" />
     </div>
 
     <!-- SKILLS -->
 
-    <div class="input-data">
+    <div class="form-group">
       <label for="name">Technical Skills</label><br />
       <button type="button" (click)="addNewSkill()">+ ADD</button>
     </div>

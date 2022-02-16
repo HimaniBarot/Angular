@@ -15,25 +15,25 @@ body {
   overflow: hidden;
 }
 table {
-  // border-collapse: collapse;
-  // width: 100%;
-  // border: 1px solid #DDD;
-  // border-collapse: collapse; 
-    width: 100%;
-    border-spacing: 0;
-    border: 1px solid #ddd;
-    overflow: hidden;
-    background-color: #fbf7f7;
-    // border-collapse: separate;
-    /* border-spacing: 15px; */
-    border-radius: 23px;
+  width: 100%;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 23px;
 }
 
 th,
 td {
   padding: 8px;
   text-align: left;
+  font-weight: 300;
+  color: #6a6a6a;
   border-bottom: 1px solid #ddd;
+}
+td {
+  font-weight: 600;
+  // color: #848484;
 }
 .text-center {
   text-align: center;
@@ -56,6 +56,9 @@ td {
 .justify-center {
   justify-content: center;
 }
+.flex-row {
+  flex-direction: row;
+}
 .flex-column {
   flex-direction: column;
 }
@@ -65,7 +68,7 @@ td {
 ul {
   li {
     list-style-type: none;
-    // cursor: pointer;
+    margin-bottom: 8px;
   }
 }
 a {
@@ -78,44 +81,57 @@ a {
   border: none;
   background-color: #2f55e4;
   color: white;
-  padding: 8px 32px;
-  border-radius: 8px;
+  padding: 10px 24px;
+  border-radius: 16px;
   cursor: pointer;
-}
-.btn-success {
-  background-color: #156844;
-  margin-right: 4px;
-}
-.btn-danger {
-  background-color: #d11d1d;
+  font-size: 0.96rem;
+
+  &.btn-success {
+    background-color: #156844;
+    margin-right: 16px;
+  }
+  &.btn-danger {
+    background-color: #d11d1d;
+  }
 }
 input,
-textarea {
-  background: transparent;
-    outline: none;
-    border: 1px solid #ebebeb;
-    border-radius: 8px;
-    width: 500px;
-    padding: 8px 12px;
+textarea,
+select {
+  outline: none;
+  border: 1px solid #ebebeb;
+  border-radius: 8px;
+  // width: 400px;
+  padding: 8px 12px;
+  background-color: #ffffff;
 }
-input[type="text"] {
-  width: 400px;
+.form-wrapper {
+  margin-top: 32px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px 16px;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-bottom: 16px;
+  }
+  .form-group-btn {
+    padding: 0 16px 16px;
+    display: flex;
+    justify-content: flex-end;
+  }
 }
-.container {
-  width: 80%;
-  margin: 0 auto;
+input[type="radio"] {
+  width: auto;
 }
 .table {
   width: 100%;
 }
-.form-wrapper {
-  width: 700px;
-  margin: 0 auto;
-}
 .mr-2 {
   margin-right: 12px;
 }
-.list-header{
+.list-header {
   display: flex;
   justify-content: space-between;
   margin: 32px 0;

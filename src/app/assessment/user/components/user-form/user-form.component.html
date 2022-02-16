@@ -1,8 +1,8 @@
 <!-- {{ userForm.value | json }} -->
 
 <div class="form-wrapper d-flex flex-column align-center">
-    <h2 *ngIf="isAdd" class="text-center">Add User Details</h2>
-    <h2 *ngIf="!isAdd" class="text-center">Edit User Details</h2>
+    <h2 *ngIf="isAdd" class="">Add User Details</h2>
+    <h2 *ngIf="!isAdd" class="">Edit User Details</h2>
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()" autocomplete="on">
         <div class="mb-3">
             <label>Name<span class="required">*</span></label>

@@ -1,10 +1,9 @@
-.main-content-wrapper{
-    // border: solid green;
-    overflow: hidden;
+.main-wrapper {
+  overflow: hidden;
 }
-.content-wrapper{
-    // background-color: #e6e6e6;
-    height: 100%;
-    overflow: auto;
-    padding: 32px;
+.content-wrapper {
+  background-color: #f7f8fa;
+  height: 100%;
+  overflow: auto;
+  padding: 32px;
 }

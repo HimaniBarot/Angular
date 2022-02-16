@@ -1,4 +1,4 @@
-<h2 class="text-center">Employee Details</h2>
+<h2 class="">Employee Details</h2>
 <!-- SEARCH DATA -->
 <div class="list-header">
     <input class="" type="search" placeholder="Search here..." [(ngModel)]="filterData" />
@@ -10,7 +10,8 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Sr. No</th>
+                <th class="th-checkbox text-center"><input type="checkbox" /></th>
+                <th>#</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Contact No</th>
@@ -22,7 +23,14 @@
         </thead>
         <tbody>
             <tr *ngFor="let employee of employeeList | filter: filterData; let i = index;">
-                <th>{{ i+1 }}</th>
+                <td class="th-checkbox text-center">
+                    <input type="checkbox" />
+                    <!-- <label class="checkbox-container">One
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label> -->
+                </td>
+                <td>{{ i+1 }}</td>
                 <td>{{ employee.firstName }} {{employee.lastName }}</td>
                 <td>{{ employee.email }}</td>
                 <td>{{ employee.contactNumber }}</td>
