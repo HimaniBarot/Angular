@@ -1,14 +1,25 @@
-// .form-wrapper {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-// }
-.input-data {
-  margin-bottom: 16px;
+.add-field {
+  width: 50px;
+  padding: 4px 4px;
 }
-// .input-data input,
-// select,
-// textarea {
-//   width: 400px;
+// .tech-field{
+//   width: 33.33%;
 // }
+.add-field,
+.delete-field {
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  margin: 16px 0px;
+}
+.add-field {
+  background-color: #0083ff;
+}
+.delete-field {
+  background-color: red;
+  margin: 0;
+  margin-left: 8px;
+  padding: 1px 15px;
+  font-size: 1.6rem;
+}
