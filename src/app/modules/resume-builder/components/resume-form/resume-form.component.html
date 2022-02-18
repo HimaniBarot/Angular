@@ -7,9 +7,8 @@
     <div class="form-group">
       <label for="name">Name</label>
       <input class="form-control" type="text" formControlName="name" />
-      <div class="error-display"
-        *ngIf="getValues['name'].touched || (getValues['name'].dirty && getValues['name'].invalid)">
-        <span style="color: red" *ngIf="getValues['name'].errors && getValues['name'].errors['required']">Name is
+      <div *ngIf="getValues['name'].touched || (getValues['name'].dirty && getValues['name'].invalid)">
+        <span id="error-display" *ngIf="getValues['name'].errors && getValues['name'].errors['required']">Name is
           required.</span>
       </div>
     </div>
@@ -39,13 +38,13 @@
       <div class="form-group tech-field" *ngFor="let skill of addSkill['controls']; let i = index">
         <div class="d-flex" [formGroupName]="i">
           <!-- <div class="d-flex"> -->
-            <input class="form-control" type="text" formControlName="techSkill" />
-            <button class="delete-field" type="button" (click)="deleteSkill(i)">-</button>
+          <input class="form-control" type="text" formControlName="techSkill" />
+          <button class="delete-field" type="button" (click)="deleteSkill(i)">-</button>
           <!-- </div> -->
           <!-- display error -->
           <div *ngIf="getFormGroup(skill).controls['techSkill'].touched || 
           (getFormGroup(skill).controls['techSkill'].dirty && getFormGroup(skill).controls['techSkill'].invalid)">
-            <p *ngIf="getFormGroup(skill).controls['techSkill'].errors" style="color: red">
+            <p id="error-display" *ngIf="getFormGroup(skill).controls['techSkill'].errors">
               This field is required.
             </p>
           </div>

@@ -10,10 +10,10 @@
         <label class="form-label">First name<span class="required">*</span></label>
         <input formControlName="firstName" type="text" class="form-control" />
         <!-- DISPLAY ERROR -->
-        <div *ngIf="getValues['firstName'].touched || (getValues['firstName'].dirty && getValues['firstName'].invalid)"
-            id="error-display" class="form-text">
-            <span id="error-display" *ngIf="getValues['firstName'].errors && getValues['firstName'].errors['required']"
-                class="error">First Name required.</span>
+        <div *ngIf="getValues['firstName'].touched || (getValues['firstName'].dirty && getValues['firstName'].invalid)">
+            <span id="error-display"
+                *ngIf="getValues['firstName'].errors && getValues['firstName'].errors['required']">First Name
+                required.</span>
         </div>
     </div>
 
@@ -22,9 +22,8 @@
         <input formControlName="lastName" type="text" class="form-control" />
         <!-- DISPLAY ERROR -->
         <div *ngIf="getValues['lastName'].touched || (getValues['lastName'].dirty && getValues['lastName'].invalid)"
-            id="error-display" class="form-text">
-            <span *ngIf="getValues['lastName'].errors && getValues['lastName'].errors['required']"
-                class="error">Lastname
+            id="error-display">
+            <span *ngIf="getValues['lastName'].errors && getValues['lastName'].errors['required']">Lastname
                 required.</span>
         </div>
     </div>
@@ -51,12 +50,14 @@
         <label for="gender">Gender:</label>
         <div class="d-flex flex-row">
             <div class="input-field">
-                <input class="form-control radio" id="male" type="radio" value="male" name="gender" formControlName="gender">
+                <input class="form-control radio" id="male" type="radio" value="male" name="gender"
+                    formControlName="gender">
                 <label for="male">Male</label>
             </div>
 
             <div class="input-field">
-                <input class="form-control radio" id="female" type="radio" value="female" name="gender" formControlName="gender">
+                <input class="form-control radio" id="female" type="radio" value="female" name="gender"
+                    formControlName="gender">
                 <label for="female">Female</label>
             </div>
         </div>

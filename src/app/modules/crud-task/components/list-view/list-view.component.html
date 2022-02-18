@@ -1,6 +1,7 @@
 <h2 class="heading">Employee Details</h2>
 <!-- SEARCH DATA -->
 <div class="list-header">
+    <span class="icon-search"></span>
     <input class="form-control search" type="search" placeholder="Search here..." [(ngModel)]="filterData" />
     <button type="button" routerLink="/crud-task/employee-form" class="btn">+ EMPLOYEE</button>
 </div>
@@ -34,8 +35,12 @@
                 <td>{{ employee.gender }}</td>
                 <td>{{ employee.deparmentList | departmentList: deparmentList}}</td>
                 <td>
-                    <a (click)="editEmployee(employee.id)"><i class="far fa-edit"></i></a>
-                    <a (click)="deleteEmployee(employee.id)"><i class="far fa-trash-alt"></i></a>
+                    <a (click)="editEmployee(employee.id)">
+                        <span class="action-icons icon-pencil"></span>
+                    </a>
+                    <a (click)="deleteEmployee(employee.id)">
+                        <span class="action-icons icon-bin"></span>
+                    </a>
                 </td>
             </tr>
         </tbody>
