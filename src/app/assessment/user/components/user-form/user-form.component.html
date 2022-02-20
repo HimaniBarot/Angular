@@ -1,88 +1,91 @@
 <!-- {{ userForm.value | json }} -->
+<h2 *ngIf="isAdd" class="">Add User Details</h2>
+<h2 *ngIf="!isAdd" class="">Edit User Details</h2>
 
-<div class="form-wrapper d-flex flex-column align-center">
-    <h2 *ngIf="isAdd" class="">Add User Details</h2>
-    <h2 *ngIf="!isAdd" class="">Edit User Details</h2>
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" autocomplete="on">
-        <div class="mb-3">
-            <label>Name<span class="required">*</span></label>
-            <input formControlName="name" type="text" class="form-control" />
-            <!-- DISPLAY ERROR -->
-            <div *ngIf="getFormControls['name'].touched || (getFormControls['name'].dirty && getFormControls['name'].invalid)"
-                id="error-display">
-                <span *ngIf="getFormControls['name'].errors && getFormControls['name'].errors['required']"
-                    class="error">Name is required.</span>
+<form class="form-wrapper d-flex flex-column" [formGroup]="userForm" (ngSubmit)="onSubmit()" autocomplete="on">
+    <div class="form-group">
+        <label class="form-label">Name<span class="required">*</span></label>
+        <input class="form-select" formControlName="name" type="text" />
+        <!-- DISPLAY ERROR -->
+        <div *ngIf="getFormControls['name'].touched || (getFormControls['name'].dirty && getFormControls['name'].invalid)"
+            id="error-display">
+            <span *ngIf="getFormControls['name'].errors && getFormControls['name'].errors['required']"
+                class="error">Name is required.</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Email<span class="required">*</span></label>
+        <input class="form-select" formControlName="email" type="email" />
+        <!-- DISPLAY ERROR -->
+        <div *ngIf="getFormControls['email'].touched && getFormControls['email'].invalid" id="error-display">
+            <div *ngIf="getFormControls['email'].errors && getFormControls['email'].errors['required']">Email is
+                required.
+            </div>
+            <div *ngIf="getFormControls['email'].errors && getFormControls['email'].errors['email']">Please, enter
+                valid email
+                address.
             </div>
         </div>
 
-        <div class="mb-3">
-            <label>Email<span class="required">*</span></label>
-            <input formControlName="email" type="email" />
-            <!-- DISPLAY ERROR -->
-            <div *ngIf="getFormControls['email'].touched && getFormControls['email'].invalid" id="error-display">
-                <div *ngIf="getFormControls['email'].errors && getFormControls['email'].errors['required']">Email is
-                    required.
-                </div>
-                <div *ngIf="getFormControls['email'].errors && getFormControls['email'].errors['email']">Please, enter
-                    valid email
-                    address.
-                </div>
-            </div>
+    </div>
 
-        </div>
+    <div class="form-group">
+        <label class="form-label">Mobile<span class="required">*</span></label>
+        <input class="form-select" formControlName="mobile" type="number" />
+    </div>
 
-        <div>
-            <label>Mobile<span class="required">*</span></label>
-            <input formControlName="mobile" type="number" />
-        </div>
+    <div class="form-group">
+        <label class="form-label">City</label>
+        <input class="form-select" formControlName="city" type="text" />
+    </div>
 
-        <div>
-            <label>City</label>
-            <input formControlName="city" type="text" />
-        </div>
-
-        <div>
-            <label for="gender">Gender:</label>
-            <div>
-                <input id="male" type="radio" value="male" formControlName="gender">
+    <div class="form-group">
+        <label class="form-label" for="gender">Gender:</label>
+        <div class="d-flex flex-row">
+            <div class="input-field">
+                <input class="form-select" id="male" type="radio" value="male" formControlName="gender">
                 <label for="male">Male</label>
             </div>
 
-            <div>
-                <input id="female" type="radio" value="female" formControlName="gender">
+            <div class="input-field">
+                <input class="form-select" id="female" type="radio" value="female" formControlName="gender">
                 <label for="female">Female</label>
             </div>
 
-            <div>
-                <input id="other" type="radio" value="other" formControlName="gender">
+            <div class="input-field">
+                <input class="form-select" id="other" type="radio" value="other" formControlName="gender">
                 <label for="other">Other</label>
             </div>
         </div>
+    </div>
 
+    <!-- <div> -->
+    <div class="form-group">
+        <label class="form-label">Department<span class="required">*</span></label>
+        <select class="form-select" formControlName="deparmentList">
+            <option selected disabled>Select your department --</option>
+            <option *ngFor="let department of departments" [value]="department.id">{{ department.departmentList
+                }}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Hire Date</label>
+        <input class="form-select" formControlName="dateOfHire" type="date" />
+    </div>
+    <!-- </div> -->
+
+    <div>
+        <input id="other" type="checkbox" value="checked" formControlName="checkbox" /> Permenant Employee
+    </div>
+
+    <div class="form-group-btn d-flex justify-space-between">
+        <button type="button" class="btn" routerLink="/">Cancel</button>
         <div>
-            <div class="mb-3">
-                <label>Department<span class="required">*</span></label>
-                <select formControlName="deparmentList">
-                    <option selected disabled>Select your department --</option>
-                    <option *ngFor="let department of departments" [value]="department.id">{{ department.departmentList
-                        }}</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label>Hire Date</label>
-                <input formControlName="dateOfHire" type="date" />
-            </div>
-        </div>
-
-        <div>
-            <input id="other" type="checkbox" value="checked" formControlName="checkbox" /> Permenant Employee
-        </div>
-
-        <div class="mt-5">
             <button type="submit" class="btn btn-success">Submit</button>
             <button type="button" class="btn btn-danger" (click)="resetForm()">Clear</button>
-            <button type="button" class="btn" routerLink="/">Cancel</button>
         </div>
 
-    </form>
-</div>
+    </div>
+
+</form>

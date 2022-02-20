@@ -1,1 +1,13 @@
-<p>data-binding works!</p>
+<h1>{{ interpolation }}</h1>
+
+<div class="form-group box" [class.classBind]="classBind" [style.padding]="padding">
+    <!-- For multiple class and style use inbuilt class & style directive ngClass, ngStyle -->
+    <!-- {{ customMethod() }} <br> -->
+
+    <app-input-output [childMsg]="inputMsg" (childEvent)="childData=$event"></app-input-output>
+    <input class="form-control" type="text" [placeholder]="placeholder" [(ngModel)]="twoWayMsg" /><br>
+    <p>{{twoWayMsg}}</p>
+
+    <button class="btn" (click)="showMsg($event)">Add</button>
+    <p [ngStyle]="myStyle">{{message}}</p>
+</div>

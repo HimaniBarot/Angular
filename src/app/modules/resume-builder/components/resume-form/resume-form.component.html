@@ -86,7 +86,7 @@
 
   <!-- Education -->
 
-  <div class="input-data">
+  <div class="form-group">
     <label for="name">Education</label><br />
     <button class="add-field" type="button" (click)="addNewEducation()">+ ADD</button>
   </div>
@@ -100,8 +100,11 @@
     </div>
   </div>
 
-  <div class="input-data">
-    <button class="btn btn-success" type="submit">Submit</button>
-    <button class="btn btn-danger" type="button">Reset</button>
+  <div class="form-group-btn d-flex justify-space-between">
+    <button routerLink="/" type="button" class="btn btn-primary">Cancel</button>
+    <div>
+      <button class="btn btn-success" type="submit">Submit</button>
+      <button class="btn btn-danger" type="button">Reset</button>
+    </div>
   </div>
 </form>
