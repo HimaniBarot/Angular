@@ -6,7 +6,7 @@
         <div formArrayName="address">
             <div *ngFor="let address of addAddress['controls']; let i = index">
                 <div class="addressControl" [formGroupName]="i">
-                    address: {{ i }} <input type="text" formControlName="address" />
+                    <input class="form-control" type="text" formControlName="address" />
                     <button type="button" class="btn" (click)="addNewaddress()">+ ADD</button>
                     <button type="button" class="btn btn-danger" (click)="deleteAddress(i)">-</button>
                 </div>

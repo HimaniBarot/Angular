@@ -1,0 +1,25 @@
+.icon-search {
+  position: absolute;
+  margin: 11.5px 11.5px;
+  color: #626262;
+}
+
+.action-icons {
+  color: #626262;
+  padding: 4px;
+  &.icon-pencil {
+    color: #0087ff;
+    &:hover {
+      font-weight: 700;
+    }
+  }
+  &.icon-bin {
+    color: #dc3545;
+    &:hover {
+      font-weight: 700;
+    }
+  }
+}
+.icons {
+  margin: 0px 10px;
+}

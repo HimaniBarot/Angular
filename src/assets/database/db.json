@@ -68,6 +68,32 @@
         }
       ],
       "id": 1
+    },
+    {
+      "name": "test",
+      "designation": "",
+      "email": "test@mail.com",
+      "contactNumber": null,
+      "skills": [
+        {
+          "techSkill": "html"
+        }
+      ],
+      "experience": [
+        {
+          "company": "",
+          "position": "",
+          "description": "",
+          "duration": ""
+        }
+      ],
+      "education": [
+        {
+          "university": "",
+          "result": ""
+        }
+      ],
+      "id": 2
     }
   ],
   "brand": [

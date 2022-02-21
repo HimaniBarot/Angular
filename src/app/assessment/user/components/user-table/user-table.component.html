@@ -2,7 +2,8 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Sr. No</th>
+                <th class="th-checkbox text-center"></th>
+                <th>#</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Mobile</th>
@@ -14,7 +15,10 @@
         </thead>
         <tbody>
             <tr *ngFor="let user of userList; let i = index;">
-                <th>{{ i+1 }}</th>
+                <td class="th-checkbox text-center">
+                    <input type="checkbox" />
+                </td>
+                <td>{{ i+1 }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.mobile }}</td>
@@ -22,9 +26,13 @@
                 <td>{{ user.gender }}</td>
                 <td>{{ user.deparmentList | department: department }}</td>
                 <td>
-                    <a (click)="editUser(user.id)"><i class="far fa-edit"></i></a>
-                    <a (click)="deleteUser(user.id)"><i class="far fa-trash-alt"></i></a>
-                    <button class="btn-view">Details</button>
+                    <a (click)="editUser(user.id)">
+                        <span class="action-icons icon-pencil"></span>
+                    </a>
+                    <a (click)="deleteUser(user.id)">
+                        <span class="action-icons icon-bin"></span>
+                    </a>
+                    <a class="btn">Details</a>
                     <!-- <button class="btn-view" (click)="viewUserDetails(user.id)">Details</button> -->
                 </td>
             </tr>

@@ -1,160 +1,20 @@
-@import "src/assets/scss/style.scss";
+// @import "assets/scss/style.scss";
 
-// TABLE
-.table-wrapper {
-  overflow: auto;
-}
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  border: 1px solid #ddd;
-  overflow: hidden;
-  background-color: #ffffff;
-  border-radius: 10px;
-  th {
-    padding: 8px;
-    color: #c3c4c6;
-  }
-  td {
-    padding: 20px 12px;
-    font-weight: 500;
-  }
-}
-.th-checkbox input {
-  width: auto;
-  border-color: #c3c4c6;
-}
+// Project base and component style import
+// @import "/assets/scss/base/index";
+@import "assets/scss/base/index";
 
-th,
-td {
-  text-align: left;
-  font-weight: 300;
-  color: #626262;
-  border-bottom: 1px solid #ddd;
-}
-.heading {
-  color: #1e1f21;
-}
-.list-header {
-  display: flex;
-  justify-content: space-between;
-  margin: 32px 0;
-  position: relative;
+// Vendor base and component style import
+// @import 'vendor/bootstrap-base';
 
-  .search {
-    width: 280px;
-    padding-left: 36px;
-    transition: all 0.3s ease-in-out;
-    &:focus {
-      width: 500px;
-    }
-  }
+// @import 'vendor/bootstrap-components';
 
-  .icon-search {
-    position: absolute;
-    margin: 11.5px 11.5px;
-    color: #626262;
-  }
-}
+// Project Specific Components
+@import "assets/scss/component/index";
 
-.action-icons {
-  color: #626262;
-  padding: 4px;
-  &.icon-pencil {
-    color: #0087ff;
-    &:hover {
-      font-weight: 700;
-    }
-  }
-  &.icon-bin {
-    color: #dc3545;
-    &:hover {
-      font-weight: 700;
-    }
-  }
-}
+// Now other style import
+@import "assets/scss/layout/index";
 
-// errors
-#error-display,
-.required {
-  color: red;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
+@import "assets/scss/utilities/index";
 
-// sidebar
-#checkmark {
-  display: none;
-}
 
-.span {
-  flex-grow: 0;
-  flex-shrink: 0;
-  width: 100%;
-  transition: all ease-in-out 0.4s;
-}
-
-.checkbox-label {
-  margin: 0px 12px;
-  cursor: pointer;
-}
-
-#checkmark ~ .aside {
-  width: 70px;
-  transition: all ease-in-out 0.4s;
-
-  .header-title,
-  span {
-    transition: all ease-in-out 0.3s;
-    transform: translateX(100%);
-  }
-
-  .checkbox-label {
-    .line {
-      height: 3px;
-      width: 20px;
-      margin: 3px;
-      background-color: #636da6;
-      transition: all ease-in-out 0.4s;
-      &1,
-      &3 {
-        transform: translate(0) rotate(0);
-      }
-    }
-  }
-
-  .header {
-    width: 300px;
-    height: 56px;
-    padding: 0.56rem 0.56rem;
-    border-bottom: 1px solid #f4f4f4;
-  }
-}
-
-// checked
-
-#checkmark:checked ~ .aside {
-  width: 300px;
-  overflow-x: hidden;
-  .header-title,
-  span {
-    transition: all ease-in-out 0.3s;
-    transform: translateX(0);
-    white-space: nowrap;
-  }
-
-  .checkbox-label {
-    .line {
-      &1 {
-        transform: translateY(6px) rotate(45deg);
-      }
-      &3 {
-        transform: translateY(-6px) rotate(-45deg);
-      }
-      &2 {
-        transform: scaleX(0);
-      }
-    }
-  }
-}
