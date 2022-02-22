@@ -2,7 +2,7 @@
 <h2 *ngIf="isAdd" class="">Add User Details</h2>
 <h2 *ngIf="!isAdd" class="">Edit User Details</h2>
 
-<form class="form-wrapper d-flex flex-column" [formGroup]="userForm" (ngSubmit)="onSubmit()" autocomplete="on">
+<form class="form-wrapper d-flex flex-column" [formGroup]="userForm"  autocomplete="on">
     <div class="form-group">
         <label class="form-label">Name<span class="required">*</span></label>
         <input class="form-select" formControlName="name" type="text" />
@@ -82,7 +82,7 @@
     <div class="form-group-btn d-flex justify-space-between">
         <button type="button" class="btn" routerLink="/">Cancel</button>
         <div>
-            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="submit" class="btn btn-success" (click)="onSubmit()">Submit</button>
             <button type="button" class="btn btn-danger" (click)="resetForm()">Clear</button>
         </div>
 

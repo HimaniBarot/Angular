@@ -1,35 +1,3 @@
-.table-wrapper {
-  overflow: auto;
-}
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  border: 1px solid #ddd;
-  overflow: hidden;
-  background-color: #ffffff;
-  border-radius: 10px;
-  th {
-    padding: 8px;
-    color: #c3c4c6;
-  }
-  td {
-    padding: 20px 12px;
-    font-weight: 500;
-  }
-}
-.th-checkbox input {
-  width: auto;
-  border-color: #c3c4c6;
-}
-
-th,
-td {
-  text-align: left;
-  font-weight: 300;
-  color: #626262;
-  border-bottom: 1px solid #ddd;
-}
 .heading {
   color: #1e1f21;
 }
@@ -46,5 +14,37 @@ td {
     &:focus {
       width: 500px;
     }
+  }
+}
+.table-wrapper {
+  overflow: auto;
+
+  th,
+  td {
+    text-align: left;
+    font-weight: 300;
+    color: #626262;
+    border-bottom: 1px solid #ddd;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 10px;
+    tr th {
+      padding: 8px;
+      color: #c3c4c6;
+    }
+    tr td {
+      padding: 20px 12px;
+      font-weight: 500;
+    }
+  }
+  .th-checkbox input {
+    width: auto;
+    border-color: #c3c4c6;
   }
 }
