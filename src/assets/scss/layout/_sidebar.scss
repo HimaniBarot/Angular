@@ -18,7 +18,7 @@
   padding: 32px 8px;
   overflow: auto;
   overflow-x: hidden;
-  &.nav-footer{
+  &.nav-footer {
     padding: 32px 8px 12px;
   }
 
@@ -37,9 +37,9 @@
   }
 }
 
-.avtar{
+.avtar {
   padding: 8.56px;
-  .profile-image img{
+  .profile-image img {
     width: 30px;
   }
 }
@@ -137,3 +137,17 @@
   }
 }
 
+@media (max-width: 768px) {
+  .aside {
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    background: white;
+  }
+  #checkmark:checked ~ .aside {
+    width: 100%;
+    .nav-list {
+      align-items: center;
+    }
+  }
+}

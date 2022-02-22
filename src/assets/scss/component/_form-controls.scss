@@ -46,6 +46,8 @@
   font-weight: 500;
 }
 
-@media (min-width: 768px) { 
-
- }
+@media (max-width: 768px) {
+  .form-wrapper .form-group {
+    width: 100%;
+  }
+}

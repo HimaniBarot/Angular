@@ -48,3 +48,17 @@
     border-color: #c3c4c6;
   }
 }
+
+@media (max-width: 768px) {
+  .list-header {
+    display: block;
+    .search {
+      width: 100%;
+      padding-left: 36px;
+    }
+  }
+  .list-btn {
+    margin-top: 20px;
+    padding: 9px 10px;
+  }
+}
