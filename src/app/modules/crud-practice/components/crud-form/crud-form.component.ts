@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
-import { Brand, User } from '../../models/crud.model';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Employee } from '../../models/crud.model';
 import { CrudService } from '../../services/crud.service';
 
 @Component({
@@ -9,88 +10,46 @@ import { CrudService } from '../../services/crud.service';
   styleUrls: ['./crud-form.component.scss'],
 })
 export class CrudFormComponent implements OnInit {
-  brandOptions: Brand[];
-  // @Input() brands: Brand[];
 
-  // @Output() createdUser: EventEmitter<User> = new EventEmitter<User>();
+  private idToEdit: number;
+  public empForm: FormGroup;
 
-  // constructor(private fb: FormBuilder) {}
+  constructor(
+    private crudService: CrudService,
+    private activatedRoute: ActivatedRoute,
+    private fb: FormBuilder,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    // this.buidUserForm();
+    this.generateForm();
+    this.idToEdit = parseInt(this.activatedRoute.snapshot.params['id']);
+    if (this.idToEdit) {
+      let temp = this.crudService.getById(this.idToEdit);
+      if (temp == undefined) {
+        temp = {
+          id: 0,
+          name: '',
+          email: '',
+          company: ''
+        };
+      }
+      this.empForm.patchValue(temp);
+    }
   }
 
-  // getCategoryOptions() {
-  //   this.productService.getCategory().subscribe((categoryOption: Category[]) => {
-  //     this.categoryOptions = categoryOption;
-  //   },(error)=>{
-  //     alert("Somethings Went Wrong");
-  //   });
-  // }
+  generateForm(): void {
+    this.empForm = this.fb.group({
+      name: [''],
+      email: [''],
+      company: ['']
+    });
+  }
 
-  // form: FormGroup;
-  // cities = ['Mohali', 'Chandigarh', 'Ludhiana', 'Amritsar'];
-  // zip_codes = ['282001', '456123', '123456', '140412'];
-
-  constructor() {
-    //   const defaultCities = ['Mohali', 'Amritsar'];
-    //   // const defaultZipCodes = ['456123'];
-    //   this.form = this.formBuilder.group({
-    //     cities: this.formBuilder.array(
-    //       this.cities.map((x) => defaultCities.indexOf(x) > -1)
-    //     ),
-    //     // zip_codes: this.formBuilder.array(
-    //     //   this.zip_codes.map((x) => defaultZipCodes.indexOf(x) > -1)
-    //     // ),
-    //   });
-    // }
-    // convertToValue(key: string) {
-    //   return this.form.value[key]
-    //     .map((x: string, i: string | number) => x && this[key][i])
-    //     .filter((x: string) => !!x);
-    // }
-    // onSubmit() {
-    //   const valueToStore = Object.assign({}, this.form.value, {
-    //     cities: this.convertToValue('cities'),
-    //     // zip_codes: this.convertToValue('zip_codes'),
-    //   });
-    //   console.log(valueToStore);
-    // }
-    // public userForm: FormGroup;
-    // addressDetailsArray: FormArray = this.fb.array([]);
-    // buidUserForm() {
-    //   this.userForm = this.fb.group({
-    //     name: [''],
-    //     email: [''],
-    //     contactNo: [],
-    //     brand: [],
-    //     address: this.addressDetailsArray,
-    //   });
-    // }
-    // addAddress() {
-    //   this.addressDetailsArray.push(this.addAddressField());
-    // }
-    // addAddressField() {
-    //   return this.fb.group({
-    //     city: [''],
-    //     state: [''],
-    //     pinCode: [],
-    //   });
-    // }
-    // saveUser() {
-    //   const userToSave = this.userForm.value;
-    //   if (this.userForm.valid) {
-    //     // this.createdUser.emit(userToSave);
-    //     this.resetForm();
-    //   } else {
-    //     console.log('solve Errors');
-    //   }
-    // }
-    // get formControl() {
-    //   return this.userForm['controls'];
-    // }
-    // resetForm() {
-    //   this.userForm.reset();
-    // }
+  onSubmit(): void {
+    if (this.idToEdit) {
+      this.crudService.editData(this.idToEdit, this.empForm.value);
+      this.router.navigateByUrl('/crud-practice/crud-list');
+    }
   }
 }

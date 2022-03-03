@@ -1,49 +1,36 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Brand } from '../../models/crud.model';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Employee } from '../../models/crud.model';
+import { CrudService } from '../../services/crud.service';
 
 @Component({
   selector: 'app-crud-list',
   templateUrl: './crud-list.component.html',
-  styleUrls: ['./crud-list.component.scss'],
+  styleUrls: ['./crud-list.component.scss']
 })
 export class CrudListComponent implements OnInit {
-  // @Input() brands: Brand[];
 
-  // constructor() {}
+  employees: Employee[];
+  // name: string;
 
-  ngOnInit(): void {}
+  constructor(private crudService: CrudService, private router: Router) {
+  }
+  
+  ngOnInit(): void {
+    this.employees = this.getEmployees();
+  }
 
-  // title = 'toolsets';
-  // parentSelector: boolean = false;
-  food = [
-    { id: 1, select: false, name: 'dumpling' },
-    { id: 2, select: true, name: 'burger' },
-    { id: 3, select: true, name: 'sandwich' },
-  ];
+  onClick(id: number): void {
+    console.log(this.crudService.getById(id));
+  }
 
-  // onChangeFood(event) {
-  // console.log(event.target);
-  // const id = event.target.value;
-  // console.log(id);
-  getValue(event: Event) {
-    // return (event.target as HTMLInputElement).value;
-    console.log((event.target as HTMLInputElement).value + 'is checked');
-    // }
-    // const isChecked = $event.target.checked;
-
-    // this.food = this.food.map((d) => {
-    //   if (d.id == id) {
-    //     d.select = isChecked;
-    //     this.parentSelector = false;
-    //     return d;
-    //   }
-    //   if (id == -1) {
-    //     d.select = this.parentSelector;
-    //     return d;
-    //   }
-    //   return d;
-    // });
-    // console.log(this.food);
+  getEmployees(): Employee[] {
+    return this.crudService.getData();
+  }
+  editEmployee(id: number): void {
+    this.router.navigateByUrl(`/crud-practice/edit/${id}`);
+  }
+  deleteEmployee(id: number): void {
+    this.crudService.deleteData(id);
   }
 }

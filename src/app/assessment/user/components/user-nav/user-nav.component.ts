@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/modules/crud-practice/models/crud.model';
+// import { User } from 'src/app/modules/crud-practice/models/crud.model';
 
 @Component({
   selector: 'app-user-nav',
@@ -8,7 +8,7 @@ import { User } from 'src/app/modules/crud-practice/models/crud.model';
 })
 export class UserNavComponent implements OnInit {
 
-  public user: User[];
+  // public user: User[];
   filterData: string = '';
 
   constructor() { }

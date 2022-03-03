@@ -5,15 +5,11 @@ import { CrudPracticeRoutingModule } from './crud-practice-routing.module';
 import { CrudFormComponent } from './components/crud-form/crud-form.component';
 import { CrudListComponent } from './components/crud-list/crud-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ParentComponent } from './components/parent/parent.component';
-import { ChildComponent } from './components/child/child.component';
 
 @NgModule({
   declarations: [
     CrudFormComponent,
-    CrudListComponent,
-    ParentComponent,
-    ChildComponent,
+    CrudListComponent
   ],
   imports: [
     CommonModule,
@@ -23,9 +19,7 @@ import { ChildComponent } from './components/child/child.component';
   ],
   exports: [
     CrudFormComponent,
-    CrudListComponent,
-    ParentComponent,
-    ChildComponent,
+    CrudListComponent
   ],
 })
 export class CrudPracticeModule {}

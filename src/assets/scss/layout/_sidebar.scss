@@ -137,17 +137,25 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   .aside {
     position: absolute;
     z-index: 99;
     width: 100%;
     background: white;
   }
+  // #checkmark ~ .aside {
+  //   height: 45px;
+  //   .nav-list {
+  //     display: none;
+  //   }
+  // }
   #checkmark:checked ~ .aside {
     width: 100%;
-    .nav-list {
-      align-items: center;
-    }
+    // height: 100%;
+    // .nav-list {
+    //   display: block;
+    //   align-items: center;
+    // }
   }
 }
