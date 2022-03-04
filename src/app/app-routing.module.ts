@@ -41,6 +41,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./assessment/user/user.module').then((m) => m.UserModule),
   },
+  {
+    path: 'cdk-overlay',
+    loadChildren: () =>
+      import('./modules/cdk-overlay/cdk-overlay.module').then((m) => m.CdkOverlayModule),
+  },
   { path: '**', component: PageNotFoundComponent },
 ];
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Employee } from '../../models/crud.model';
 import { CrudService } from '../../services/crud.service';
 
 @Component({
