@@ -8,12 +8,7 @@ import { DataBindingModule } from './modules/data-binding/data-binding.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    AppRoutingModule,
-    CoreModule,
-    DataBindingModule,
-    HttpClientModule
-  ],
+  imports: [AppRoutingModule, CoreModule, DataBindingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

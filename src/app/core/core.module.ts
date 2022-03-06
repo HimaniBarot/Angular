@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+// ---------------------------------------------------------------------------------//
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { BrowserModule } from '@angular/platform-browser';
-// import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+// ---------------------------------------------------------------------------------//
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,7 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     PageNotFoundComponent,
   ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    // ReactiveFormsModule,
-    RouterModule,
-  ],
+  imports: [CommonModule, BrowserModule, RouterModule, BrowserAnimationsModule],
   exports: [
     HeaderComponent,
     SidebarComponent,
