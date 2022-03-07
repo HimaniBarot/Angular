@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -11,5 +11,8 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  @Input() items: any[] = [];
+  @Input() itemTemplate: TemplateRef<HTMLElement>;
 
 }

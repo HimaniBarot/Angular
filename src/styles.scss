@@ -5,8 +5,8 @@
 @import "assets/scss/base/index";
 
 // Vendor base and component style import
-// @import 'vendor/bootstrap-base';
-@import '@angular/cdk/overlay-prebuilt.css';
+@import "vendor/bootstrap-base";
+@import "vendor/bootstrap-components";
 
 // @import 'vendor/bootstrap-components';
 
@@ -18,4 +18,5 @@
 
 @import "assets/scss/utilities/index";
 
-
+// Angular CDK
+@import "@angular/cdk/overlay-prebuilt.css";
