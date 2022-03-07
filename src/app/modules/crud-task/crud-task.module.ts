@@ -7,6 +7,7 @@ import { EmployeeFormComponent } from './components/employee-form/employee-form.
 import { DepartmentListPipe } from './pipes/departentList/department-list.pipe';
 import { FilterPipe } from './pipes/filter/filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CrudTaskRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    OverlayModule
   ],
   exports: [ListViewComponent, EmployeeFormComponent],
 })

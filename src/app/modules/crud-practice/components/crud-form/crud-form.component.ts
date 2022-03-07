@@ -9,6 +9,7 @@ import { CrudService } from '../../services/crud.service';
   styleUrls: ['./crud-form.component.scss'],
 })
 export class CrudFormComponent implements OnInit {
+
   private idToEdit: number;
   public empForm: FormGroup;
 
@@ -17,7 +18,7 @@ export class CrudFormComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.generateForm();
@@ -29,7 +30,7 @@ export class CrudFormComponent implements OnInit {
           id: 0,
           name: '',
           email: '',
-          company: '',
+          company: ''
         };
       }
       this.empForm.patchValue(temp);
@@ -40,7 +41,7 @@ export class CrudFormComponent implements OnInit {
     this.empForm = this.fb.group({
       name: [''],
       email: [''],
-      company: [''],
+      company: ['']
     });
   }
 

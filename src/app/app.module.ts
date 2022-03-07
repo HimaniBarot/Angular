@@ -5,10 +5,17 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DataBindingModule } from './modules/data-binding/data-binding.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [AppRoutingModule, CoreModule, DataBindingModule, HttpClientModule],
+  imports: [
+    AppRoutingModule,
+    CoreModule,
+    DataBindingModule,
+    HttpClientModule,
+    BrowserAnimationsModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -6,6 +6,7 @@
 
 // Vendor base and component style import
 // @import 'vendor/bootstrap-base';
+@import '@angular/cdk/overlay-prebuilt.css';
 
 // @import 'vendor/bootstrap-components';
 
@@ -17,14 +18,4 @@
 
 @import "assets/scss/utilities/index";
 
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

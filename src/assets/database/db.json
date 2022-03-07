@@ -25,7 +25,7 @@
       "contactNumber": 3333333333,
       "gender": "female",
       "dateOfEmployment": "2022-02-15",
-      "deparmentList": "4",
+      "deparmentList": "1",
       "id": 2
     },
     {
@@ -35,8 +35,28 @@
       "contactNumber": 6523654789,
       "gender": "male",
       "dateOfEmployment": "2022-02-15",
-      "deparmentList": "1",
+      "deparmentList": "4",
       "id": 3
+    },
+    {
+      "firstName": "ada",
+      "lastName": "dad",
+      "email": "dad@gdg.cm",
+      "contactNumber": 33333333333,
+      "gender": "",
+      "dateOfEmployment": "2022-03-11",
+      "deparmentList": "2",
+      "id": 5
+    },
+    {
+      "firstName": "om",
+      "lastName": "khambhata",
+      "email": "om@mail.com",
+      "contactNumber": 6666666666,
+      "gender": "male",
+      "dateOfEmployment": "2022-03-12",
+      "deparmentList": "1",
+      "id": 7
     }
   ],
   "user": [
