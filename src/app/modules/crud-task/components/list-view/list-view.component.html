@@ -23,8 +23,8 @@
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody>
-            <tr *ngFor="let employee of employeeList | filter: filterData; let i = index;">
+        <tbody cdkDropList [cdkDropListData]="this.employeeList" (cdkDropListDropped)="drop($event)">
+            <tr class="transition" *ngFor="let employee of employeeList | filter: filterData; let i = index;" cdkDrag>
                 <td class="th-checkbox text-center">
                     <input type="checkbox" />
                 </td>

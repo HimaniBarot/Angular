@@ -8,6 +8,7 @@ import { DepartmentListPipe } from './pipes/departentList/department-list.pipe';
 import { FilterPipe } from './pipes/filter/filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     CrudTaskRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    OverlayModule
+    OverlayModule,
+    DragDropModule
   ],
   exports: [ListViewComponent, EmployeeFormComponent],
 })

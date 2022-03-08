@@ -7,6 +7,7 @@ import { Overlay, OverlayRef } from '@angular/cdk/overlay'
 import { ComponentPortal } from '@angular/cdk/portal';
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-list-view',
@@ -111,6 +112,10 @@ export class ListViewComponent implements OnInit {
       this.getEmployeeDataList();
     });
     // this.displayConfirmation(id);
+  }
+
+  drop(event: CdkDragDrop<Employee[]>) {
+    moveItemInArray(this.employeeList, event.previousIndex, event.currentIndex);
   }
 
 }
