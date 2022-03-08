@@ -1,13 +1,12 @@
 <!-- {{ registrationForm.value | json }} -->
 <!-- {{ departments | json }} -->
-<!-- <div class="container"> -->
+<div class="form-container">
+<h2 *ngIf="isAdd" class="text-center">Add Employee</h2>
+<h2 *ngIf="!isAdd" class="text-center">Edit Employee</h2>
 
-    
-    <h2 *ngIf="isAdd" class="heading">Add Employee</h2>
-<h2 *ngIf="!isAdd" class="heading">Edit Employee</h2>
-<!-- <div> -->
+<!-- Start : Form -->
 <form class="form-wrapper d-flex flex-column" [formGroup]="registrationForm">
-<!-- <form class="form-wrapper d-flex flex-column" [formGroup]="registrationForm" (ngSubmit)="onSubmit()"> -->
+    <!-- <form class="form-wrapper d-flex flex-column" [formGroup]="registrationForm" (ngSubmit)="onSubmit()"> -->
     <div class="form-group">
         <label class="form-label">First name<span class="required">*</span></label>
         <input formControlName="firstName" type="text" class="form-control" />
@@ -95,11 +94,12 @@
         <button (click)="onclose()" type="button" class="btn btn-primary">Cancel</button>
         <!-- <button routerLink="/crud-task/list-view" type="button" class="btn btn-primary">Cancel</button> -->
         <div>
-            <button [disabled]="registrationForm.invalid" (click)="onSubmit()" type="submit" class="btn btn-success">Submit</button>
+            <button [disabled]="registrationForm.invalid" (click)="onSubmit()" type="submit"
+                class="btn btn-success">Submit</button>
             <button type="reset" class="btn btn-danger mx-3" (click)="resetForm()">Reset</button>
         </div>
     </div>
 
 </form>
-<!-- </div> -->
-<!-- </div> -->
+<!-- End : Form -->
+</div>

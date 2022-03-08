@@ -6,6 +6,7 @@ import { EmployeeService } from '../../services/employee.service';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay'
 import { ComponentPortal } from '@angular/cdk/portal';
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
+import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 
 @Component({
   selector: 'app-list-view',
@@ -47,6 +48,7 @@ export class ListViewComponent implements OnInit {
 
 
   componentRef: ComponentRef<EmployeeFormComponent>;
+  confirmationRef: ComponentRef<DeleteComponent>;
   overlayRef: OverlayRef;
 
   // Overlay
@@ -55,7 +57,7 @@ export class ListViewComponent implements OnInit {
 
     this.overlayRef = this.overlay.create({
       hasBackdrop: true,
-      positionStrategy: this.overlay.position().global().centerHorizontally(),
+      positionStrategy: this.overlay.position().global().centerHorizontally().right(),
     });
 
     const component = new ComponentPortal(EmployeeFormComponent);
@@ -70,6 +72,25 @@ export class ListViewComponent implements OnInit {
     });
   }
 
+  displayConfirmation(id: number) {
+    console.log("okk");
+
+    this.overlayRef = this.overlay.create({
+      hasBackdrop: true,
+      positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically(),
+    });
+
+    const component = new ComponentPortal(DeleteComponent);
+    this.confirmationRef = this.overlayRef.attach(component);
+
+    this.confirmationRef.instance.id = id;
+    this.confirmationRef.instance.delete.subscribe((name) => {
+      if(name === "delete")
+      this.deleteEmployee(id);
+      this.overlayRef.detach();
+    });
+  }
+
   // EDIT CLICK EVENT
   editEmployee(id: number) {
     // debugger
@@ -79,12 +100,17 @@ export class ListViewComponent implements OnInit {
   }
 
   //  DELETE EMPLOYEE DATA
+  showDeletePopup(id: number) {
+    this.displayConfirmation(id);
+  }
+  
   deleteEmployee(id: number) {
     this.service.deleteEmployeeData(id).subscribe((data) => {
       this.employeeList.splice(id - 1, 1);
       console.log('data deleted', data);
       this.getEmployeeDataList();
     });
+    // this.displayConfirmation(id);
   }
 
 }

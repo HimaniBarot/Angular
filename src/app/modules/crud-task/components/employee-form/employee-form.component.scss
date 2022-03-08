@@ -1,6 +1,13 @@
-.container{
-background-color: red;
-width: 50%;
-height: 100%;
-z-index: 9999;
+.container {
+  background-color: red;
+  width: 50%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.form-container {
+  background-color: #fff;
+  height: 100%;
+  padding: 1.5rem;
+  overflow: auto;
 }
