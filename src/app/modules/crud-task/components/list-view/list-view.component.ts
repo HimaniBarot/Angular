@@ -52,7 +52,7 @@ export class ListViewComponent implements OnInit {
   confirmationRef: ComponentRef<DeleteComponent>;
   overlayRef: OverlayRef;
 
-  // Overlay
+  // Create Form overlay
   displayOverlay() {
     console.log("okk");
 
@@ -73,6 +73,7 @@ export class ListViewComponent implements OnInit {
     });
   }
 
+  // Create Confirmation Popup overlay
   displayConfirmation(id: number) {
     console.log("okk");
 
@@ -100,18 +101,18 @@ export class ListViewComponent implements OnInit {
     this.componentRef.instance.id = id;
   }
 
-  //  DELETE EMPLOYEE DATA
+  // Open moadl to delete data
   showDeletePopup(id: number) {
     this.displayConfirmation(id);
   }
   
+  //  DELETE EMPLOYEE DATA
   deleteEmployee(id: number) {
     this.service.deleteEmployeeData(id).subscribe((data) => {
       this.employeeList.splice(id - 1, 1);
       console.log('data deleted', data);
       this.getEmployeeDataList();
     });
-    // this.displayConfirmation(id);
   }
 
   drop(event: CdkDragDrop<Employee[]>) {

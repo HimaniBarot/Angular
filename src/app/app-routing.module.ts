@@ -46,6 +46,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/cdk-overlay/cdk-overlay.module').then((m) => m.CdkOverlayModule),
   },
+  {
+    path: 'ngTemplateOutlet',
+    loadChildren: () =>
+      import('./modules/ng-template-outlet/ng-template-outlet.module').then((m) => m.NgTemplateOutletModule),
+  },
   { path: '**', component: PageNotFoundComponent },
 ];
 
