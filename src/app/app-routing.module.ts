@@ -51,6 +51,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/ng-template-outlet/ng-template-outlet.module').then((m) => m.NgTemplateOutletModule),
   },
+  {
+    path: 'mvpUser',
+    loadChildren: () =>
+      import('./user/user.module').then((m) => m.UserModule),
+  },
   { path: '**', component: PageNotFoundComponent },
 ];
 
