@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MvpUserService } from '../service/mvp-user.service';
 
 @Component({
   selector: 'app-user-form-container',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserFormContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mvpUserService: MvpUserService) { }
 
   ngOnInit(): void {
   }
