@@ -52,9 +52,9 @@ const routes: Routes = [
       import('./modules/ng-template-outlet/ng-template-outlet.module').then((m) => m.NgTemplateOutletModule),
   },
   {
-    path: 'mvpUser',
+    path: 'mentor',
     loadChildren: () =>
-      import('./user/user.module').then((m) => m.UserModule),
+      import('./mentor/mentor.module').then((m) => m.MentorModule),
   },
   { path: '**', component: PageNotFoundComponent },
 ];

@@ -1,0 +1,31 @@
+<button class="btn" routerLink="/mentor/add">Form</button>
+
+<h2>List of Mentors</h2>
+
+<div class="table-wrapper">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="align-middle" *ngFor="let item of mentorList">
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.department | departmentData: departmentlist }}</td>
+        <td>
+          <a (click)="onEdit(item.id)">
+            <span class="action-icons icon-pencil"></span>
+          </a>
+          <a (click)="onDelete(item.id)">
+            <span class="action-icons icon-bin"></span>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

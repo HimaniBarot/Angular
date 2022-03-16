@@ -1,0 +1,35 @@
+<div class="form-container">
+    <h2 class="text-center">{{ formTitle }}</h2>
+
+    <!-- Start : Form -->
+    <form [formGroup]="mentorForm" class="form-wrapper d-flex flex-column">
+        <div class="form-group">
+            <label class="form-label">Name<span class="required">*</span></label>
+            <input formControlName="name" type="text" class="form-control" />
+            <!-- DISPLAY ERROR -->
+            <div *ngIf="getControls['name'].touched || (getControls['name'].dirty && getControls['name'].invalid)">
+                <span id="error-display"
+                    *ngIf="getControls['name'].errors && getControls['name'].errors['required']">First Name
+                    required.</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Department</label>
+            <select class="form-select" formControlName="department">
+                <option selected disabled>Select your department --</option>
+                <option *ngFor="let department of departmentList" [value]="department.id">{{ department.departmentList}}</option>
+            </select>
+        </div>
+
+        <div class="form-group-btn d-flex justify-space-between">
+            <button class="btn" (click)="onCancel()">Cancel</button>
+            <div>
+                <button type="submit" class="btn btn-success" (click)="onSubmitMentor()">Submit</button>
+                <button type="button" class="btn btn-danger mx-3" (click)="onReset()">Reset</button>
+            </div>
+        </div>
+
+    </form>
+    <!-- End : Form -->
+</div>

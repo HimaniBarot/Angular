@@ -96,20 +96,6 @@
       "id": 2
     }
   ],
-  "brand": [
-    {
-      "id": 1,
-      "name": "ZARA"
-    },
-    {
-      "id": 2,
-      "name": "H&M"
-    },
-    {
-      "id": 3,
-      "name": "LEVI"
-    }
-  ],
   "userDetails": [
     {
       "name": "test1",
@@ -352,6 +338,38 @@
       "dateOfHire": "",
       "checkbox": null,
       "id": 23
+    }
+  ],
+  "mentors": [
+    {
+      "name": "Harshiv",
+      "department": "4",
+      "id": 1
+    },
+    {
+      "name": "Hiren tandel",
+      "department": "1",
+      "id": 2
+    },
+    {
+      "name": "Prachi",
+      "department": "1",
+      "id": 3
+    },
+    {
+      "name": "Kevang",
+      "department": "1",
+      "id": 4
+    },
+    {
+      "name": "Revant",
+      "department": "1",
+      "id": 5
+    },
+    {
+      "name": "Mayur",
+      "department": "1",
+      "id": 7
     }
   ]
 }

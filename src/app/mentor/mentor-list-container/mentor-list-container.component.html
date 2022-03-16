@@ -1,0 +1,4 @@
+<app-mentor-list-presentation 
+    [departmentlist]="departmentList$ | async"
+    [mentorList]="mentorList$ | async" 
+    (delete)="deleteMentor($event)"></app-mentor-list-presentation>

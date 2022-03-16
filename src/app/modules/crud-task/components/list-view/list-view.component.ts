@@ -46,8 +46,6 @@ export class ListViewComponent implements OnInit {
     );
   }
 
-
-
   componentRef: ComponentRef<EmployeeFormComponent>;
   confirmationRef: ComponentRef<DeleteComponent>;
   overlayRef: OverlayRef;
