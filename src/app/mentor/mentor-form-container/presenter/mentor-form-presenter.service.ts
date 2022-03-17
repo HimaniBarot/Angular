@@ -25,6 +25,8 @@ export class MentorFormPresenterService {
 
   /** Send mentor to add */
   addMentor(mentorForm: FormGroup) {
+    // console.log(mentorForm);
+    // debugger
     if(!mentorForm.valid) {
       return;
     } else {

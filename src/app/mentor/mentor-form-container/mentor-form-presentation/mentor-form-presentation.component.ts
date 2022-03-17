@@ -53,7 +53,6 @@ export class MentorFormPresentationComponent implements OnInit {
 
   public mentorForm: FormGroup;
   public formTitle: string;
-  filterData: string = '';
 
   constructor(private mentorFormPresenterService: MentorFormPresenterService, private location: Location) {
     this._departmentList = [];
@@ -75,7 +74,7 @@ export class MentorFormPresentationComponent implements OnInit {
   /** Subscribe mentor data */
   mentorDataForm() {
     this.mentorFormPresenterService.mentorFormData$.subscribe((res: MentorForm) => {
-      if (this.mentorForm.value) {
+      if (this.mentorData) {
         this.edit.emit(res)
       } else {
         this.add.emit(res);
@@ -85,6 +84,8 @@ export class MentorFormPresentationComponent implements OnInit {
 
   /** On submit button click */
   onSubmitMentor() {
+    console.log(this.mentorForm);
+    // debugger
     this.mentorFormPresenterService.addMentor(this.mentorForm);
   }
 
