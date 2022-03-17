@@ -1,9 +1,9 @@
-<button type="button" class="btn" routerLink="/crud-practice/crud-form">Form</button>
+<!-- <button type="button" class="btn" routerLink="/crud-practice/crud-form">Form</button> -->
 
 <!-- <input type="text" name="ok" [(ngModel)]="name">
 <button type="button" (click)="onClick(3)" class="btn">Press Me..!</button> -->
 
-<span>{{ this.employees | json }}</span>
+<!-- <span>{{ this.employees | json }}</span> -->
 
 <table>
     <thead>
@@ -16,14 +16,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let employee of this.employees">
-            <td>{{ employee.id }}</td>
-            <td>{{ employee.name }}</td>
-            <td>{{ employee.email }}</td>
-            <td>{{ employee.company }}</td>
+        <tr *ngFor="let item of data$ | async">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.company }}</td>
             <td>
-                <button type="button" (click)="editEmployee(employee.id)">Edit</button>
-                <button type="button" (click)="deleteEmployee(employee.id)">Delete</button>
+                <!-- <button type="button" (click)="editEmployee(employee.id)">Edit</button> -->
+                <!-- <button type="button" (click)="deleteEmployee(employee.id)">Delete</button> -->
             </td>
         </tr>
     </tbody>

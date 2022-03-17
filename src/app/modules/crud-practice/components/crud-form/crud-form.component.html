@@ -1,9 +1,12 @@
 crud form
 
 <form (ngSubmit)="onSubmit()" [formGroup]="empForm">
-    <input type="text" name="name" formControlName="name">
-    <input type="text" name="email" formControlName="email">
-    <input type="text" name="company" formControlName="company">
+    <label for="">Name</label>
+    <input type="text" name="name" formControlName="name"><br>
+    <label for="">Email</label>
+    <input type="text" name="email" formControlName="email"><br>
+    <label for="">Company</label>
+    <input type="text" name="company" formControlName="company"><br>
     <button type="submit">Submit</button>
 </form>
 
