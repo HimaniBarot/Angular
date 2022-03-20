@@ -4,11 +4,6 @@ import { PageNotFoundComponent } from './core/components/page-not-found/page-not
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'user',
-    pathMatch: 'full',
-  },
-  {
     path: 'dataBinding',
     loadChildren: () =>
       import('./modules/data-binding/data-binding.module').then(
@@ -44,17 +39,33 @@ const routes: Routes = [
   {
     path: 'cdk-overlay',
     loadChildren: () =>
-      import('./modules/cdk-overlay/cdk-overlay.module').then((m) => m.CdkOverlayModule),
+      import('./modules/cdk-overlay/cdk-overlay.module').then(
+        (m) => m.CdkOverlayModule
+      ),
   },
   {
     path: 'ngTemplateOutlet',
     loadChildren: () =>
-      import('./modules/ng-template-outlet/ng-template-outlet.module').then((m) => m.NgTemplateOutletModule),
+      import('./modules/ng-template-outlet/ng-template-outlet.module').then(
+        (m) => m.NgTemplateOutletModule
+      ),
   },
   {
     path: 'mentor',
     loadChildren: () =>
       import('./mentor/mentor.module').then((m) => m.MentorModule),
+  },
+  {
+    path: '',
+    redirectTo: 'user',
+    pathMatch: 'full',
+  },
+  {
+    path: 'javascript',
+    loadChildren: () =>
+      import('./modules/javascript/javascript.module').then(
+        (m) => m.JavascriptModule
+      ),
   },
   { path: '**', component: PageNotFoundComponent },
 ];
