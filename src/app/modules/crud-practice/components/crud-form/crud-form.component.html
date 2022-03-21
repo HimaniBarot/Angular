@@ -1,14 +1,11 @@
-crud form
-
-<form (ngSubmit)="onSubmit()" [formGroup]="empForm">
-    <label for="">Name</label>
-    <input type="text" name="name" formControlName="name"><br>
-    <label for="">Email</label>
-    <input type="text" name="email" formControlName="email"><br>
-    <label for="">Company</label>
-    <input type="text" name="company" formControlName="company"><br>
-    <button type="submit">Submit</button>
-</form>
-
-
-<button type="button" class="btn" routerLink="/crud-practice/crud-list">Cancel</button>
+<div class="d-flex">
+    <form [formGroup]="empForm">
+        <label for="">Name</label>
+        <input type="text" name="name" formControlName="name"><br>
+        <label for="">Email</label>
+        <input type="text" name="email" formControlName="email"><br>
+        <label for="">Company</label>
+        <input type="text" name="company" formControlName="company"><br>
+        <button type="submit" class="btn btn-success" (click)="onSubmit()">Submit</button>
+    </form>
+</div>

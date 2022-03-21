@@ -55,6 +55,6 @@ export class JavascriptComponent implements OnInit {
         res.company = 'Replaced';
       }
     });
-    console.log('Replace', itemReplace);
+    // console.log('Replace', itemReplace);
   }
 }

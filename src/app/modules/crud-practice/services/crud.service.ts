@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-// import { CrudPracticeModule } from '../crud-practice.module';
-import { Employee } from '../models/crud.model';
-
 export interface Crud {
   id: number;
   name: string;
@@ -11,9 +8,7 @@ export interface Crud {
   company: string;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CrudService {
   private data: Crud[] = [
     {
@@ -23,119 +18,41 @@ export class CrudService {
       company: "1Rivet"
     }
   ];
-  private nextId = 0;
+  private nextId = 1;
 
   private _list = new BehaviorSubject<Crud[]>(this.data);
-  readonly list$ = this._list.asObservable();
+  public list$: Observable<Crud[]>;
 
-  // private data: Employee[] = [
-  //   {
-  //     id: 1,
-  //     name: "Hrishi",
-  //     email: "hrishikesh@gmail.com",
-  //     company: "1Rivet"
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Jay",
-  //     email: "jay@gmail.com",
-  //     company: "1Rivet"
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Tanmay",
-  //     email: "tanmay@gmail.com",
-  //     company: "1Rivet"
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Om",
-  //     email: "om@gmail.com",
-  //     company: "1Rivet"
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "Nirali",
-  //     email: "nirali@gmail.com",
-  //     company: "1Rivet"
-  //   },
-  //   {
-  //     id: 6,
-  //     name: "Jigar",
-  //     email: "jigar@gmail.com",
-  //     company: "1Rivet"
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "Himani",
-  //     email: "himani@gmail.com",
-  //     company: "1Rivet"
-  //   },
-  //   {
-  //     id: 8,
-  //     name: "Himani",
-  //     email: "himani@gmail.com",
-  //     company: "1Rivet"
-  //   },
-  //   {
-  //     id: 9,
-  //     name: "Himani",
-  //     email: "himani@gmail.com",
-  //     company: "1Rivet"
-  //   },
-  //   {
-    
-  //     id: 10,
-  //     name: "Himani",
-  //     email: "himani@gmail.com",
-  //     company: "1Rivet"
-  //   },
-  // ];
-
+  private _listToEdit = new Subject<Crud>();
+  public listToEdit$ = new Observable<Crud>();
 
   constructor() {
-  }
-
-  /** Get data */
-  getData() {
-    this.data = [];
+    this.list$ = this._list.asObservable();
+    this.listToEdit$ = this._listToEdit.asObservable();
     this._list.next(this.data);
   }
-  // getData(): Employee[] {
-  //   return this.data;
-  // }
 
   /** Create data */
   create(item: Crud) {
     item.id = ++this.nextId;
     this.data.push(item);
-    this._list.next(Object.assign([], this.data));
+    console.log("service", this.data);
+    this._list.next(this.data);
   }
 
-  getById(id: number): Employee | undefined {
-    return this.data.find(
-      (res) => {
-        return res.id === id;
-      }
-    );
+  updateData(id: number, data: Crud) {
+    let index = this.data.findIndex((item) => item.id == id)
+    this.data[index] = data;
+    this.data[index].id = id;
+    this._list.next(this.data);
   }
 
-  editData(id: number, newData: Employee): void {
-    // this.data[this.data.findIndex((val) => id == val.id)] = {...this.getById(id), ...newData};
-    newData.id = id;
-    this.data[this.data.findIndex((val) => id == val.id)] = newData;
+  editData(newData: Crud): void {
+    this._listToEdit.next(newData);
   }
+
+  /** Delete data */
   deleteData(id: number): void {
-    this.data.splice(this.data.findIndex((val) => id == val.id), 1)
-
+    this.data.splice(this.data.findIndex((val) => id == val.id), 1);
   }
-
-
-  // getById(name: string): Employee[] | undefined {
-  //   return this.data.filter(
-  //     (emp) => {
-  //       return emp.name === name;
-  //     }
-  //   );
-  // }
 }

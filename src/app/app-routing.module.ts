@@ -37,13 +37,6 @@ const routes: Routes = [
       import('./assessment/user/user.module').then((m) => m.UserModule),
   },
   {
-    path: 'cdk-overlay',
-    loadChildren: () =>
-      import('./modules/cdk-overlay/cdk-overlay.module').then(
-        (m) => m.CdkOverlayModule
-      ),
-  },
-  {
     path: 'ngTemplateOutlet',
     loadChildren: () =>
       import('./modules/ng-template-outlet/ng-template-outlet.module').then(

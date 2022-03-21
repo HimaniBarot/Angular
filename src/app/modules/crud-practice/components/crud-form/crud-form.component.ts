@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs/internal/Observable';
 import { Crud, CrudService } from '../../services/crud.service';
 
 @Component({
@@ -10,9 +9,8 @@ import { Crud, CrudService } from '../../services/crud.service';
 })
 export class CrudFormComponent implements OnInit {
 
-  // private idToEdit: number;
+  private idToEdit: number;
   public empForm: FormGroup;
-  data$: Observable<Crud[]>;
 
   constructor(
     private crudService: CrudService,
@@ -21,8 +19,11 @@ export class CrudFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.generateForm();
-    // this.editData();
-    this.data$ = this.crudService.list$;
+    this.crudService.listToEdit$.subscribe((res) => {
+      // console.log(res);
+      this.idToEdit = res.id;
+      this.empForm.patchValue(res);
+    })
   }
 
   generateForm(): void {
@@ -34,31 +35,17 @@ export class CrudFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.crudService.create(this.empForm.value);
-    console.log(this.empForm.value);
-    // this.data$ = this.crudService.list$;
-    // this.empForm.get("val")?.setValue("");
+    if (this.idToEdit) {
+      this.crudService.updateData(this.idToEdit, this.empForm.value);
+      alert("Data updated..");
+    }else{
+      this.crudService.create(this.empForm.value);
+      alert("Data added..");
+    }
+    this.reset();
   }
-  // onSubmit(): void {
-  //   if (this.idToEdit) {
-  //     this.crudService.editData(this.idToEdit, this.empForm.value);
-  //     this.router.navigateByUrl('/crud-practice/crud-list');
-  //   }
-  // }
 
-  // editData(){
-  //   this.idToEdit = parseInt(this.activatedRoute.snapshot.params['id']);
-  //   if (this.idToEdit) {
-  //     let temp = this.crudService.getById(this.idToEdit);
-  //     if (temp == undefined) {
-  //       temp = {
-  //         id: 0,
-  //         name: '',
-  //         email: '',
-  //         company: ''
-  //       };
-  //     }
-  //     this.empForm.patchValue(temp);
-  //   }
-  // }
+  reset() {
+    this.empForm.reset();
+  }
 }
