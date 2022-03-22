@@ -1,1 +1,15 @@
-// Header area style
+.header-wrapper {
+  flex: 0 0 $side-nav-height;
+  height: 61px;
+  background-color: $white;
+  border-bottom: $border-width solid $border-color;
+  .checkbox-label {
+    cursor: pointer;
+    .line {
+      height: 4px;
+      width: 24px;
+      margin: 3px;
+      background-color: $secondary;
+    }
+  }
+}

@@ -1,10 +1,16 @@
 <div class="wrapper d-flex h-100">
-  
-  <app-sidebar></app-sidebar>
-  <div class="main-wrapper d-flex flex-column flex-grow-1">
-    <!-- <app-header></app-header> -->
-    <div class="content-wrapper d-flex flex-column flex-grow-1">
-        <router-outlet></router-outlet>
+  <!-- Start: Sidebar -->
+  <input type="checkbox" id="checkmark" />
+  <div class="sidebar">
+    <app-sidebar></app-sidebar>
+  </div>
+  <!-- End: Sidebar -->
+  <div class="main-wrapper d-flex flex-column flex-grow-1 overflow-hidden">
+    <!-- Start: Header -->
+    <app-header></app-header>
+    <!-- End: Header -->
+    <div class="content-wrapper p-4 h-100 d-flex flex-column flex-grow-1 overflow-auto">
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

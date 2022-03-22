@@ -27,16 +27,6 @@
       "dateOfEmployment": "2022-02-15",
       "deparmentList": "4",
       "id": 3
-    },
-    {
-      "firstName": "om",
-      "lastName": "khambhata",
-      "email": "om@mail.com",
-      "contactNumber": 6666666666,
-      "gender": "male",
-      "dateOfEmployment": "2022-03-12",
-      "deparmentList": "1",
-      "id": 7
     }
   ],
   "user": [

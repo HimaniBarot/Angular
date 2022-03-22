@@ -1,84 +1,66 @@
-<input type="checkbox" id="checkmark" />
-<aside class="aside d-flex flex-column">
-    <div class="header d-flex align-center">
-        <label class="checkbox-label" for="checkmark">
-            <div class="line line1"></div>
-            <div class="line line2"></div>
-            <div class="line line3"></div>
-        </label>
-        <a class="header-title" routerLink="/">Angular Basics</a>
+<aside class="aside h-100">
+    <div class="side-nav d-flex flex-column h-100 overflow-hidden">
+        <div class="side-nav-brand d-flex align-center">
+            <a class="header-title ps-2 d-flex align-items-center text-secondary" routerLink="/">Angular Basics</a>
+        </div>
+
+        <div class="overflow-y-auto overflow-x-hidden">
+            <ul class="nav mb-3 pt-5 px-2 d-flex flex-column">
+                <li class="nav-item mb-1">
+                    <a class="nav-link d-flex align-center" routerLink="/crud-task" routerLinkActive="active">
+                        <div class="icons icon-file-text2"></div>
+                        <span class="ps-2">CRUD Operation</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link d-flex align-center" routerLink="/resume-builder" routerLinkActive="active">
+                        <div class="icons icon-clipboard"></div>
+                        <span class="ps-2">Resume Builder</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link d-flex align-center" routerLink="/user" routerLinkActive="active">
+                        <div class="icons icon-magic-wand"></div>
+                        <span class="ps-2">User/ Assessment</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link d-flex align-center" routerLink="/crud-practice" routerLinkActive="active">
+                        <div class="icons icon-magic-wand"></div>
+                        <span class="ps-2">Crud w/o server</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav mb-3 pt-3 px-2 d-flex flex-column">
+                <li class="nav-item mb-1">
+                    <a class="nav-link d-flex align-center" routerLink="/ngTemplateOutlet" routerLinkActive="active">
+                        <div class="icons icon-file-text2"></div>
+                        <span class="ps-2">Ng Template Outlet</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link d-flex align-center" routerLink="/mentor" routerLinkActive="active">
+                        <div class="icons icon-clipboard"></div>
+                        <span class="ps-2">MVP</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link d-flex align-center" routerLink="/javascript" routerLinkActive="active">
+                        <div class="icons icon-clipboard"></div>
+                        <span class="ps-2">JavaScript</span>
+                    </a>
+                </li>
+            </ul>
+            </div>
+            <div>
+            <ul class="nav mb-3 pt-3 px-2 d-flex flex-column">
+                <li class="nav-item mb-1">
+                    <a class="nav-link d-flex align-center" routerLink="/">
+                        <div class="icons icon-switch"></div>
+                        <span class="ps-2">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-
-
-    <ul class="nav-list d-flex flex-column flex-grow-1">
-        <!-- <div class="avtar d-flex align-center">
-            <div class="profile-image">
-                <figure>
-                    <img src="/assets/img/user.png" alt="User">
-                </figure>
-            </div>
-    
-            <div class="profile-desc d-flex flex-column">
-                <span>John Doe</span>
-                <span>john@gmail.com</span>
-            </div>
-        </div> -->
-        <!-- <li class="nav-item">
-            <a class="nav-link d-flex align-center" routerLink="/dataBinding" routerLinkActive="active">
-                <div class="icons icon-file-text2"></div>
-                <span>Data Binding</span>
-            </a>
-        </li> -->
-        <!-- <section class="nav-section section-1"> -->
-        <li class="nav-item">
-            <a class="nav-link d-flex align-center" routerLink="/crud-task" routerLinkActive="active">
-                <div class="icons icon-file-text2"></div>
-                <span>CRUD Operation</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link d-flex align-center" routerLink="/resume-builder" routerLinkActive="active">
-                <div class="icons icon-clipboard"></div>
-                <span>Resume Builder</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link d-flex align-center" routerLink="/user" routerLinkActive="active">
-                <div class="icons icon-magic-wand"></div>
-                <span>User/ Assessment</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link d-flex align-center" routerLink="/crud-practice" routerLinkActive="active">
-                <div class="icons icon-magic-wand"></div>
-                <span>Crud w/o server</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link d-flex align-center" routerLink="/ngTemplateOutlet" routerLinkActive="active">
-                <div class="icons icon-file-text2"></div>
-                <span>Ng Template Outlet</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link d-flex align-center" routerLink="/mentor" routerLinkActive="active">
-                <div class="icons icon-clipboard"></div>
-                <span>MVP</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link d-flex align-center" routerLink="/javascript" routerLinkActive="active">
-                <div class="icons icon-clipboard"></div>
-                <span>JavaScript</span>
-            </a>
-        </li>
-    </ul>
-    <ul class="nav-list nav-footer">
-        <li class="nav-item">
-            <a class="nav-link d-flex align-center">
-                <div class="icons icon-switch"></div>
-                <span>Logout</span>
-            </a>
-        </li>
-    </ul>
 </aside>

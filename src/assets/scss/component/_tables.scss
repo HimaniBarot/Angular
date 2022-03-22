@@ -2,19 +2,9 @@
   color: #1e1f21;
 }
 .list-header {
-  display: flex;
-  justify-content: space-between;
-  margin: 32px 0;
+  // display: flex;
+  // justify-content: space-between;
   position: relative;
-
-  .search {
-    width: 280px;
-    padding-left: 36px;
-    transition: all 0.3s ease-in-out;
-    &:focus {
-      width: 500px;
-    }
-  }
 }
 .table-wrapper {
   overflow: auto;
@@ -46,19 +36,5 @@
   .th-checkbox input {
     width: auto;
     border-color: #c3c4c6;
-  }
-}
-
-@media (max-width: 576px) {
-  .list-header {
-    display: block;
-    .search {
-      width: 100%;
-      padding-left: 36px;
-    }
-  }
-  .list-btn {
-    margin-top: 20px;
-    padding: 9px 10px;
   }
 }

@@ -1,53 +1,12 @@
-// Form controls styles goes here
-.form-control,
-.form-select {
-  outline: none;
-  border: 1px solid #ebebeb;
-  border-radius: 8px;
-  // width: 400px;
-  padding: 8px 12px;
-  background-color: #ffffff;
+#checkmark {
+  display: none;
 }
-.form-control:focus,
-.form-select:focus {
-  box-shadow: 0 0 2.5px #0087ff;
-}
-.form-wrapper {
-  margin-top: 32px;
-  background-color: white;
-  border-radius: 8px;
-  padding: 16px 16px;
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    margin-bottom: 16px;
-  }
-  .form-group-btn {
-    margin-top: 24px;
-  }
-}
-.radio {
-  width: auto;
-}
-.input-field {
-  margin-right: 32px;
-  label {
-    padding-left: 8px;
-  }
-}
-
-// errors
-#error-display,
-.required {
-  color: red;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-@media (max-width: 576px) {
-  .form-wrapper .form-group {
-    width: 100%;
-  }
+.search {
+  width: 280px;
+  padding-left: 36px;
+  background-color: $white;
+  transition: $transition-base;
+  // &:focus {
+  //   width: 500px;
+  // }
 }
