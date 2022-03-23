@@ -10,9 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DeleteComponent
   ],
   imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule
+    CommonModule
   ],
   exports: [
     FormsModule,

@@ -49,16 +49,16 @@ const routes: Routes = [
       import('./mentor/mentor.module').then((m) => m.MentorModule),
   },
   {
-    path: '',
-    redirectTo: 'user',
-    pathMatch: 'full',
-  },
-  {
     path: 'javascript',
     loadChildren: () =>
       import('./modules/javascript/javascript.module').then(
         (m) => m.JavascriptModule
       ),
+  },
+  {
+    path: '',
+    redirectTo: 'crud-task',
+    pathMatch: 'full',
   },
   { path: '**', component: PageNotFoundComponent },
 ];

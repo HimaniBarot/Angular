@@ -26,13 +26,31 @@ export class JavascriptComponent implements OnInit {
       email: 'hj@mail.com',
       company: 'TCS',
     },
+    {
+      id: 3,
+      name: 'hhj',
+      email: 'hj@mail.com',
+      company: 'TCS',
+    },
+    {
+      id: 4,
+      name: 'hhj',
+      email: 'hj@mail.com',
+      company: 'TCS',
+    },
+    {
+      id: 5,
+      name: 'hhj',
+      email: 'hj@mail.com',
+      company: 'TCS',
+    },
   ];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     let newObj = {
-      id: 3,
+      id: 6,
       name: 'hhj',
       email: 'hj@mail.com',
       company: '1Rivet',
@@ -49,12 +67,22 @@ export class JavascriptComponent implements OnInit {
     let itemFilter = this.items.filter((res) => res.name === 'hhj');
     console.log('Filter', itemFilter);
 
-    /** Find company named 1Rivet and replace with any other company name */
-    let itemReplace = this.items.find((res) => {
+    this.hi();
+  }
+
+  /** Find company named 1Rivet and replace it */
+  hi() {
+    let spread = JSON.parse(JSON.stringify(this.items))
+    console.log('Array', spread);
+    
+    let modded = spread.map((res: any) => {
       if (res.company === '1Rivet') {
-        res.company = 'Replaced';
+        res = {...res};
+        res.company = "sss";
       }
+      return res;
     });
-    // console.log('Replace', itemReplace);
+    console.log('Replace', modded);
+    console.log('Original', spread);
   }
 }
