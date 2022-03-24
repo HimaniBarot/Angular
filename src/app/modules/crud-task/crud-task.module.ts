@@ -21,7 +21,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     SharedModule,
     CrudTaskRoutingModule,
-    OverlayModule,
     DragDropModule
   ],
 })

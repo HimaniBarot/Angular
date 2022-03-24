@@ -53,6 +53,11 @@ export class MentorListPresentationComponent implements OnInit {
 
   ngOnInit(): void {
     this.deleteMentors();
+
+    // this.mentorListPresenterService.filterData$.subscribe((res)=>{
+    //   console.log(res);
+      
+    // })
   }
 
   /** on delete button click - listpresentation */
@@ -69,6 +74,11 @@ export class MentorListPresentationComponent implements OnInit {
     this.mentorListPresenterService.delete$.subscribe((id: number) => {
       this.delete.emit(id);
     })
+  }
+
+  displayOverlay(){
+    this.mentorListPresenterService.displayOverlay(this.departmentlist);
+    // this.mentorListPresenterService.filteredData(filter)
   }
 
 }

@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MentorService } from './service/mentor.service';
 import { DepartmentDataPipe } from './pipes/department-data.pipe';
+import { FilterDataPresentationComponent } from './mentor-list-container/mentor-list-presentation/filter-data-presentation/filter-data-presentation.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { DepartmentDataPipe } from './pipes/department-data.pipe';
     MentorFormContainerComponent,
     MentorListPresentationComponent,
     MentorFormPresentationComponent,
-    DepartmentDataPipe
+    DepartmentDataPipe,
+    FilterDataPresentationComponent
   ],
   imports: [
     CommonModule,

@@ -31,7 +31,6 @@ export class MentorFormContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.departmentList$ = this.mentorService.getDepartment();
-    
   }
 
   /** Add mentor */
