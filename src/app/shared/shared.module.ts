@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { DeleteComponent } from './components/delete/delete.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { DepartmentListPipe } from './pipes/department-list.pipe';
 
 
 
 @NgModule({
   declarations: [
-    DeleteComponent
+    DeleteComponent,
+    DepartmentListPipe
   ],
   imports: [
     CommonModule
@@ -16,7 +18,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
   exports: [
     FormsModule,
     ReactiveFormsModule,
-    OverlayModule
+    OverlayModule,
+    DepartmentListPipe
   ]
 })
 export class SharedModule { }

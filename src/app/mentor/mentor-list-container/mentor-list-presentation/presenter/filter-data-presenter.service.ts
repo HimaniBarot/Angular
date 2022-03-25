@@ -23,7 +23,7 @@ export class FilterDataPresenterService {
     })
   }
 
-  /** Send mentor to add */
+  /** Send data to filter */
   onSubmitFilterData(filterDataForm: FormGroup) {
     // console.log(filterDataForm.value);
     this.filterFormData.next(filterDataForm.value);

@@ -1,6 +1,4 @@
 <div class="form-container">
-    <!-- <h2 class="text-center">{{ formTitle }}</h2> -->
-
     <!-- Start : Form -->
     <form [formGroup]="filterForm" class="form-wrapper d-flex flex-column">
         <div class="form-group">
@@ -23,7 +21,7 @@
         </div>
 
         <div class="form-group-btn">
-            <button class="btn btn-warning" (click)="onClose()">Close</button>
+            <button type="button" class="btn btn-warning" (click)="onClose()">Close</button>
             <button type="button" class="btn btn-success" (click)="onSubmit()">Filter</button>
         </div>
 

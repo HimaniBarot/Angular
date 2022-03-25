@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Department } from 'src/app/modules/crud-task/models/department.model';
+import { Department } from 'src/app/shared/models/department.model';
 import { Mentor } from '../../model/mentor.model';
 import { MentorListPresenterService } from '../presenter/mentor-list-presenter.service';
 
@@ -37,7 +37,7 @@ export class MentorListPresentationComponent implements OnInit {
     }
   }
 
-  /** Getter for mentorlist */
+  /** Getter for departmentlist */
   public get departmentlist(): Department[] | null {
     return this._departmentlist;
   }
@@ -54,7 +54,7 @@ export class MentorListPresentationComponent implements OnInit {
   ngOnInit(): void {
     this.deleteMentors();
 
-    this.mentorListPresenterService.filterData$.subscribe((res : Mentor[])=>{
+    this.mentorListPresenterService.filterData$.subscribe((res: Mentor[]) => {
       console.log(res);
       this._mentorList = res;
       this.chaneDetectorRef.markForCheck();
@@ -70,16 +70,15 @@ export class MentorListPresentationComponent implements OnInit {
   onEdit(id: number) {
     this.router.navigateByUrl(`/mentor/edit/${id}`);
   }
-  
-  /** Subscribe delete event */
-  deleteMentors(){
+
+  deleteMentors() {
     this.mentorListPresenterService.delete$.subscribe((id: number) => {
       this.delete.emit(id);
     })
   }
 
-  displayOverlay(){
-    this.mentorListPresenterService.createOverlay(this.departmentlist,this._mentorList);
+  displayOverlay() {
+    this.mentorListPresenterService.createOverlay(this.departmentlist, this._mentorList);
   }
 
 }

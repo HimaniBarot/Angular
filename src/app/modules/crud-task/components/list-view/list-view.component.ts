@@ -1,6 +1,5 @@
 import { Component, ComponentRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Department } from '../../models/department.model';
 import { Employee } from '../../models/employee.model';
 import { EmployeeService } from '../../services/employee.service';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay'
@@ -8,6 +7,7 @@ import { ComponentPortal } from '@angular/cdk/portal';
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { Department } from 'src/app/shared/models/department.model';
 
 @Component({
   selector: 'app-list-view',

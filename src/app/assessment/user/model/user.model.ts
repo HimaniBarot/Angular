@@ -1,8 +1,3 @@
-export class Department {
-    id: number;
-    departmentList: string;
-}
-
 export class User {
     id: number;
     name: string;

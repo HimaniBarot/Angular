@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Department } from 'src/app/modules/crud-task/models/department.model';
+import { Department } from 'src/app/shared/models/department.model';
 import { MentorForm } from '../../model/mentor.model';
 import { MentorFormPresenterService } from '../presenter/mentor-form-presenter.service';
 

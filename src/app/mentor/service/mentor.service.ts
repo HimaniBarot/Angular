@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { Department } from 'src/app/modules/crud-task/models/department.model';
+import { Department } from 'src/app/shared/models/department.model';
 import { environment } from 'src/environments/environment';
 import { Mentor, MentorForm } from '../model/mentor.model';
 

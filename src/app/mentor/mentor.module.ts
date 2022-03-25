@@ -7,11 +7,9 @@ import { MentorListContainerComponent } from './mentor-list-container/mentor-lis
 import { MentorFormContainerComponent } from './mentor-form-container/mentor-form-container.component';
 import { MentorFormPresentationComponent } from './mentor-form-container/mentor-form-presentation/mentor-form-presentation.component';
 import { MentorListPresentationComponent } from './mentor-list-container/mentor-list-presentation/mentor-list-presentation.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { MentorService } from './service/mentor.service';
-import { DepartmentDataPipe } from './pipes/department-data.pipe';
 import { FilterDataPresentationComponent } from './mentor-list-container/mentor-list-presentation/filter-data-presentation/filter-data-presentation.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -21,14 +19,12 @@ import { FilterDataPresentationComponent } from './mentor-list-container/mentor-
     MentorFormContainerComponent,
     MentorListPresentationComponent,
     MentorFormPresentationComponent,
-    DepartmentDataPipe,
     FilterDataPresentationComponent
   ],
   imports: [
     CommonModule,
+    SharedModule,
     MentorRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule
   ],
   providers: [MentorService]
 })

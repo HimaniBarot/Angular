@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { Department } from 'src/app/modules/crud-task/models/department.model';
+import { Department } from 'src/app/shared/models/department.model';
 import { Mentor } from '../model/mentor.model';
 import { MentorService } from '../service/mentor.service';
 

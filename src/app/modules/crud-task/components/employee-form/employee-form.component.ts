@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Department } from '../../models/department.model';
+import { Department } from 'src/app/shared/models/department.model';
 import { Employee } from '../../models/employee.model';
 import { EmployeeService } from '../../services/employee.service';
 

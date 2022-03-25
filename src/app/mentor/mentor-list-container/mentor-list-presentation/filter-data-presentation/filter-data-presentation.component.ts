@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Department } from 'src/app/modules/crud-task/models/department.model';
+import { Department } from 'src/app/shared/models/department.model';
 import { FilterDataPresenterService } from '../presenter/filter-data-presenter.service';
 
 @Component({
@@ -17,7 +17,6 @@ export class FilterDataPresentationComponent implements OnInit {
 
   @Output() public closeOverlay: EventEmitter<Event>; 
   @Output() public sendDataToFilter: EventEmitter<any>;
-  // @Output() public onSubmitFilterData: EventEmitter<any>;
 
   constructor(private filterDataPresenter: FilterDataPresenterService) {
     this.closeOverlay = new EventEmitter();

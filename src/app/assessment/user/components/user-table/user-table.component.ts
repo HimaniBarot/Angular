@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Department, User } from '../../model/user.model';
+import { Department } from 'src/app/shared/models/department.model';
+import { User } from '../../model/user.model';
 
 @Component({
   selector: 'app-user-table',

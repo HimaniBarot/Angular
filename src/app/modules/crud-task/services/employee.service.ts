@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Department } from 'src/app/shared/models/department.model';
 import { environment } from 'src/environments/environment';
-import { Department } from '../models/department.model';
 import { Employee } from '../models/employee.model';
 
 @Injectable({

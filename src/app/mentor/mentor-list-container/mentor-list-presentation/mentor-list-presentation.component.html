@@ -17,7 +17,7 @@
       <tr class="align-middle" *ngFor="let item of mentorList">
         <td>{{ item.id }}</td>
         <td>{{ item.name }}</td>
-        <td>{{ item.department | departmentData: departmentlist }}</td>
+        <td>{{ item.department | departmentList: departmentlist }}</td>
         <td>
           <a (click)="onEdit(item.id)">
             <span class="action-icons icon-pencil"></span>

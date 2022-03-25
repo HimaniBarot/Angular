@@ -2,8 +2,7 @@ import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { ComponentRef, Injectable, IterableDiffers } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { Department } from 'src/app/modules/crud-task/models/department.model';
-import { FilterForm } from '../../model/filter.model';
+import { Department } from 'src/app/shared/models/department.model';
 import { Mentor, MentorForm } from '../../model/mentor.model';
 import { FilterDataPresentationComponent } from '../mentor-list-presentation/filter-data-presentation/filter-data-presentation.component';
 
@@ -14,7 +13,6 @@ export class MentorListPresenterService {
   private delete: Subject<number>;
   public delete$: Observable<number>;
 
-  private _filteredData: FilterForm[];
   private filterData: Subject<any>;
   public filterData$: Observable<any>;
 
@@ -67,13 +65,11 @@ export class MentorListPresenterService {
   }
 
   filteredData(mentorlist: Mentor[], filters: any) {
-    console.log(filters);
+    // console.log(filters);
     mentorlist = mentorlist.filter(user => {
-      console.log("from list presenter", user.name);
-
+      // console.log("from list presenter", user.name);
       return user.name?.toLowerCase() == filters.name?.toLowerCase();
     })
-
     console.log(mentorlist);
     this.filteredMentorData(mentorlist);
   }
