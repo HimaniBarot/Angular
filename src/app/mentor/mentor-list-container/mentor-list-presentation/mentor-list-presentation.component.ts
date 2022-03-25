@@ -54,11 +54,7 @@ export class MentorListPresentationComponent implements OnInit {
   ngOnInit(): void {
     this.deleteMentors();
 
-<<<<<<< HEAD
     this.mentorListPresenterService.filterData$.subscribe((res: Mentor[]) => {
-=======
-    this.mentorListPresenterService.filterData$.subscribe((res : Mentor[])=>{
->>>>>>> b432ca06bb506a492545e6f46ae992c519f93be9
       console.log(res);
       this._mentorList = res;
       this.chaneDetectorRef.markForCheck();
@@ -81,13 +77,8 @@ export class MentorListPresentationComponent implements OnInit {
     })
   }
 
-<<<<<<< HEAD
-  displayOverlay() {
-    this.mentorListPresenterService.createOverlay(this.departmentlist, this._mentorList);
-=======
   displayOverlay(){
     this.mentorListPresenterService.createOverlay(this.departmentlist,this._mentorList);
->>>>>>> b432ca06bb506a492545e6f46ae992c519f93be9
   }
 
 }

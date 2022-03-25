@@ -17,11 +17,7 @@ export class FilterDataPresentationComponent implements OnInit {
 
   @Output() public closeOverlay: EventEmitter<Event>; 
   @Output() public sendDataToFilter: EventEmitter<any>;
-<<<<<<< HEAD
-=======
-  // @Output() public onSubmitFilterData: EventEmitter<any>;
->>>>>>> b432ca06bb506a492545e6f46ae992c519f93be9
-
+  
   constructor(private filterDataPresenter: FilterDataPresenterService) {
     this.closeOverlay = new EventEmitter();
     this.sendDataToFilter = new EventEmitter();
