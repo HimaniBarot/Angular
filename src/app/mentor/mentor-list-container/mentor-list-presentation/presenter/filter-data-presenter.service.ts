@@ -9,7 +9,11 @@ export class FilterDataPresenterService {
   public filterFormData: Subject<FilterForm>;
   public filterFormData$: Observable<FilterForm>;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) { 
+    this.filterFormData = new Subject();
+    this.filterFormData$ = new Observable();
+    this.filterFormData$ = this.filterFormData.asObservable();
+  }
 
   /** Create mentor form */
   public createFilterForm() {
@@ -20,8 +24,8 @@ export class FilterDataPresenterService {
   }
 
   /** Send mentor to add */
-  filterData(filterDataForm: FormGroup) {
-    // console.log(mentorForm);
+  onSubmitFilterData(filterDataForm: FormGroup) {
+    // console.log(filterDataForm.value);
     this.filterFormData.next(filterDataForm.value);
   }
 }

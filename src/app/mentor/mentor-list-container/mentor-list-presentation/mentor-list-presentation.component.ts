@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Department } from 'src/app/modules/crud-task/models/department.model';
 import { Mentor } from '../../model/mentor.model';
@@ -45,7 +45,7 @@ export class MentorListPresentationComponent implements OnInit {
   /** emits mentor id to be deleted */
   @Output() public delete: EventEmitter<number>;
 
-  constructor(private mentorListPresenterService: MentorListPresenterService, private router: Router) {
+  constructor(private mentorListPresenterService: MentorListPresenterService, private chaneDetectorRef: ChangeDetectorRef, private router: Router) {
     this._mentorList = [];
 
     this.delete = new EventEmitter();
@@ -54,10 +54,12 @@ export class MentorListPresentationComponent implements OnInit {
   ngOnInit(): void {
     this.deleteMentors();
 
-    // this.mentorListPresenterService.filterData$.subscribe((res)=>{
-    //   console.log(res);
-      
-    // })
+    this.mentorListPresenterService.filterData$.subscribe((res : Mentor[])=>{
+      console.log(res);
+      this._mentorList = res;
+      this.chaneDetectorRef.markForCheck();
+      console.log("from tation", this._mentorList);
+    })
   }
 
   /** on delete button click - listpresentation */
@@ -77,8 +79,7 @@ export class MentorListPresentationComponent implements OnInit {
   }
 
   displayOverlay(){
-    this.mentorListPresenterService.displayOverlay(this.departmentlist);
-    // this.mentorListPresenterService.filteredData(filter)
+    this.mentorListPresenterService.createOverlay(this.departmentlist,this._mentorList);
   }
 
 }
