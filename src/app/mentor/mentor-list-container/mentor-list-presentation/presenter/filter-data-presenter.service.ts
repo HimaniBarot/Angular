@@ -23,7 +23,11 @@ export class FilterDataPresenterService {
     })
   }
 
+<<<<<<< HEAD
   /** Send data to filter */
+=======
+  /** Send mentor to add */
+>>>>>>> b432ca06bb506a492545e6f46ae992c519f93be9
   onSubmitFilterData(filterDataForm: FormGroup) {
     // console.log(filterDataForm.value);
     this.filterFormData.next(filterDataForm.value);
