@@ -1,9 +1,10 @@
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { ComponentRef, Injectable } from '@angular/core';
+import { ComponentRef, Injectable, IterableDiffers } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Department } from 'src/app/modules/crud-task/models/department.model';
 import { FilterForm } from '../../model/filter.model';
+import { Mentor, MentorForm } from '../../model/mentor.model';
 import { FilterDataPresentationComponent } from '../mentor-list-presentation/filter-data-presentation/filter-data-presentation.component';
 
 @Injectable()
@@ -12,14 +13,16 @@ export class MentorListPresenterService {
 
   private delete: Subject<number>;
   public delete$: Observable<number>;
-  
-  private filterData: Subject<number> = new Subject();
-  public filterData$: Observable<number> = new Observable();
 
   private _filteredData: FilterForm[];
+  private filterData: Subject<any>;
+  public filterData$: Observable<any>;
+
 
   constructor(private overlay: Overlay) {
+    this.delete = new Subject();
     this.delete$ = this.delete.asObservable();
+    this.filterData = new Subject();
     this.filterData$ = this.filterData.asObservable();
   }
 
@@ -28,13 +31,15 @@ export class MentorListPresenterService {
     this.delete.next(id);
   }
 
+  public filteredMentorData(filteredData: Mentor[]) {
+    this.filterData.next(filteredData);
+  }
+
   componentRef: ComponentRef<FilterDataPresentationComponent>;
   overlayRef: OverlayRef;
 
   // Create Form overlay
-  displayOverlay(departmentlist: Department[] | null) {
-    console.log("okk");
-
+  createOverlay(departmentlist: Department[] | null, mentorlist: Mentor[]) {
     this.overlayRef = this.overlay.create({
       hasBackdrop: true,
       positionStrategy: this.overlay.position().global().centerHorizontally().right(),
@@ -43,27 +48,34 @@ export class MentorListPresenterService {
     const component = new ComponentPortal(FilterDataPresentationComponent);
     this.componentRef = this.overlayRef.attach(component);
 
-    this.componentRef.instance.filterData.subscribe((res) => {
-      this.filteredData(res);
+    this.componentRef.instance.departmentList = departmentlist;
+
+    this.componentRef.instance.sendDataToFilter.subscribe((filterRes) => {
+      this.filteredData(mentorlist, filterRes)
+      console.log(filterRes);
+    });
+
+    /** Close overlay on button click */
+    this.componentRef.instance.closeOverlay.subscribe(() => {
       this.overlayRef.detach();
     });
 
-    this.componentRef.instance.departmentList = departmentlist;
-    
-    this.componentRef.instance.closeOverlay.subscribe(() => {
-      console.log("close");
-      
-      this.overlayRef.detach();
-    });
-    
+    /** Close overlay on backdrop */
     this.overlayRef.backdropClick().subscribe(() => {
       this.overlayRef.detach();
     });
   }
-  filteredData(filters: any){
-    this._filteredData = this._filteredData.filter((res)=>{
-      return res.name = filters.name
+
+  filteredData(mentorlist: Mentor[], filters: any) {
+    console.log(filters);
+    mentorlist = mentorlist.filter(user => {
+      console.log("from list presenter", user.name);
+
+      return user.name?.toLowerCase() == filters.name?.toLowerCase();
     })
+
+    console.log(mentorlist);
+    this.filteredMentorData(mentorlist);
   }
-  
+
 }

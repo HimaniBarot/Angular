@@ -8,20 +8,21 @@ import { FilterDataPresenterService } from '../presenter/filter-data-presenter.s
   templateUrl: './filter-data-presentation.component.html',
   styleUrls: ['./filter-data-presentation.component.scss'],
   viewProviders: [FilterDataPresenterService],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilterDataPresentationComponent implements OnInit {
-
-  constructor(private filterDataPresenter: FilterDataPresenterService) {
-    this.closeOverlay = new EventEmitter();
-  }
 
   public filterForm: FormGroup;
   @Input() public departmentList: Department[] | null;
 
   @Output() public closeOverlay: EventEmitter<Event>; 
+  @Output() public sendDataToFilter: EventEmitter<any>;
+  // @Output() public onSubmitFilterData: EventEmitter<any>;
 
-  @Output() public filterData: EventEmitter<any>; 
+  constructor(private filterDataPresenter: FilterDataPresenterService) {
+    this.closeOverlay = new EventEmitter();
+    this.sendDataToFilter = new EventEmitter();
+  }
 
   ngOnInit(): void { 
     this.filterForm = this.filterDataPresenter.createFilterForm();
@@ -31,9 +32,10 @@ export class FilterDataPresentationComponent implements OnInit {
     this.closeOverlay.emit();
   }
 
-  onSubmit(){
+  public onSubmit(){
     console.log("filter");
-    this.filterData.emit(this.filterForm.value);
+    this.sendDataToFilter.emit(this.filterForm.value);
+    this.onClose();
   }
 
 }
