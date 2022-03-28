@@ -2,12 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DataBindingRoutingModule } from './data-binding-routing.module';
-import { DataBindingComponent } from './data-binding.component';
-import { InputOutputComponent } from './input-output/input-output.component';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { ParentComponent } from './parent/parent.component';
+import { Child1Component } from './parent/child1/child1.component';
+import { Child2Component } from './parent/child2/child2.component';
+
 
 @NgModule({
-  declarations: [DataBindingComponent, InputOutputComponent],
-  imports: [CommonModule, DataBindingRoutingModule, SharedModule],
+  declarations: [
+    ParentComponent,
+    Child1Component,
+    Child2Component,
+  ],
+  imports: [
+    CommonModule,
+    DataBindingRoutingModule
+  ]
 })
-export class DataBindingModule {}
+export class DataBindingModule { }

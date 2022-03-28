@@ -1,16 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DataBindingComponent } from './data-binding.component';
+import { ParentComponent } from './parent/parent.component';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: DataBindingComponent,
-  },
-];
+const routes: Routes = [{ path: '', component: ParentComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class DataBindingRoutingModule {}
+export class DataBindingRoutingModule { }

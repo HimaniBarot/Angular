@@ -4,9 +4,6 @@ import { DeleteComponent } from './components/delete/delete.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { DepartmentListPipe } from './pipes/department-list.pipe';
-
-
-
 @NgModule({
   declarations: [
     DeleteComponent,

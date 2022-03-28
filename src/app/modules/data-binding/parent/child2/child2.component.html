@@ -1,0 +1,7 @@
+<p>{{ message }}</p>
+<label for="item-input">Add an item:</label>
+<!-- <input type="text" id="item-input" #newItem> -->
+<div class="mb-3 col-6">
+    <input type="email" class="form-control" #newItem>
+    <button type="button" class="btn btn-outline-dark" (click)="addNewItem(newItem.value)">Add to parent's list</button>
+</div>

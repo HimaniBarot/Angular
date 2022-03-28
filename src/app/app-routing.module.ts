@@ -4,13 +4,6 @@ import { PageNotFoundComponent } from './core/components/page-not-found/page-not
 
 const routes: Routes = [
   {
-    path: 'dataBinding',
-    loadChildren: () =>
-      import('./modules/data-binding/data-binding.module').then(
-        (m) => m.DataBindingModule
-      ),
-  },
-  {
     path: 'crud-task',
     loadChildren: () =>
       import('./modules/crud-task/crud-task.module').then(
@@ -55,6 +48,7 @@ const routes: Routes = [
         (m) => m.JavascriptModule
       ),
   },
+  { path: 'dataBinding', loadChildren: () => import('./modules/data-binding/data-binding.module').then(m => m.DataBindingModule) },
   {
     path: '',
     redirectTo: 'crud-task',
