@@ -75,12 +75,12 @@ export class MentorListPresenterService {
     this.filteredMentorData(mentorlist);
   }
 
-  sort(property: keyof Mentor, userList: Mentor[], isDesc: boolean) {
+  sort(property: keyof Mentor, mentorList: Mentor[], isDesc: boolean) {
 
     //change the direction    
     let direction = isDesc ? -1 : 1;
 
-    userList.sort(function (a, b) {
+    mentorList.sort(function (a, b) {
 
       if (a[property] < b[property]) {
         return -1 * direction;
