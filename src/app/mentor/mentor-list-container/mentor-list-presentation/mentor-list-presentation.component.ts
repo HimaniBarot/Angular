@@ -25,7 +25,7 @@ export class MentorListPresentationComponent implements OnInit {
   }
 
   /** Getter for mentorlist */
-  public get mentorList(): Mentor[] | null {
+  public get mentorList(): Mentor[] {
     return this._mentorList;
   }
 
@@ -77,8 +77,21 @@ export class MentorListPresentationComponent implements OnInit {
     })
   }
 
-  displayOverlay(){
-    this.mentorListPresenterService.createOverlay(this.departmentlist,this._mentorList);
+  displayOverlay() {
+    this.mentorListPresenterService.createOverlay(this.departmentlist, this._mentorList);
+  }
+
+  isDesc: boolean = false;
+  column: string = 'id';
+
+  public sort(column: string) {
+    if (this.column === column) {
+      this.isDesc = !this.isDesc;
+    } else {
+      this.column = column;
+      this.isDesc = false;
+    }
+    this.mentorListPresenterService.sort(this.column as keyof Mentor, this._mentorList, this.isDesc)
   }
 
 }

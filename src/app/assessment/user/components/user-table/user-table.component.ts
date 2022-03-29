@@ -39,4 +39,30 @@ export class UserTableComponent implements OnInit {
   //   }
   // }
 
+  // private isAscendingSort: boolean = false;
+
+  // sortUser() {
+  //   console.log('sorting!'); // just to check if sorting is being called
+  //   this.isAscendingSort = !this.isAscendingSort; // you missed this
+
+  //   this.userList.sort();
+  // }
+
+  // let isAscendingSort: Boolean = true;
+  // sortUser() {
+  //   console.log('sorting!'); //just to check if sorting is being called
+  //   this.userList.sort((item1: any, item2: any) => this.compare(item1, item2));
+  // }
+  // // Sort
+  // compare(item1: any, item2: any): number {
+  //   let compValue = 0;
+  //   compValue = item1.email.localeCompare(item2.email, 'en', {
+  //     sensitivity: 'base'
+  //   });
+  //   // console.log(compValue);
+  //   if (!this.isAscendingSort) {
+  //     compValue = compValue * -1;
+  //   }
+  //   return compValue;
+  // }
 }

@@ -4,12 +4,13 @@
 <h2>List of Mentors</h2>
 
 <div class="table-wrapper">
+  <!-- <table class="table" (click)="sortTable($event)"> -->
   <table class="table">
     <thead>
       <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Department</th>
+        <th (click)="sort('id')">#</th>
+        <th (click)="sort('name')">Name</th>
+        <th (click)="sort('department')">Department</th>
         <th>Action</th>
       </tr>
     </thead>

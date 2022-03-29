@@ -66,13 +66,32 @@ export class MentorListPresenterService {
 
   filteredData(mentorlist: Mentor[], filters: any) {
     console.log(filters);
-    mentorlist = mentorlist.filter(user => {
-      console.log("from list presenter", user.name);
+    mentorlist = mentorlist.filter(res => {
+      console.log("from list presenter", res.name);
 
-      return user.name?.toLowerCase() == filters.name?.toLowerCase();
+      return res.name?.toLowerCase() == filters.name?.toLowerCase();
     })
     console.log(mentorlist);
     this.filteredMentorData(mentorlist);
   }
+
+  sort(property: keyof Mentor, userList: Mentor[], isDesc: boolean) {
+
+    //change the direction    
+    let direction = isDesc ? -1 : 1;
+
+    userList.sort(function (a, b) {
+
+      if (a[property] < b[property]) {
+        return -1 * direction;
+      }
+      else if (a[property] > b[property]) {
+        return 1 * direction;
+      }
+      else {
+        return 0;
+      }
+    });
+  };
 
 }

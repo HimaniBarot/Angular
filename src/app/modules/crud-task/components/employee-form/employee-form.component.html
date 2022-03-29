@@ -1,105 +1,94 @@
 <!-- {{ registrationForm.value | json }} -->
 <!-- {{ departments | json }} -->
 <div class="form-container">
-<h2 *ngIf="isAdd" class="text-center">Add Employee</h2>
-<h2 *ngIf="!isAdd" class="text-center">Edit Employee</h2>
+    <h2 *ngIf="isAdd" class="text-center">Add Employee</h2>
+    <h2 *ngIf="!isAdd" class="text-center">Edit Employee</h2>
 
-<!-- Start : Form -->
-<form class="form-wrapper d-flex flex-column" [formGroup]="registrationForm">
-    <!-- <form class="form-wrapper d-flex flex-column" [formGroup]="registrationForm" (ngSubmit)="onSubmit()"> -->
-    <div class="form-group">
-        <label class="form-label">First name<span class="required">*</span></label>
-        <input formControlName="firstName" type="text" class="form-control" />
-        <!-- DISPLAY ERROR -->
-        <div *ngIf="getValues['firstName'].touched || (getValues['firstName'].dirty && getValues['firstName'].invalid)">
-            <span id="error-display"
-                *ngIf="getValues['firstName'].errors && getValues['firstName'].errors['required']">First Name
-                required.</span>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="form-label">Lastname<span class="required">*</span></label>
-        <input formControlName="lastName" type="text" class="form-control" />
-        <!-- DISPLAY ERROR -->
-        <div *ngIf="getValues['lastName'].touched || (getValues['lastName'].dirty && getValues['lastName'].invalid)"
-            id="error-display">
-            <span *ngIf="getValues['lastName'].errors && getValues['lastName'].errors['required']">Lastname
-                required.</span>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="form-label">Email address</label>
-        <input formControlName="email" type="email" class="form-control" />
-        <!-- DISPLAY ERROR -->
-        <div *ngIf="getValues['email'].touched && getValues['email'].invalid" id="error-display">
-            <div *ngIf="getValues['email'].errors && getValues['email'].errors['required']">Email is required.
-            </div>
-            <div *ngIf="getValues['email'].errors && getValues['email'].errors['email']">Please, enter valid email
-                address.
+    <!-- Start : Form -->
+    <form class="form-wrapper d-flex flex-column" [formGroup]="registrationForm">
+        <!-- <form class="form-wrapper d-flex flex-column" [formGroup]="registrationForm" (ngSubmit)="onSubmit()"> -->
+        <div class="form-group">
+            <label class="form-label">First name<span class="required">*</span></label>
+            <input formControlName="firstName" type="text" class="form-control" />
+            <!-- DISPLAY ERROR -->
+            <div
+                *ngIf="getValues['firstName'].touched || (getValues['firstName'].dirty && getValues['firstName'].invalid)">
+                <span id="error-display"
+                    *ngIf="getValues['firstName'].errors && getValues['firstName'].errors['required']">First Name
+                    required.</span>
             </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label class="form-label">Contact Number</label>
-        <input formControlName="contactNumber" type="number" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label for="gender">Gender:</label>
-        <div class="d-flex flex-row">
-            <div class="input-field">
-                <input class="form-control radio" id="male" type="radio" value="male" name="gender"
-                    formControlName="gender">
-                <label for="male">Male</label>
-            </div>
-
-            <div class="input-field">
-                <input class="form-control radio" id="female" type="radio" value="female" name="gender"
-                    formControlName="gender">
-                <label for="female">Female</label>
+        <div class="form-group">
+            <label class="form-label">Lastname<span class="required">*</span></label>
+            <input formControlName="lastName" type="text" class="form-control" />
+            <!-- DISPLAY ERROR -->
+            <div *ngIf="getValues['lastName'].touched || (getValues['lastName'].dirty && getValues['lastName'].invalid)"
+                id="error-display">
+                <span *ngIf="getValues['lastName'].errors && getValues['lastName'].errors['required']">Lastname
+                    required.</span>
             </div>
         </div>
-    </div>
 
-    <!-- <div class="d-flex justify-space-between" style="border: 1px solid red; width: 500px;">
-        <div>
-            <label for="">Gender</label>
-            <input type="radio"> male
-            <input type="radio"> female
+        <div class="form-group">
+            <label class="form-label">Email address</label>
+            <input formControlName="email" type="email" class="form-control" />
+            <!-- DISPLAY ERROR -->
+            <div *ngIf="getValues['email'].touched && getValues['email'].invalid" id="error-display">
+                <div *ngIf="getValues['email'].errors && getValues['email'].errors['required']">Email is required.
+                </div>
+                <div *ngIf="getValues['email'].errors && getValues['email'].errors['email']">Please, enter valid email
+                    address.
+                </div>
+            </div>
         </div>
-        <div>
-            <label for="">Joining date</label>
-            <input type="date">
+
+        <div class="form-group">
+            <label class="form-label">Contact Number</label>
+            <input formControlName="contactNumber" type="number" class="form-control" />
         </div>
-    </div> -->
 
-    <div class="form-group">
-        <label class="form-label">Date of Employment<span class="required">*</span></label>
-        <input formControlName="dateOfEmployment" type="date" class="form-control" />
-    </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <div class="d-flex flex-row">
+                <div class="input-field">
+                    <input class="form-check-input" id="male" type="radio" value="male" name="gender"
+                        formControlName="gender">
+                    <label class="form-check-label" for="male">Male</label>
+                </div>
 
-    <div class="form-group">
-        <label class="form-label">Department</label>
-        <select class="form-select" formControlName="deparmentList">
-            <option selected disabled>Select your department --</option>
-            <option *ngFor="let department of departments" [value]="department.id">{{ department.departmentList }}
-            </option>
-        </select>
-    </div>
-
-    <div class="form-group-btn d-flex justify-space-between">
-        <button (click)="onclose()" type="button" class="btn btn-primary">Cancel</button>
-        <!-- <button routerLink="/crud-task/list-view" type="button" class="btn btn-primary">Cancel</button> -->
-        <div>
-            <button [disabled]="registrationForm.invalid" (click)="onSubmit()" type="submit"
-                class="btn btn-success">Submit</button>
-            <button type="reset" class="btn btn-danger mx-3" (click)="resetForm()">Reset</button>
+                <div class="input-field">
+                    <input class="form-check-input" id="female" type="radio" value="female" name="gender"
+                        formControlName="gender">
+                    <label class="form-check-label" for="female">Female</label>
+                </div>
+            </div>
         </div>
-    </div>
 
-</form>
-<!-- End : Form -->
+        <div class="form-group">
+            <label class="form-label">Date of Employment<span class="required">*</span></label>
+            <input formControlName="dateOfEmployment" type="date" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Department</label>
+            <select class="form-select" formControlName="deparmentList">
+                <option selected disabled>Select your department --</option>
+                <option *ngFor="let department of departments" [value]="department.id">{{ department.departmentList }}
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group-btn d-flex justify-space-between">
+            <button (click)="onclose()" type="button" class="btn btn-primary">Cancel</button>
+            <!-- <button routerLink="/crud-task/list-view" type="button" class="btn btn-primary">Cancel</button> -->
+            <div>
+                <button [disabled]="registrationForm.invalid" (click)="onSubmit()" type="submit"
+                    class="btn btn-success">Submit</button>
+                <button type="reset" class="btn btn-danger mx-3" (click)="resetForm()">Reset</button>
+            </div>
+        </div>
+
+    </form>
+    <!-- End : Form -->
 </div>

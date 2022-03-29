@@ -27,6 +27,16 @@
       "dateOfEmployment": "2022-02-15",
       "deparmentList": "4",
       "id": 3
+    },
+    {
+      "firstName": "Himani",
+      "lastName": "Barot",
+      "email": "himani@gmail.com",
+      "contactNumber": 6565324444,
+      "gender": "female",
+      "dateOfEmployment": "2022-03-23",
+      "deparmentList": "1",
+      "id": 4
     }
   ],
   "user": [
