@@ -4,10 +4,12 @@ import { DeleteComponent } from './components/delete/delete.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { DepartmentListPipe } from './pipes/department-list.pipe';
+import { ChooseFileComponent } from './components/choose-file/choose-file.component';
 @NgModule({
   declarations: [
     DeleteComponent,
-    DepartmentListPipe
+    DepartmentListPipe,
+    ChooseFileComponent
   ],
   imports: [
     CommonModule
@@ -16,7 +18,8 @@ import { DepartmentListPipe } from './pipes/department-list.pipe';
     FormsModule,
     ReactiveFormsModule,
     OverlayModule,
-    DepartmentListPipe
+    DepartmentListPipe,
+    ChooseFileComponent
   ]
 })
 export class SharedModule { }

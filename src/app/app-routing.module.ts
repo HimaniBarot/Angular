@@ -49,6 +49,7 @@ const routes: Routes = [
       ),
   },
   { path: 'dataBinding', loadChildren: () => import('./modules/data-binding/data-binding.module').then(m => m.DataBindingModule) },
+  { path: 'fileDragDrop', loadChildren: () => import('./modules/file-drag-drop/file-drag-drop.module').then(m => m.FileDragDropModule) },
   {
     path: '',
     redirectTo: 'crud-task',
