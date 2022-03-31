@@ -5,11 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { DepartmentListPipe } from './pipes/department-list.pipe';
 import { ChooseFileComponent } from './components/choose-file/choose-file.component';
+import { FileDragDropDirective } from './directive/file-drag-drop.directive';
 @NgModule({
   declarations: [
     DeleteComponent,
     DepartmentListPipe,
-    ChooseFileComponent
+    ChooseFileComponent,
+    FileDragDropDirective
   ],
   imports: [
     CommonModule
@@ -19,7 +21,8 @@ import { ChooseFileComponent } from './components/choose-file/choose-file.compon
     ReactiveFormsModule,
     OverlayModule,
     DepartmentListPipe,
-    ChooseFileComponent
+    ChooseFileComponent,
+    FileDragDropDirective
   ]
 })
 export class SharedModule { }

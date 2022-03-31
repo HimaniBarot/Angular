@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
+import { ChooseFileComponent } from './shared/components/choose-file/choose-file.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,7 @@ const routes: Routes = [
   },
   { path: 'dataBinding', loadChildren: () => import('./modules/data-binding/data-binding.module').then(m => m.DataBindingModule) },
   { path: 'fileDragDrop', loadChildren: () => import('./modules/file-drag-drop/file-drag-drop.module').then(m => m.FileDragDropModule) },
+  { path: 'chooseFile', component: ChooseFileComponent },
   {
     path: '',
     redirectTo: 'crud-task',

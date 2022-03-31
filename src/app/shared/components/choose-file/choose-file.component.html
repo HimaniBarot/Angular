@@ -1,4 +1,10 @@
-<div class="dragzone d-flex align-items-center justify-content-center mb-5 w-50">
-    <input type="file" name="file" id="file" class="d-none">
+<div class="dragzone d-flex align-items-center justify-content-center mb-5 w-50" appFileDragDrop (filesChangeEmiter)="chooseFile($event)">
+    <input type="file" name="file" id="file" class="d-none" (change)="chooseFile($event)">
     <label for="file"><span class="btn btn-danger">Select your file</span> or Drop it here!</label>
+</div>
+
+<div class="row fileItem" *ngFor="let f of files; let ind = index">
+    <div class="col-sm-12 fileItemText">
+        <span>{{f.name}}</span>
+    </div>
 </div>
