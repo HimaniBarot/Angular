@@ -7,7 +7,6 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { BrowserModule } from '@angular/platform-browser';
 // import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     BrowserModule,
     RouterModule,
-    HttpClientModule
   ],
   exports: [
     HeaderComponent,

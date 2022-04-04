@@ -7,6 +7,7 @@ import { DataBindingModule } from './modules/data-binding/data-binding.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/components/interceptor/auth.interceptor';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +15,8 @@ import { AuthInterceptor } from './core/components/interceptor/auth.interceptor'
     AppRoutingModule,
     CoreModule,
     DataBindingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

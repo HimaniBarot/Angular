@@ -1,0 +1,7 @@
+<div class="dragzone d-flex flex-column align-items-center justify-content-center mb-5 w-50 m-auto" appFileDragDrop (readFile)="readFile($event)">
+    <input type="file" name="file" id="file" class="d-none" (change)="readFile($event.target)" multiple>
+    <label for="file"><span class="btn btn-danger">Select your file</span><br> or Drop it here!</label>
+    <button type="button" class="btn btn-success mt-5" (click)="uploadFile()">Upload</button>
+    <p *ngIf="file">{{file.name}}</p>
+</div>
+
