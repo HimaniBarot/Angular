@@ -15,7 +15,7 @@ export class FileListContainerComponent implements OnInit {
   /** user list data */
   public filesList$: Observable<MyFile[]>
 
-  constructor(private fileService: FileUploadService) { 
+  constructor(private fileService: FileUploadService) {
     this.filesList$ = new Observable<MyFile[]>();
   }
 
@@ -23,21 +23,34 @@ export class FileListContainerComponent implements OnInit {
     this.getAllFiles();
   }
 
-  getAllFiles(){
+  getAllFiles() {
     this.filesList$ = this.fileService.getAllFiles();
   }
 
-  UploadFile(file: MyFile) {
+  public addFile(file: MyFile) {
     this.fileService.addFile(file).subscribe({
       next: () => {
         alert("File Added");
-        this.getAllFiles();
+        this.filesList$ = this.fileService.getAllFiles();
       },
       error: (e) => { console.log(e) }
     })
   }
 
-  /** Delete Mentor */
+  public uploadFile(file: MyFile) {
+    this.filesList$.subscribe((list) => {
+      let isFile = list.find((res) => {
+        return res.name === file.name
+      })
+      if (isFile) {
+        alert("File with same name already exist.");
+      }
+      else {
+        this.addFile(file);
+      }
+    })
+  }
+
   public deleteFile(id: number) {
     this.fileService.deleteFile(id).subscribe(
       () => {

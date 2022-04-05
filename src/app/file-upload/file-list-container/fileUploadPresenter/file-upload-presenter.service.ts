@@ -16,26 +16,24 @@ export class FileUploadPresenterService {
     this.fileToUpload$ = this._fileToUpload.asObservable();
   }
 
-  uploadFile(file: File) {
+  //check file validation and store the type data in File object ans emit File
+  public uploadFile(file: File) {
     //size in mb
-    let size = Math.round(file.size / 1024 / 1024)
+    let size = Math.round(file.size / 1024 / 1024);
     if (size <= 2) {
       this.file.name = file.name;
       this.file.size = size;
+      // this.file.size = Math.round(file.size / 1024)
       this.file.type = file.type;
-      if (this.file.type === "image/png" || "image/jpg" || "image/jpge" || "application/pdf") {
-        console.log(file.type);
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = (event) => {
-          this.file.content = event.target?.result as string;
-          this._fileToUpload.next(this.file);
-        };
-      }
-      else {
-        alert("Please Select an img");
-        return;
-      }
+      // file reader to read file content
+      const reader = new FileReader();
+      //read as url to get base64 type data
+      reader.readAsDataURL(file);
+      reader.onload = (event) => {
+        this.file.content = event.target?.result as string;
+        //emit file
+        this._fileToUpload.next(this.file);
+      };
     }
     else {
       alert("File Size is above 2mb")

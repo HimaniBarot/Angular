@@ -8,10 +8,13 @@
         </thead>
         <tbody>
             <tr *ngFor="let filedata of fileList">
-                <td>{{filedata.name}}</td>
-                <td>{{filedata.size}} mb</td>
-                <td>{{filedata.type}}</td>
-                <!-- <td><button class="btn btn-danger" (click)="deleteFile(filedata.id)">Delete</button></td> -->
+                <td>{{ filedata.name }}</td>
+                <td>{{ filedata.size }}mb</td>
+                <td>{{ filedata.type }}</td>
+                <td>
+                    <button class="btn btn-primary me-4" (click)="showFile(filedata.content, filedata.type)">View</button>
+                    <button class="btn btn-danger" (click)="deleteFile(filedata.id)">Delete</button>
+                </td>
             </tr>
         </tbody>
     </table>

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MyFile } from '../../file.model';
 import { FileUploadPresenterService } from '../fileUploadPresenter/file-upload-presenter.service';
 
@@ -12,7 +13,7 @@ import { FileUploadPresenterService } from '../fileUploadPresenter/file-upload-p
 export class FileUploadPresentationComponent implements OnInit {
 
   public file: File;
-  myFiles:string [] = [];
+  myFiles: string[] = [];
 
   @Output() fileToUpload: EventEmitter<MyFile>;
 
@@ -21,27 +22,18 @@ export class FileUploadPresentationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
-    this._fileUploadPrensenter.fileToUpload$.subscribe({
-      next: (res: any) => {
-        this.fileToUpload.emit(res);
-      },
-      error: (e: any) => { console.log(e) }
+    this._fileUploadPrensenter.fileToUpload$.subscribe((res) => {
+      this.fileToUpload.emit(res);
     })
   }
 
-  public readFile(files: any) {
-    // this.file = files.files[0];
-    const frmData = new FormData();
-    
-    for (var i = 0; i < this.myFiles.length; i++) { 
-      frmData.append("fileUpload", this.myFiles[i]);
-    }
+  readFile(files: any) {
+    this.file = files.files[0];
   }
 
-  public uploadFile() {
+  uploadFile() {
     if (this.file) {
-      this._fileUploadPrensenter.uploadFile(this.file)
+      this._fileUploadPrensenter.uploadFile(this.file);
     }
     else {
       alert("No File is Selected")

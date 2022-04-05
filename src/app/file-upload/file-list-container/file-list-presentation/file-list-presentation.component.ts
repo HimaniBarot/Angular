@@ -28,25 +28,30 @@ export class FileListPresentationComponent implements OnInit {
   public startDate: string;
   public endDate: string;
 
-  constructor(private _fileListPresenterService: FileListPresenterService) { 
+  constructor(private _fileListPresenterService: FileListPresenterService) {
     this.delete = new EventEmitter();
   }
 
   ngOnInit(): void {
     this.dateForm = this._fileListPresenterService.buildDateForm();
+    this._fileListPresenterService.delete$.subscribe((id: number) => {
+      this.delete.emit(id);
+    });
   }
 
-  // deleteFile(id: number){
-  //   this._fileListPresenterService.delete$.subscribe((id: number)=>{
-  //     this.delete.emit(id);
-  //   })
-  // }
+  public deleteFile(id: number) {
+    this._fileListPresenterService.deleteFile(id);
+  }
 
-  public readStartDate(input:any){
+  showFile(content: string, type: string){
+    this._fileListPresenterService.viewFile(content, type);
+  }
+
+  public readStartDate(input: any) {
     this.startDate = input.target.value;
   }
 
-  public readendDate(input:any){
+  public readendDate(input: any) {
     this.endDate = input.target.value;
   }
 
