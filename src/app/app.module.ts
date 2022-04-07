@@ -8,6 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/components/interceptor/auth.interceptor';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './core/guards/auth.guard';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }],
+  },[AuthGuard]],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

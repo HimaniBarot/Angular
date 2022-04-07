@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
+import { AuthGuard } from './core/guards/auth.guard';
 import { ChooseFileComponent } from './shared/components/choose-file/choose-file.component';
 
 const routes: Routes = [
@@ -49,9 +50,8 @@ const routes: Routes = [
         (m) => m.JavascriptModule
       ),
   },
-  { path: 'dataBinding', loadChildren: () => import('./modules/data-binding/data-binding.module').then(m => m.DataBindingModule) },
+  { path: 'dataBinding', canLoad: [AuthGuard] , loadChildren: () => import('./modules/data-binding/data-binding.module').then(m => m.DataBindingModule) },
   { path: 'fileDragDrop', loadChildren: () => import('./modules/file-drag-drop/file-drag-drop.module').then(m => m.FileDragDropModule) },
-  { path: 'chooseFile', component: ChooseFileComponent },
   { path: 'fileUpload', loadChildren: () => import('./file-upload/file-upload.module').then(m => m.FileUploadModule) },
   {
     path: '',
