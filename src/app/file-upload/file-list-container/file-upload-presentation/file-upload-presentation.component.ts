@@ -6,7 +6,6 @@ import { FileUploadPresenterService } from '../fileUploadPresenter/file-upload-p
 @Component({
   selector: 'app-file-upload-presentation',
   templateUrl: './file-upload-presentation.component.html',
-  styleUrls: ['./file-upload-presentation.component.scss'],
   viewProviders: [FileUploadPresenterService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

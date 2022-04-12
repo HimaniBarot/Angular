@@ -6,7 +6,6 @@ import { ResumeDetailsService } from '../../services/resume-details.service';
 @Component({
   selector: 'app-resume-list-view',
   templateUrl: './resume-list-view.component.html',
-  styleUrls: ['./resume-list-view.component.scss']
 })
 export class ResumeListViewComponent implements OnInit {
 

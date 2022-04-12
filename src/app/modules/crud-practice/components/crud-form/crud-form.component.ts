@@ -5,7 +5,6 @@ import { Crud, CrudService } from '../../services/crud.service';
 @Component({
   selector: 'app-crud-form',
   templateUrl: './crud-form.component.html',
-  styleUrls: ['./crud-form.component.scss'],
 })
 export class CrudFormComponent implements OnInit {
 

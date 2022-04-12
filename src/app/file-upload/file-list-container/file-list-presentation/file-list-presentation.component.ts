@@ -6,7 +6,6 @@ import { FileListPresenterService } from '../fileListPresenter/file-list-present
 @Component({
   selector: 'app-file-list-presentation',
   templateUrl: './file-list-presentation.component.html',
-  styleUrls: ['./file-list-presentation.component.scss'],
   viewProviders: [FileListPresenterService]
 })
 export class FileListPresentationComponent implements OnInit {

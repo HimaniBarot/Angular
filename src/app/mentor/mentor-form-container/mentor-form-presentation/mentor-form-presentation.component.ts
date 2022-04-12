@@ -8,7 +8,6 @@ import { MentorFormPresenterService } from '../presenter/mentor-form-presenter.s
 @Component({
   selector: 'app-mentor-form-presentation',
   templateUrl: './mentor-form-presentation.component.html',
-  styleUrls: ['./mentor-form-presentation.component.scss'],
   viewProviders: [MentorFormPresenterService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -25,10 +25,6 @@ export class FileDragDropDirective {
     evt.preventDefault();
     evt.stopPropagation();
     this.readFile.emit(evt.dataTransfer);
-    // debugger;
-    // let files = evt.dataTransfer.files;
-    // let valid_files : Array<File> = files;
-    // this.filesChangeEmiter.emit(valid_files);
   }
 
 }

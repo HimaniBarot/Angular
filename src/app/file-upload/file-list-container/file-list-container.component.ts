@@ -6,7 +6,6 @@ import { MyFile } from '../file.model';
 @Component({
   selector: 'app-file-list-container',
   templateUrl: './file-list-container.component.html',
-  styleUrls: ['./file-list-container.component.scss'],
   viewProviders: [FileUploadService],
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
