@@ -1,0 +1,23 @@
+{
+  "department": [
+    {
+      "id": 1,
+      "department": "Frontend",
+      "employee": [
+        {
+          "id": 1,
+          "name": "Himani",
+          "age": 23,
+          "gender": "Female",
+          "city": "Valsad",
+          "hobbies": [
+            {
+              "id": 1,
+              "hobby": "Music"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

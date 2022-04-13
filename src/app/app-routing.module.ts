@@ -40,6 +40,10 @@ const routes: Routes = [
     path: 'fileUpload',
     loadChildren: () => import('./file-upload/file-upload.module').then(m => m.FileUploadModule)
   },
+  { 
+    path: 'demo', 
+    loadChildren: () => import('./modules/demo/demo.module').then(m => m.DemoModule) 
+  },
   {
     path: '',
     redirectTo: 'crud-task',

@@ -1,0 +1,12 @@
+<div *ngFor="let item of data">
+    <p>Department: {{ item.department }}</p>
+    <div *ngFor="let employee of item.employee">
+        <p>Name: {{ employee.name }}</p>
+        <p>Age: {{ employee.age }}</p>
+        <p>Gender: {{ employee.gender }}</p>
+        <p>City: {{ employee.city }}</p>
+        <div *ngFor="let hobby of employee.hobbies">
+            <p>Hobby: {{ hobby.hobby }}</p>
+        </div>
+    </div>
+</div>
