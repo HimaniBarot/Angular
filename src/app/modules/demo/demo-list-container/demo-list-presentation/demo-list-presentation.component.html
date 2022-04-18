@@ -1,0 +1,22 @@
+<select class="form-select w-25 mb-4" aria-label="Default select example" (change)="onChangeDepartment($event.target)">
+    <option *ngFor="let department of isDepartment" value={{department}}>{{department}}</option>
+</select>
+<div class="row" *ngFor="let item of details">
+    <h5 class="card-title">Department: <span class="text-danger">{{ item.department }}</span></h5>
+    <div class="col-3" *ngFor="let employee of item.employee">
+        <div *ngIf="isDepartment">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">Name: {{ employee.name }}</h5>
+                    <p class="card-text">Age: {{ employee.age }}</p>
+                    <p class="card-text">Gender: {{ employee.gender }}</p>
+                    <p class="card-text">City: {{ employee.city }}</p>
+                    <div *ngFor="let hobby of employee.hobbies">
+                        <p>Hobby: {{ hobby.hobby }}</p>
+                    </div>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

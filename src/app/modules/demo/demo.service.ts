@@ -13,8 +13,13 @@ export class DemoService {
     this._apiLink = environment.baseURL;
   }
 
-  getDetails(): Observable<Demo[]>{
-    return this._http.get<Demo[]>(`${this._apiLink}/department`)
+  public getDetails(): Observable<Demo[]>{
+  
+    return this._http.get<Demo[]>(`${this._apiLink}/department`);
+  }
+
+  public addDetails(data: Demo): Observable<Demo>{
+    return this._http.post<Demo>(`${this._apiLink}/department`, data);
   }
 
 }

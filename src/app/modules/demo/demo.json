@@ -16,6 +16,38 @@
               "hobby": "Music"
             }
           ]
+        },
+        {
+          "id": 2,
+          "name": "Himani",
+          "age": 23,
+          "gender": "Female",
+          "city": "Valsad",
+          "hobbies": [
+            {
+              "id": 1,
+              "hobby": "Music"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "department": "Backend",
+      "employee": [
+        {
+          "id": 1,
+          "name": "Himani Barot",
+          "age": 23,
+          "gender": "Female",
+          "city": "Valsad",
+          "hobbies": [
+            {
+              "id": 1,
+              "hobby": "Music"
+            }
+          ]
         }
       ]
     }

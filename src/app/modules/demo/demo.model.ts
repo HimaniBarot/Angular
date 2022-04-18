@@ -3,7 +3,6 @@ export class Demo{
     department: string;
     employee: Employee[];
 }
-
 interface Employee {
     id: number;
     name: string;
