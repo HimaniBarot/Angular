@@ -7,6 +7,8 @@ import { ShoppingListContainerComponent } from './shopping-list-container/shoppi
 import { ShoppingListPresentationComponent } from './shopping-list-container/shopping-list-presentation/shopping-list-presentation.component';
 import { ShopCartService } from './service/shop-cart.service';
 import { ShoppingFormPresentationComponent } from './shopping-list-container/shopping-form-presentation/shopping-form-presentation.component';
+import { CreateFormPresentationComponent } from './shopping-list-container/shopping-list-presentation/create-form-presentation/create-form-presentation.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -14,11 +16,13 @@ import { ShoppingFormPresentationComponent } from './shopping-list-container/sho
     ShopCartComponent,
     ShoppingListContainerComponent,
     ShoppingListPresentationComponent,
-    ShoppingFormPresentationComponent
+    ShoppingFormPresentationComponent,
+    CreateFormPresentationComponent
   ],
   imports: [
     CommonModule,
-    ShopCartRoutingModule
+    ShopCartRoutingModule,
+    SharedModule
   ],
   providers: [ShopCartService]
 })

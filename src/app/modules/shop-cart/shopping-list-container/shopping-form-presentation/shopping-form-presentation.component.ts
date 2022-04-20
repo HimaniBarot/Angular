@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ShoppingFormService } from '../presenter/shopping-form.service';
+import { ShoppingFormService } from '../shopping-form-presenter/shopping-form.service';
 
 @Component({
   selector: 'app-shopping-form-presentation',

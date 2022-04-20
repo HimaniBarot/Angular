@@ -1,0 +1,41 @@
+<div class="createForm bg-white p-4 rounded-3">
+    <div class="d-flex">
+        <div class="me-4">
+            <form [formGroup]="shoppingForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" formControlName="name">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                
+                <button type="button" class="btn btn-outline-danger me-3" (click)="onReset()">Reset</button>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+
+        <div class="w-100">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="text-end">
+        <button type="button" class="btn btn-primary me-3">Cancel</button>
+        <button type="submit" class="btn btn-success">View</button>
+    </div>
+</div>

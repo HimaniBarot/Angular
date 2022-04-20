@@ -1,5 +1,5 @@
 <div class="w-75 m-auto">
-    <button type="button" class="btn btn-primary" routerLink="../add">+ CREATE</button>
+    <button type="button" class="btn btn-primary" (click)="displayOverlay()">+ CREATE</button>
     <table class="table w-75 m-auto">
         <thead>
             <tr>
@@ -10,8 +10,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
+            <tr *ngFor="let cartList of shoppingList">
+                <th scope="row">{{ cartList.name }}</th>
                 <td>Mark</td>
                 <td>Otto</td>
                 <td>@mdo</td>
