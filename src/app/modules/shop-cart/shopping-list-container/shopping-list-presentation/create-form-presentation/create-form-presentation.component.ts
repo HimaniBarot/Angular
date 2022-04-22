@@ -33,12 +33,7 @@ export class CreateFormPresentationComponent implements OnInit {
 
   public onSubmit(){
     // this._createFormPresenter.onSubmit();
-    // console.log(this.shoppingForm.value);
-    // this.obj = this.shoppingForm.value;
-    // console.log("new obj",this.obj);
     this.shoppingList.push(this.shoppingForm.value);
-    // console.log(this.shoppingForm)
-    // console.log(this.shoppingList)
     this.onReset();
     // this.sendListToAdd.emit(this.shoppingForm.value);
   }
@@ -52,8 +47,9 @@ export class CreateFormPresentationComponent implements OnInit {
   }
 
   public onSaveList(){
-    console.log("list",this.shoppingList);
     // this.sendListToAdd.emit(this.shoppingForm.value);
+    console.log("ok");
+    this._createFormPresenter.createOverlay();
   }
 
 }
