@@ -16,4 +16,8 @@ export class ShopCartService {
   public getShoppingList(): Observable<ShoppingCart[]>{
     return this._http.get<ShoppingCart[]>(`${this._api}/shoppingList`);
   }
+
+  public addProductDetails(data: ShoppingCart): Observable<ShoppingCart>{
+    return this._http.post<ShoppingCart>(`${this._api}/shoppingList`, data)
+  }
 }

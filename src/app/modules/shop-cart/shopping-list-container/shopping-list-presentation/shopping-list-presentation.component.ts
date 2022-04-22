@@ -25,6 +25,7 @@ export class ShoppingListPresentationComponent implements OnInit {
   constructor(private _shoppingListPresenter: ShoppingListPresenterService) { }
 
   ngOnInit(): void {
+    // this.displayOverlay();
   }
 
   public displayOverlay() {

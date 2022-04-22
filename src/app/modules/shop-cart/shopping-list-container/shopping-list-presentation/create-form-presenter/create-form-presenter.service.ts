@@ -21,6 +21,9 @@ export class CreateFormPresenterService {
 
   public onSubmit(){
     // this.shoppingList.push(this.shoppingList);
-    console.log(this.shoppingList);
+    // console.log(this.shoppingList);
+    console.log(this.createForm);
+    console.log(this.createForm.value);
+    this.shoppingList.push(this.createForm.value);
   }
 }

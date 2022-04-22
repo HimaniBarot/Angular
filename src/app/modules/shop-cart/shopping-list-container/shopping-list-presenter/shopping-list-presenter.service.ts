@@ -22,9 +22,9 @@ export class ShoppingListPresenterService {
     this.componentRef = this.overlayRef.attach(component);
 
     /** Close overlay on button click */
-    // this.componentRef.instance.closeOverlay.subscribe(() => {
-    //   this.overlayRef.detach();
-    // });
+    this.componentRef.instance.closeForm.subscribe(() => {
+      this.overlayRef.detach();
+    });
 
     /** Close overlay on backdrop */
     this.overlayRef.backdropClick().subscribe(() => {

@@ -23,4 +23,10 @@ export class ShoppingListContainerComponent implements OnInit {
   public props(){
     this.shoppingList$ = this._shopCartService.getShoppingList();
   }
+
+  public onSave(data: ShoppingCart){
+    this._shopCartService.addProductDetails(data).subscribe((res) => {
+      console.log(res);
+    })
+  }
 }
