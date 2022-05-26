@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ShoppingCart } from '../../../model/shopCart.model';
 
 @Component({
@@ -8,7 +8,7 @@ import { ShoppingCart } from '../../../model/shopCart.model';
 })
 export class ViewProductListComponent implements OnInit {
 
-  public shoppingList: ShoppingCart[];
+  @Input() public shoppingList: ShoppingCart[];
 
   constructor() { }
 

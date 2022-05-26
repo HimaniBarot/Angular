@@ -1,21 +1,54 @@
-<div class="w-75 m-auto">
-    <button type="button" class="btn btn-primary" (click)="displayOverlay()">+ CREATE</button>
-    <table class="table w-75 m-auto">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let cartList of shoppingList">
-                <th scope="row">{{ cartList.name }}</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<!-- <div class="createForm w-100 bg-white p-4 rounded-3">
+    <div class="row">
+        <div class="col-4">
+            <form [formGroup]="shoppingForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" formControlName="name">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Name</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email">
+                </div>
+                
+                <button type="button" class="btn btn-outline-danger me-3" (click)="onReset()">Reset</button>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+
+        <div class="col-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let shoppingList of shoppingList; let i = index">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>{{ shoppingList.name }}</td>
+                        <td>{{ shoppingList.email }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="text-end">
+        <button type="button" class="btn btn-primary me-3" (click)="onCancel()">Cancel</button>
+        <button type="submit" class="btn btn-success" (click)="onSaveList(shoppingList)">View</button>
+    </div>
+</div> -->
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+    <div *ngFor="let data of Data; let i=index">
+        <label>
+            <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event)" />
+            {{data.name}}
+        </label>
+    </div>
+    <p class="error" *ngIf="this.form.controls['checkArray'].errors && this.form.controls['checkArray'].errors['required']">
+        Checkbox is required, select atleast one value.
+    </p>
+    <input type="submit" value="Submit">
+</form>
