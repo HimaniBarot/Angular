@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+// --------------------------------------------------------------------------------- /
 import { Department } from 'src/app/shared/models/department.model';
 import { Employee } from '../../models/employee.model';
 import { EmployeeService } from '../../services/employee.service';
@@ -12,36 +12,34 @@ import { EmployeeService } from '../../services/employee.service';
 })
 export class EmployeeFormComponent implements OnInit {
 
-  @Output() close : EventEmitter<Event>;
-  @Output() onSubmitData : EventEmitter<Event>;
+  @Output() public close : EventEmitter<Event>;
+  @Output() public onSubmitData : EventEmitter<Event>;
 
   constructor(
     private fb: FormBuilder,
-    private service: EmployeeService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) { 
+    private service: EmployeeService) { 
     this.onSubmitData = new EventEmitter<Event>();
     this.close = new EventEmitter<Event>();
   }
 
   ngOnInit(): void {
-    // this.id = this.route.snapshot.params['id'];
     this.buildRegistrationForm();
-    // console.log(this.registrationForm);
-
     this.getDepartmentOption();
     this.getPatchValue();
   }
 
-  departments: Department[];
-  employeeList: Employee[];
+  public departments: Department[];
+  public employeeList: Employee[];
 
-  registrationForm: FormGroup;
-  id: number;
-  isAdd: boolean;
+  public registrationForm: FormGroup;
+  public id: number;
+  public isAdd: boolean;
 
-  buildRegistrationForm() {
+  /**
+   * @name buildRegistrationForm
+   * @description This method builds the form.
+   */
+  public buildRegistrationForm() {
     this.registrationForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -52,36 +50,12 @@ export class EmployeeFormComponent implements OnInit {
       deparmentList: [],
     });
   }
-
-  // ADD EMPLOYEE DATA
-
-  saveData() {
-    // console.log("form")
-    const saveEmployee = this.registrationForm.value;
-
-    if (this.registrationForm.status == 'VALID') {
-      this.service.addEmployeeData(saveEmployee).subscribe(() => {
-        // alert('Data saved successfully...');
-        this.onSubmitData.emit(this.registrationForm.value);
-        this.onclose();
-        // this.router.navigate(['/crud-task/list-view']);
-      });
-    } else {
-      alert('Please fill the form correctly...');
-    }
-  }
-
-  onSubmit() {
-    // console.log("onsubmit click");    
-    if (this.isAdd) {
-      this.saveData();
-    } else {
-      this.upadteEmployee();
-    }
-  }
-
-  // GET DEPARTMENT LIST
-  getDepartmentOption() {
+  
+  /**
+   * @name getDepartmentOption
+   * @description This method get the department list.
+   */
+   public getDepartmentOption() {
     this.service.getDepartment().subscribe(
       (departmentOption) => {
         this.departments = departmentOption;
@@ -92,7 +66,40 @@ export class EmployeeFormComponent implements OnInit {
     );
   }
 
-  getPatchValue() {
+  /**
+   * @name onSubmit
+   * @description This method checks if the form is in add or edit mode.
+   */
+  public onSubmit() { 
+    if (this.isAdd) {
+      this.saveData();
+    } else {
+      this.upadteEmployee();
+    }
+  }
+
+  /**
+   * @name saveData
+   * @description This method saves the employee details if form is valid.
+   */
+  public saveData() {
+    const saveEmployee = this.registrationForm.value;
+
+    if (this.registrationForm.status == 'VALID') {
+      this.service.addEmployeeData(saveEmployee).subscribe(() => {
+        this.onSubmitData.emit(this.registrationForm.value);
+        this.onclose();
+      });
+    } else {
+      alert('Please fill the form correctly...');
+    }
+  }
+
+  /**
+   * @name getPatchValue
+   * @description This method patch the employee value on bases of id.
+   */
+  public getPatchValue() {
     this.isAdd = !this.id;
     if (!this.isAdd) {
       this.service
@@ -101,7 +108,11 @@ export class EmployeeFormComponent implements OnInit {
     }
   }
 
-  upadteEmployee() {
+  /**
+   * @name updateEmployee
+   * @description This method updates the employee value.
+   */
+  public upadteEmployee() {
     this.service
       .updateEmployeeData(this.id, this.registrationForm.value)
       .subscribe(() => {
@@ -112,16 +123,27 @@ export class EmployeeFormComponent implements OnInit {
       });
   }
 
-  get getValues() {
+  /**
+   * @name getValues
+   * @description This getter method get the form controls.
+   */
+  public get getValues() {
     return this.registrationForm['controls'];
   }
 
-  resetForm() {
+  /**
+   * @name resetForm
+   * @description This method reset the form.
+   */
+  public resetForm() {
     this.registrationForm.reset();
   }
 
-  onclose() {
-    // console.log('close click');
+  /**
+   * @name onclose
+   * @description This method emits the close event.
+   */
+  public onclose() {
     this.close.emit();
   }
 }

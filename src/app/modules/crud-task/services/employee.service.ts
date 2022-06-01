@@ -10,37 +10,37 @@ import { Employee } from '../models/employee.model';
 })
 export class EmployeeService {
   
-  apiLink: string;
-  constructor(private http: HttpClient) {
+  public apiLink: string;
+  constructor(private _http: HttpClient) {
     this.apiLink = environment.baseURL;
   }
 
   // GET DEPARTMENT LIST
-  getDepartment(): Observable<Department[]> {
-    return this.http.get<Department[]>(`${this.apiLink}/departments`);
+  public getDepartment(): Observable<Department[]> {
+    return this._http.get<Department[]>(`${this.apiLink}/departments`);
   }
 
   // ADD EMPLOYEE
-  addEmployeeData(employeeData: Employee): Observable<Employee> {
-    return this.http.post<Employee>(`${this.apiLink}/employees`, employeeData);
+  public addEmployeeData(employeeData: Employee): Observable<Employee> {
+    return this._http.post<Employee>(`${this.apiLink}/employees`, employeeData);
   }
 
   // GET EMPLOYEE DATA AFTER ADDING INTO THE LIST-TABLE
-  getEmployeeData(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(`${this.apiLink}/employees`);
+  public getEmployeeData(): Observable<Employee[]> {
+    return this._http.get<Employee[]>(`${this.apiLink}/employees`);
   }
 
   // Update data
-  getById(id: number) {
-    return this.http.get<Employee[]>(`${this.apiLink}/employees/${id}`);
+  public getById(id: number) {
+    return this._http.get<Employee[]>(`${this.apiLink}/employees/${id}`);
   }
 
-  updateEmployeeData(id: number, employeeData: Employee) {
-    return this.http.put(`${this.apiLink}/employees/${id}`, employeeData);
+  public updateEmployeeData(id: number, employeeData: Employee) {
+    return this._http.put(`${this.apiLink}/employees/${id}`, employeeData);
   }
 
   // DELETE DATA FROM THE TABLE AWA SERVER-db.json
-  deleteEmployeeData(id: number): Observable<number> {
-    return this.http.delete<number>(`${this.apiLink}/employees/${id}`);
+  public deleteEmployeeData(id: number): Observable<number> {
+    return this._http.delete<number>(`${this.apiLink}/employees/${id}`);
   }
 }

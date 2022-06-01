@@ -1,12 +1,13 @@
 import { Component, ComponentRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Employee } from '../../models/employee.model';
-import { EmployeeService } from '../../services/employee.service';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay'
 import { ComponentPortal } from '@angular/cdk/portal';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+// ------------------------------------------------------------------------ /
+import { EmployeeService } from '../../services/employee.service';
+import { Employee } from '../../models/employee.model';
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Department } from 'src/app/shared/models/department.model';
 
 @Component({
@@ -25,19 +26,23 @@ export class ListViewComponent implements OnInit {
     this.getEmployeeDataList();
     this.getDepartmentData();
   }
-
-  // GET DEPARTMENT DATA
-  getDepartmentData() {
+  /**
+  * @name getDepartmentData
+  * @description This method get the department list.
+  */
+  public getDepartmentData() {
     this.service
       .getDepartment()
       .subscribe((data) => (this.deparmentList = data));
   }
 
-  // GET EMPLOYEE DATA
-  getEmployeeDataList() {
+  /**
+  * @name getEmployeeDataList
+  * @description This method get the employee list.
+   */
+  public getEmployeeDataList() {
     this.service.getEmployeeData().subscribe(
       (employeeData) => {
-        // debugger
         this.employeeList = employeeData;
       },
       () => {
@@ -50,10 +55,11 @@ export class ListViewComponent implements OnInit {
   confirmationRef: ComponentRef<DeleteComponent>;
   overlayRef: OverlayRef;
 
-  // Create Form overlay
-  displayOverlay() {
-    console.log("okk");
-
+  /**
+   * @name displayOverlay
+   * @description This method creates the overlay for form.
+   */
+  public displayOverlay() {
     this.overlayRef = this.overlay.create({
       hasBackdrop: true,
       positionStrategy: this.overlay.position().global().centerHorizontally().right(),
@@ -71,10 +77,12 @@ export class ListViewComponent implements OnInit {
     });
   }
 
-  // Create Confirmation Popup overlay
-  displayConfirmation(id: number) {
-    console.log("okk");
-
+  /**
+   * @name displayConfirmation
+   * @description This method creates the delete popup overlay.
+   * @param id 
+   */
+  public displayConfirmation(id: number) {
     this.overlayRef = this.overlay.create({
       hasBackdrop: true,
       positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically(),
@@ -85,35 +93,40 @@ export class ListViewComponent implements OnInit {
 
     this.confirmationRef.instance.id = id;
     this.confirmationRef.instance.delete.subscribe((name) => {
-      if(name === "delete")
-      this.deleteEmployee(id);
+      if (name === "delete")
+        this.deleteEmployee(id);
       this.overlayRef.detach();
     });
   }
 
-  // EDIT CLICK EVENT
-  editEmployee(id: number) {
-    // debugger
-    // this.router.navigateByUrl(`/crud-task/employee-form/${id}`);
+  /**
+   * @name editEmployee
+   * @description This method patch the employee data in form and edit the value.
+   * @param id 
+   */
+  public editEmployee(id: number) {
     this.displayOverlay();
     this.componentRef.instance.id = id;
   }
 
-  // Open moadl to delete data
-  showDeletePopup(id: number) {
-    this.displayConfirmation(id);
-  }
-  
-  //  DELETE EMPLOYEE DATA
-  deleteEmployee(id: number) {
+  /**
+   * @name deleteEmployee
+   * @description This method delete the employee.
+   * @param id 
+   */
+  public deleteEmployee(id: number) {
     this.service.deleteEmployeeData(id).subscribe((data) => {
       this.employeeList.splice(id - 1, 1);
-      console.log('data deleted', data);
       this.getEmployeeDataList();
     });
   }
 
-  drop(event: CdkDragDrop<Employee[]>) {
+  /**
+   * @name drop
+   * @description This method is for drag and drop functionality.
+   * @param event 
+   */
+  public drop(event: CdkDragDrop<Employee[]>) {
     moveItemInArray(this.employeeList, event.previousIndex, event.currentIndex);
   }
 

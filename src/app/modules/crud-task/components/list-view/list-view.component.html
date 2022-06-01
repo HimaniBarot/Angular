@@ -1,10 +1,10 @@
 <h2 class="heading">Employee Details</h2>
-<!-- SEARCH DATA -->
 <div class="list-header my-5 d-flex justify-content-between">
+    <!-- SEARCH DATA -->
     <span class="icon-search"></span>
     <input class="form-control search" type="search" placeholder="Search here..." [(ngModel)]="filterData" />
+    <!-- Display form in overlay -->
     <button type="button" class="btn btn-secondary" (click)="displayOverlay()">+ EMPLOYEE</button>
-    <!-- <button type="button" routerLink="/crud-task/employee-form" class="btn list-btn">+ EMPLOYEE</button> -->
 </div>
 
 <!-- EMPLOYEE LIST -->
@@ -39,7 +39,7 @@
                     <a (click)="editEmployee(employee.id)">
                         <span class="action-icons icon-pencil"></span>
                     </a>
-                    <a (click)="showDeletePopup(employee.id)">
+                    <a (click)="displayConfirmation(employee.id)">
                         <span class="action-icons icon-bin"></span>
                     </a>
                 </td>
