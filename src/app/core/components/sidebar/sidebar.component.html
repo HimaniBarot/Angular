@@ -6,77 +6,15 @@
 
         <div class="overflow-y-auto overflow-x-hidden">
             <ul class="nav mb-3 pt-5 px-2 d-flex flex-column">
-                <li class="nav-item mb-1">
-                    <a class="nav-link d-flex align-center" routerLink="/dataBinding" routerLinkActive="active">
-                        <div class="icons icon-file-text2"></div>
-                        <span class="ps-2">Data Binding</span>
-                    </a>
-                </li>
-                <li class="nav-item mb-1">
-                    <a class="nav-link d-flex align-center" routerLink="/crud-task" routerLinkActive="active">
-                        <div class="icons icon-file-text2"></div>
-                        <span class="ps-2">CRUD Operation</span>
-                    </a>
-                </li>
-                <li class="nav-item mb-1">
-                    <a class="nav-link d-flex align-center" routerLink="/resume-builder" routerLinkActive="active">
-                        <div class="icons icon-clipboard"></div>
-                        <span class="ps-2">Resume Builder</span>
-                    </a>
-                </li>
-                <li class="nav-item mb-1">
-                    <a class="nav-link d-flex align-center" routerLink="/user" routerLinkActive="active">
-                        <div class="icons icon-magic-wand"></div>
-                        <span class="ps-2">User/ Assessment</span>
-                    </a>
-                </li>
-                <li class="nav-item mb-1">
-                    <a class="nav-link d-flex align-center" routerLink="/crud-practice" routerLinkActive="active">
-                        <div class="icons icon-magic-wand"></div>
-                        <span class="ps-2">Crud w/o server</span>
+                <li class="nav-item mb-1" *ngFor="let navItem of sidebarItems">
+                    <a class="nav-link d-flex align-center" [routerLink]="navItem.routePath" routerLinkActive="active">
+                        <span [ngClass]="['icon', navItem.icon]"></span>
+                        <span class="ps-2">{{ navItem.navLink }}</span>
                     </a>
                 </li>
             </ul>
-            <ul class="nav mb-3 pt-3 px-2 d-flex flex-column">
-                <li class="nav-item mb-1">
-                    <a class="nav-link d-flex align-center" routerLink="/ngTemplateOutlet" routerLinkActive="active">
-                        <div class="icons icon-file-text2"></div>
-                        <span class="ps-2">Ng Template Outlet</span>
-                    </a>
-                </li>
-                <li class="nav-item mb-1">
-                    <a class="nav-link d-flex align-center" routerLink="/mentor" routerLinkActive="active">
-                        <div class="icons icon-clipboard"></div>
-                        <span class="ps-2">MVP</span>
-                    </a>
-                </li>
-                <li class="nav-item mb-1">
-                    <a class="nav-link d-flex align-center" routerLink="/javascript" routerLinkActive="active">
-                        <div class="icons icon-clipboard"></div>
-                        <span class="ps-2">JavaScript</span>
-                    </a>
-                </li>
-                <li class="nav-item mb-1">
-                    <a class="nav-link d-flex align-center" routerLink="/fileUpload" routerLinkActive="active">
-                        <div class="icons icon-clipboard"></div>
-                        <span class="ps-2">File Upload</span>
-                    </a>
-                </li>
-                <li class="nav-item mb-1">
-                    <a class="nav-link d-flex align-center" routerLink="/demo" routerLinkActive="active">
-                        <div class="icons icon-clipboard"></div>
-                        <span class="ps-2">Demo</span>
-                    </a>
-                </li>
-                <li class="nav-item mb-1">
-                    <a class="nav-link d-flex align-center" routerLink="/shopCart" routerLinkActive="active">
-                        <div class="icons icon-clipboard"></div>
-                        <span class="ps-2">Shop Cart</span>
-                    </a>
-                </li>
-            </ul>
-            </div>
-            <div>
+        </div>
+        <div>
             <ul class="nav mb-3 pt-3 px-2 d-flex flex-column">
                 <li class="nav-item mb-1">
                     <a class="nav-link d-flex align-center" routerLink="/">
