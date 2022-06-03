@@ -8,7 +8,9 @@ export interface Crud {
   company: string;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CrudService {
   private data: Crud[] = [
     {

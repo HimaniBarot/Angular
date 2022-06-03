@@ -5,7 +5,6 @@ import { CrudPracticeRoutingModule } from './crud-practice-routing.module';
 import { CrudFormComponent } from './components/crud-form/crud-form.component';
 import { CrudListComponent } from './components/crud-list/crud-list.component';
 import { CrudPracticeComponent } from './crud-practice.component';
-import { CrudService } from './services/crud.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
@@ -19,6 +18,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CrudPracticeRoutingModule,
     SharedModule
   ],
-  providers: [CrudService]
+  providers: []
 })
 export class CrudPracticeModule {}

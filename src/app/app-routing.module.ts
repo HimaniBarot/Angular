@@ -45,9 +45,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/demo/demo.module').then(m => m.DemoModule) 
   },
   { path: 'shopCart', loadChildren: () => import('./modules/shop-cart/shop-cart.module').then(m => m.ShopCartModule) },
+  { path: 'mvp', loadChildren: () => import('./modules/mvp/mvp.module').then(m => m.MvpModule) },
   {
     path: '',
-    redirectTo: 'shopCart',
+    redirectTo: 'mvp',
     pathMatch: 'full',
   },
   { path: '**', component: PageNotFoundComponent },

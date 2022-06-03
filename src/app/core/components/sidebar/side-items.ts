@@ -32,11 +32,11 @@ export let navItems: NavItems[] =
             "navLink": "ngTemplateOutlet",
             "routePath": "/ngTemplateOutlet"
         },
-        {
-            "icon": "icon-clipboard",
-            "navLink": "MVP",
-            "routePath": "/MVP"
-        },
+        // {
+        //     "icon": "icon-clipboard",
+        //     "navLink": "MVP",
+        //     "routePath": "/MVP"
+        // },
         {
             "icon": "icon-clipboard",
             "navLink": "Javascript",
@@ -56,5 +56,10 @@ export let navItems: NavItems[] =
             "icon": "icon-clipboard",
             "navLink": "Shopping Cart",
             "routePath": "/shopCart"
+        },
+        {
+            "icon": "icon-clipboard",
+            "navLink": "Multi-step Form",
+            "routePath": "/mvp"
         },
     ]

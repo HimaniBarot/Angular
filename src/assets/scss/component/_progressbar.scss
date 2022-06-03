@@ -1,0 +1,78 @@
+%steps {
+    content: '';
+    width: 90%;
+    height: 2px;
+    background: $secondary;
+    position: absolute;
+    left: -45%;
+    top: 20px;
+    z-index: 99;
+    animation-name: example;
+    animation-duration: .3s;
+}
+
+.multi-step-bar {
+    overflow: hidden;
+    counter-reset: step;
+    width: 100%;
+    margin: 15px auto 30px;
+
+    .steps {
+        text-align: center;
+        list-style-type: none;
+        width: 25%;
+        position: relative;
+        font-weight: 600;
+    }
+
+    .steps::before {
+        content: counter(step);
+        counter-increment: step;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        display: block;
+        font-size: 1rem;
+        color: $white;
+        background: $primary;
+        border-radius: 50%;
+        margin: 0 auto 5px auto;
+
+    }
+
+    .steps.active {
+        &::before {
+            background: $secondary;
+            color: $white;
+        }
+
+    }
+
+    .step-2.active {
+        &::after {
+            @extend %steps;
+        }
+    }
+
+    .step-3.active {
+        &::after {
+            @extend %steps;
+        }
+    }
+
+    .steps:first-child::after {
+        content: none;
+    }
+
+    @keyframes example {
+        0% {
+            background-color: $secondary;
+            width: 0;
+        }
+
+        100% {
+            background-color: $secondary;
+            width: 100%;
+        }
+    }
+}
