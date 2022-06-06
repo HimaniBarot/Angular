@@ -1,23 +1,38 @@
-<div class="container">
-    <table class="table">
-        <thead>
-            <th>Name</th>
-            <th>Size</th>
-            <th>Type</th>
-            <!-- <th>Action</th> -->
-        </thead>
-        <tbody>
-            <tr *ngFor="let filedata of fileList">
-                <td>{{ filedata.name }}</td>
-                <td>{{ filedata.size }}mb</td>
-                <td>{{ filedata.type }}</td>
-                <td>
-                    <button class="btn btn-primary me-4" (click)="showFile(filedata.content, filedata.type)">View</button>
-                    <button class="btn btn-danger" (click)="deleteFile(filedata.id)">Delete</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div class="row">
+    <div class="col-6">
+        <table class="table">
+            <thead>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Type</th>
+                <!-- <th>Action</th> -->
+            </thead>
+            <tbody>
+                <tr *ngFor="let filedata of fileList">
+                    <td>{{ filedata.name }}</td>
+                    <td>{{ filedata.size }}mb</td>
+                    <td>{{ filedata.type }}</td>
+                    <td>
+                        <!-- <button class="btn btn-primary me-4" (click)="showFile(filedata)">View</button> -->
+                        <button class="btn btn-primary me-4"
+                            (click)="showFile(filedata.content, filedata.type)">View</button>
+                        <button class="btn btn-danger" (click)="deleteFile(filedata.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-6">
+        <div *ngIf="isPDF; else img" class="w-100 h-100">
+            <iframe class="frame w-100 h-100" [src]="safeUrl"></iframe>
+        </div>
+
+        <ng-template #img>
+            <figure>
+                <img class="frame" [src]="safeUrl" alt="image">
+            </figure>
+        </ng-template>
+    </div>
 </div>
 
 <div class="container border rounded-3 mt-5 p-5">

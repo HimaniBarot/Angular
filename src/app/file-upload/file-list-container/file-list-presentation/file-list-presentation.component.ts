@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MyFile } from '../../file.model';
 import { FileListPresenterService } from '../fileListPresenter/file-list-presenter.service';
 
@@ -27,7 +28,10 @@ export class FileListPresentationComponent implements OnInit {
   public startDate: string;
   public endDate: string;
 
-  constructor(private _fileListPresenterService: FileListPresenterService) {
+  public safeUrl: SafeResourceUrl;
+  public isPDF: boolean;
+
+  constructor(private _fileListPresenterService: FileListPresenterService, private _sanitizer: DomSanitizer) {
     this.delete = new EventEmitter();
   }
 
@@ -36,13 +40,20 @@ export class FileListPresentationComponent implements OnInit {
     this._fileListPresenterService.delete$.subscribe((id: number) => {
       this.delete.emit(id);
     });
+    this.isPDF = false;
   }
 
   public deleteFile(id: number) {
     this._fileListPresenterService.deleteFile(id);
   }
 
-  showFile(content: string, type: string){
+  public showFile(content: string, type: string){
+    if(type == "application/pdf"){
+      this.isPDF = true;
+    }
+    this._fileListPresenterService.viewFile$.subscribe((res: any) => {
+      this.safeUrl = this._sanitizer.bypassSecurityTrustResourceUrl(res);
+    })
     this._fileListPresenterService.viewFile(content, type);
   }
 
